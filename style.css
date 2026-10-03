@@ -289,4 +289,46 @@ body {
     flex-direction: column;
     text-align: center;
   }
+}/* Impressum Einzelseite Styling */
+.legal-page {
+  text-align: left;
+  margin-top: 3rem;
+}
+
+.legal-card {
+  background: var(--card-bg);
+  border: 1px solid #334155;
+  border-radius: 16px;
+  padding: 2.5rem;
+}
+
+.legal-card h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.25rem;
+}
+
+.legal-card .subtitle {
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+.legal-section {
+  margin-bottom: 1.5rem;
+}
+
+.legal-section h3 {
+  color: var(--accent-color);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.legal-section a {
+  color: var(--text-main);
+  text-decoration: underline;
+}
+
+.legal-action {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #334155;
 }
