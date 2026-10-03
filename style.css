@@ -32,7 +32,7 @@ body {
 .logo { font-weight: 800; font-size: 1.2rem; }
 .logo span, .clean-list li strong, .template-features li strong { color: var(--accent-color); }
 .badge { background: var(--accent-soft); color: var(--accent-color); border: 1px solid var(--accent-border); padding: 0.4rem 1.1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 700; display: inline-block; }
-.hero h1 { font-size: clamp(1.9rem, 4vw, 2.8rem); font-weight: 800; margin: 1.2rem 0 0.8rem; line-height: 1.25; }
+.hero h1 { font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 800; margin: 1.2rem 0 0.8rem; line-height: 1.25; }
 .hero p, .showcase-intro { color: var(--text-muted); font-size: 1.05rem; }
 
 /* Buttons */
@@ -77,12 +77,13 @@ body {
 .footer { background: #fff; border-top: 1px solid var(--border-light); padding: 2rem 1rem; margin-top: 4rem; font-size: 0.88rem; color: var(--text-muted); }
 .footer-content { max-width: 800px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
 
-/* Mobile Optimierung (Greift jetzt zuverlässig bis 850px) */
-@media (max-width: 850px) {
+/* Erhöhter Breakpoint für hochauflösende Smartphones wie Pixel 8a */
+@media (max-width: 950px) {
   .split-container { grid-template-columns: 1fr !important; }
-  .hero-actions { flex-direction: column; }
-  .quiz-item { flex-direction: column; align-items: stretch; text-align: left; }
-  .quiz-options { width: 100%; }
-  .showcase-action-bottom .btn-primary, .hero-actions .btn-primary, .hero-actions .btn-secondary { width: 100%; }
+  .hero-actions { flex-direction: column; gap: 0.8rem; }
+  .hero-actions .btn-primary, .hero-actions .btn-secondary, .showcase-action-bottom .btn-primary { width: 100%; }
+  .quiz-item { flex-direction: column; align-items: stretch; text-align: left; padding: 1.2rem 1rem; }
+  .quiz-options { width: 100%; margin-top: 0.5rem; }
+  .quiz-btn { padding: 0.8rem; font-size: 1rem; }
   .footer-content { flex-direction: column-reverse; text-align: center; }
 }
