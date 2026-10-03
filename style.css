@@ -64,7 +64,7 @@ body {
 /* Hero Section */
 .hero {
   text-align: center;
-  padding: 4rem 1rem;
+  padding: 4rem 1rem 2rem;
   max-width: 800px;
   margin: 0 auto;
 }
@@ -93,6 +93,51 @@ body {
   display: flex;
   gap: 1rem;
   justify-content: center;
+}
+
+/* Problem & Lösung Section */
+.problem-section {
+  margin: 3rem auto;
+}
+
+.problem-card {
+  background: var(--card-bg);
+  border: 1px solid #334155;
+  border-radius: 16px;
+  padding: 2.5rem;
+  text-align: left;
+}
+
+.problem-card h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: var(--text-main);
+}
+
+.problem-text {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.solution-box {
+  background: rgba(16, 185, 129, 0.08);
+  border-left: 4px solid var(--accent-color);
+  padding: 1.25rem 1.5rem;
+  border-radius: 0 8px 8px 0;
+}
+
+.solution-box h3 {
+  color: var(--accent-color);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.solution-box p {
+  color: var(--text-main);
+  font-size: 0.95rem;
+  line-height: 1.5;
 }
 
 /* Sections & Rechner */
@@ -226,11 +271,11 @@ body {
   color: #fff;
 }
 
-/* Footer & Impressum Styling */
+/* Footer Styling (Optimiert für Mobile) */
 .footer {
   background: #090d16;
   border-top: 1px solid #334155;
-  padding: 3rem 1rem 2rem;
+  padding: 2.5rem 1rem;
   margin-top: 5rem;
   font-size: 0.9rem;
   color: var(--text-muted);
@@ -243,53 +288,24 @@ body {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 1.2rem;
 }
 
-.footer-links a {
-  color: var(--text-muted);
-  text-decoration: none;
-  transition: color 0.2s;
+.footer-links {
+  display: flex;
+  align-items: center;
 }
 
-.footer-links a:hover {
+.footer-links a.legal-link {
   color: var(--accent-color);
+  text-decoration: underline;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  display: inline-block;
 }
 
-.legal-box {
-  max-width: 800px;
-  margin: 2rem auto 0;
-  padding-top: 2rem;
-  border-top: 1px dashed #334155;
-  text-align: left;
-}
-
-.legal-box h3 {
-  color: var(--text-main);
-  margin-bottom: 1rem;
-}
-
-.legal-box p {
-  margin-bottom: 0.75rem;
-  line-height: 1.5;
-}
-
-/* Responsiv für mobile Ansicht */
-@media (max-width: 768px) {
-  .showcase-card {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .showcase-action {
-    width: 100%;
-  }
-
-  .footer-content {
-    flex-direction: column;
-    text-align: center;
-  }
-}/* Impressum Einzelseite Styling */
+/* Impressum Einzelseite Styling */
 .legal-page {
   text-align: left;
   margin-top: 3rem;
@@ -331,4 +347,26 @@ body {
   margin-top: 2.5rem;
   padding-top: 1.5rem;
   border-top: 1px solid #334155;
+}
+
+/* Responsiv für Mobile */
+@media (max-width: 768px) {
+  .showcase-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .showcase-action {
+    width: 100%;
+  }
+
+  .footer-content {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .footer-links a.legal-link {
+    font-size: 1.1rem;
+  }
 }
