@@ -9,7 +9,7 @@
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
 
-  <title>Finanzielle Ordnung | Automatisiertes Geld-System</title>
+  <title>Finanzielle Ordnung | Einmalige Finanzanalyse für 99 €</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
@@ -18,129 +18,45 @@
   <!-- Navigation -->
   <nav class="navbar">
     <div class="logo">FINANZIELLE <span>ORDNUNG</span></div>
-    <a href="#kontakt" class="btn-primary">Jetzt Ordnung schaffen</a>
+    <a href="#analyse" class="btn-primary">99 € Analyse starten</a>
   </nav>
 
   <!-- Hero Section -->
   <header class="hero">
-    <span class="badge">Kein Haushaltsbuch. Kein Stress.</span>
-    <h1>Nie wieder Sorgen um offene Rechnungen.</h1>
-    <p>Ich helfe dir, deine Finanzen einmalig so zu strukturieren und zu analysieren, dass am 1. des Monats alle Fixkosten und unregelmäßigen Ausgaben abgedeckt sind.</p>
+    <span class="badge">Du brauchst keine neue App. Du brauchst Klarheit.</span>
+    <h1>Weißt du wirklich, was du jeden Monat brauchst?</h1>
+    <p>Ich analysiere deine Einnahmen, Fixkosten und unregelmäßigen Ausgaben und zeige dir, wie viel Geld du monatlich tatsächlich einplanen musst.</p>
     <div class="hero-actions">
-      <a href="#rechner" class="btn-primary">Klarheits-Check machen</a>
-      <a href="#analyse" class="btn-secondary">Zur Datenanalyse</a>
+      <a href="#analyse" class="btn-primary">Einmalige Analyse – 99 €</a>
+      <a href="#whatsapp" class="btn-secondary">Direkt per WhatsApp fragen</a>
     </div>
   </header>
 
-  <!-- Problem & Lösungs Section -->
-  <section class="section problem-section">
-    <div class="split-container">
-      
-      <!-- Linke Karte: Das Problem -->
-      <div class="split-card problem-card">
-        <span class="card-tag tag-problem">Das Problem</span>
-        <h2>Schluss mit dem ständigen Hin- und Herschieben</h2>
-        <ul class="clean-list">
-          <li>❌ <strong>Überraschende Rechnungen:</strong> KFZ, GEZ oder Nachzahlungen kommen immer im falschen Moment.</li>
-          <li>❌ <strong>Konto-Chaos:</strong> Ständiges Umbuchen zwischen Girokonto und Erspartem am Monatsende.</li>
-          <li>❌ <strong>Mentaler Stress:</strong> Die ständige Ungewissheit, ob das Geld bis zum 31. reicht.</li>
-        </ul>
-      </div>
-
-      <!-- Rechte Karte: Die Lösung -->
-      <div class="split-card solution-card">
-        <span class="card-tag tag-solution">Die Lösung</span>
-        <h2>Das automatisierte Rücklagen-System</h2>
-        <ul class="clean-list">
-          <li>✓ <strong>Exakter Monats-Bedarf:</strong> Wir berechnen deinen perfekten Glättungs-Betrag.</li>
-          <li>✓ <strong>Vollautomatisch:</strong> Am 1. des Monats wandert deine Rücklage auf ein separates Konto.</li>
-          <li>✓ <strong>Absolute Sorgenfreiheit:</strong> Alle Rechnungen werden völlig entspannt vom Sicherheits-Guthaben bedient.</li>
-        </ul>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Interaktiver Fragen-Check -->
-  <section id="rechner" class="section">
-    <h2>Der 10-Sekunden-Klarheits-Check</h2>
-    <p>Hast du bei deinen Finanzen die volle Kontrolle? Teste es mit 3 Klicks:</p>
-    
-    <div class="quiz-card">
-      <div class="quiz-list">
-        
-        <!-- Frage 1 -->
-        <div class="quiz-item">
-          <div class="quiz-question">
-            📅 <strong>Weißt du genau, wann KFZ & GEZ abgebucht werden?</strong>
-          </div>
-          <div class="quiz-options">
-            <button class="quiz-btn btn-yes" onclick="handleQuizClick(this, 'yes')">Ja</button>
-            <button class="quiz-btn btn-no" onclick="handleQuizClick(this, 'no')">Nein</button>
-          </div>
-        </div>
-
-        <!-- Frage 2 -->
-        <div class="quiz-item">
-          <div class="quiz-question">
-            💰 <strong>Weißt du, wie viel Geld du bei Gehaltseingang brauchst?</strong>
-          </div>
-          <div class="quiz-options">
-            <button class="quiz-btn btn-yes" onclick="handleQuizClick(this, 'yes')">Ja</button>
-            <button class="quiz-btn btn-no" onclick="handleQuizClick(this, 'no')">Nein</button>
-          </div>
-        </div>
-
-        <!-- Frage 3 -->
-        <div class="quiz-item">
-          <div class="quiz-question">
-            ⚙️ <strong>Laufen deine Abbuchungen zu 100% vollautomatisch?</strong>
-          </div>
-          <div class="quiz-options">
-            <button class="quiz-btn btn-yes" onclick="handleQuizClick(this, 'yes')">Ja</button>
-            <button class="quiz-btn btn-no" onclick="handleQuizClick(this, 'no')">Nein</button>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Dynamisches Ergebnis-Feld -->
-      <div id="quizResultBox" class="quiz-result-box" style="display: none;">
-        <h3 id="quizResultTitle">Deine Auswertung:</h3>
-        <p id="quizResultText"></p>
-        <a href="#kontakt" class="btn-primary btn-large">Jetzt Klarheit in der Datenanalyse schaffen</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Service & Analyse Showcase -->
+  <!-- Leistung & Inhalt Section -->
   <section id="analyse" class="section showcase-section">
-    <div class="showcase-card">
-      <span class="badge showcase-badge">100% Sorgenfrei-Service</span>
-      <h2>Deine Finanzen. Vollständig analysiert & maßgeschneidert.</h2>
-      <p class="showcase-intro">Du musst keine Tabellen ausfüllen oder Formeln verstehen. Ich analysiere deine Verträge und erstelle dein persönliches Finanzplaner-Template schlüsselfertig für dich.</p>
+    <div class="showcase-card" style="max-width: 800px; margin: 0 auto;">
+      <span class="badge showcase-badge">Einmalig • Kein Abo • Keine Software</span>
+      <h2>Dein kompletter Finanzüberblick</h2>
+      <p class="showcase-intro">Keine komplizierte Finanztheorie. Du bekommst eine glasklare, verständliche Analyse deiner aktuellen Situation.</p>
       
-      <ul class="template-features">
-        <li>✓ <strong>Wann geht was weg?</strong> Ich ordne all deine Abbuchungen chronologisch und übersichtlich ein</li>
-        <li>✓ <strong>Wie viel musst du weglegen?</strong> Wir ermitteln auf den Cent genau deinen monatlichen Rücklagen-Bedarf</li>
-        <li>✓ <strong>Schlüsselfertiges Ergebnis:</strong> Du richtest am 1. des Monats deinen Dauerauftrag ein und hast ab sofort völlige Ruhe</li>
+      <ul class="template-features" style="margin-top: 1.5rem; margin-bottom: 2rem;">
+        <li>✅ <strong>Übersicht deiner monatlichen Fixkosten</strong></li>
+        <li>✅ <strong>Berücksichtigung jährlicher & unregelmäßiger Ausgaben</strong> (KFZ, GEZ etc.)</li>
+        <li>✅ <strong>Berechnung deiner notwendigen monatlichen Rücklagen</strong></li>
+        <li>✅ <strong>Übersicht, was dir nach deinen geplanten Ausgaben tatsächlich bleibt</strong></li>
+        <li>✅ <strong>Dein persönlicher Finanzüberblick</strong> – schlüsselfertig für dich erstellt</li>
       </ul>
 
-      <div class="showcase-action-bottom">
-        <a href="#kontakt" class="btn-primary btn-large">Analyse anfragen</a>
+      <div style="background: #f8fafc; border: 1px solid var(--border-light); padding: 1.5rem; border-radius: 8px; text-align: center; margin-bottom: 2rem;">
+        <span style="font-size: 2rem; font-weight: 800; color: var(--accent-color);">99 €</span>
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.3rem;">Einmaliger Festpreis. Keine laufenden Kosten. Kein Abo.</p>
       </div>
-    </div>
-  </section>
 
-  <!-- Kontakt & WhatsApp CTA -->
-  <section id="kontakt" class="section contact-section">
-    <h2>Bereit für deine finanzielle Ordnung?</h2>
-    <p>Schreib mir direkt über WhatsApp und lass uns unkompliziert starten.</p>
-    
-    <div style="margin-top: 1.8rem;">
-      <a href="https://wa.me/4915254160584?text=Hallo%20Kai,%20ich%20will%20meine%20Finanzen%20ordnen.%20Lass%20mal%20sprechen." target="_blank" class="btn-primary" style="background: #25D366; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; font-size: 1.05rem;">
-        💬 Direkt per WhatsApp schreiben
-      </a>
+      <div class="showcase-action-bottom" style="text-align: center;">
+        <a href="https://wa.me/4915254160584?text=Hallo%20Kai,%20ich%20möchte%20die%20Finanzanalyse%20für%2099%20€%20starten.%20Lass%20mal%20sprechen." target="_blank" class="btn-primary btn-large" style="background: #25D366; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;">
+          💬 Jetzt Analyse über WhatsApp anfragen
+        </a>
+      </div>
     </div>
   </section>
 
@@ -154,6 +70,5 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
 </body>
 </html>
