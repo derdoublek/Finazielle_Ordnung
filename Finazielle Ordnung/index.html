@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finanzielle Ordnung | Automatisiertes Geld-System</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="logo">FINANZIELLE <span>ORDNUNG</span></div>
+    <a href="#kontakt" class="btn-primary">Jetzt Ordnung schaffen</a>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <span class="badge">Kein Haushaltsbuch. Kein Stress.</span>
+    <h1>Nie wieder Sorgen um offene Rechnungen.</h1>
+    <p>Ich helfe dir, deine Finanzen einmalig so zu strukturieren und zu analysieren, dass am 1. des Monats alle Fixkosten und Jahrespuffer abgedeckt sind.</p>
+    <div class="hero-actions">
+      <a href="#rechner" class="btn-primary">Puffer-Rechner testen</a>
+      <a href="#analyse" class="btn-secondary">Zur Datenanalyse</a>
+    </div>
+  </header>
+
+  <!-- Live Puffer-Rechner -->
+  <section id="rechner" class="section">
+    <h2>Der Monats-Glättungs-Rechner</h2>
+    <p>Sieh selbst, wie aus unregelmäßigen Rechnungen eine entspannte monatliche Sparrate wird:</p>
+    
+    <div class="calculator">
+      <div class="calc-inputs">
+        <div class="input-group">
+          <label for="kfz">Kfz-Versicherung (Jährlich in €)</label>
+          <input type="number" id="kfz" value="600">
+        </div>
+        <div class="input-group">
+          <label for="gez">Rundfunkbeitrag / GEZ (Vierteljährlich in €)</label>
+          <input type="number" id="gez" value="55.20">
+        </div>
+        <div class="input-group">
+          <label for="sonstiges">Sonstige Jahres-Abos/Versicherungen (€)</label>
+          <input type="number" id="sonstiges" value="240">
+        </div>
+      </div>
+      <div class="calc-result">
+        <span>Dein monatlicher Puffer-Bedarf:</span>
+        <div class="price" id="monthlyPuffer">78,40 €</div>
+        <small>Diesen Betrag legt dein automatisches System am 1. des Monats zur Seite, damit Rechnungen nie wieder überraschen.</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service & Analyse Showcase -->
+  <section id="analyse" class="section showcase-section">
+    <div class="showcase-card">
+      <div class="showcase-content">
+        <span class="badge showcase-badge">100% Sorgenfrei-Service</span>
+        <h2>Deine Finanzen. Vollständig analysiert & maßgeschneidert.</h2>
+        <p>Du musst keine Tabellen ausfüllen oder Formeln verstehen. Ich analysiere deine Verträge und erstelle dein persönliches Finanzplaner-Template schlüsselfertig für dich.</p>
+        
+        <ul class="template-features">
+          <li>✓ <strong>Komplette Datenanalyse:</strong> Ich sichte all deine Verträge und Fixkosten für dich</li>
+          <li>✓ <strong>Garantierte Klarheit:</strong> Ein maßgeschneidertes Template, perfekt auf dein Leben abgestimmt</li>
+          <li>✓ <strong>Schlüsselfertiges Ergebnis:</strong> Du weißt genau, welcher Betrag monatlich bezahlt sein muss</li>
+        </ul>
+      </div>
+
+      <div class="showcase-action">
+        <a href="#kontakt" class="btn-primary">Analyse anfragen</a>
+        <a href="https://derdoublek.github.io/Finanzplaner/" target="_blank" class="btn-secondary">Template-Beispiel ansehen ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kontakt & CTA -->
+  <section id="kontakt" class="section contact-section">
+    <h2>Bereit für deine finanzielle Ordnung?</h2>
+    <p>Lass uns gemeinsam deine Finanzen strukturieren und volle Klarheit schaffen.</p>
+    <form class="contact-form" id="contactForm">
+      <input type="text" placeholder="Dein Name" required>
+      <input type="email" placeholder="Deine E-Mail-Adresse" required>
+      <button type="submit" class="btn-primary">Anfrage senden</button>
+    </form>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
