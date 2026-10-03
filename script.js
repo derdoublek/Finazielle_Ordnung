@@ -1,27 +1,37 @@
-// Berechnung des monatlichen Puffers
-function calculatePuffer() {
-  const kfz = parseFloat(document.getElementById('kfz').value) || 0;
-  const gez = parseFloat(document.getElementById('gez').value) || 0;
-  const sonstiges = parseFloat(document.getElementById('sonstiges').value) || 0;
+function handleQuizClick(btn, type) {
+  const optionsGroup = btn.parentElement;
+  const buttons = optionsGroup.querySelectorAll('.quiz-btn');
 
-  // Umrechnung: Jährlich / 12, Vierteljährlich / 3
-  const monthlyKfz = kfz / 12;
-  const monthlyGez = gez / 3;
-  const monthlySonstiges = sonstiges / 12;
+  // Alle Buttons in dieser Frage zurücksetzen
+  buttons.forEach(b => b.classList.remove('active'));
 
-  const totalMonthly = monthlyKfz + monthlyGez + monthlySonstiges;
+  // Gewählten Button aktivieren
+  btn.classList.add('active');
 
-  document.getElementById('monthlyPuffer').innerText = 
-    totalMonthly.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €';
+  // Auswertung durchführen
+  checkQuizStatus();
 }
 
-// Event-Listener für Eingaben
-document.getElementById('kfz').addEventListener('input', calculatePuffer);
-document.getElementById('gez').addEventListener('input', calculatePuffer);
-document.getElementById('sonstiges').addEventListener('input', calculatePuffer);
+function checkQuizStatus() {
+  const activeNoButtons = document.querySelectorAll('.btn-no.active');
+  const activeYesButtons = document.querySelectorAll('.btn-yes.active');
+  
+  const totalAnswered = activeNoButtons.length + activeYesButtons.length;
+  const noCount = activeNoButtons.length;
 
-// Kontaktformular abfangen
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  alert('Vielen Dank! Ich melde mich in Kürze bei dir für deine finanzielle Ordnung.');
-});
+  const resultBox = document.getElementById('quizResultBox');
+  const resultTitle = document.getElementById('quizResultTitle');
+  const resultText = document.getElementById('quizResultText');
+
+  if (totalAnswered > 0) {
+    resultBox.style.display = 'block';
+
+    if (noCount > 0) {
+      resultTitle.innerText = `🚨 Handlungsbedarf bei ${noCount} von 3 Punkten`;
+      resultText.innerText = "Ohne feste Struktur führt das unweigerlich zu unvorhergesehenen Engpässen. Lass uns dein persönliches Sicherheits-System in einer kurzen Datenanalyse einmalig schlüsselfertig aufbauen.";
+    } else {
+      resultTitle.innerText = "🎉 Vorbildlich strukturiert!";
+      resultText.innerText = "Du hast deine Finanzen bereits voll im Griff. Wenn du dein System noch weiter automatisieren möchtest, stehen wir dir jederzeit zur Seite.";
+    }
+  }
+}

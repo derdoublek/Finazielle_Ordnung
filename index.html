@@ -19,37 +19,90 @@
   <header class="hero">
     <span class="badge">Kein Haushaltsbuch. Kein Stress.</span>
     <h1>Nie wieder Sorgen um offene Rechnungen.</h1>
-    <p>Ich helfe dir, deine Finanzen einmalig so zu strukturieren und zu analysieren, dass am 1. des Monats alle Fixkosten und Jahrespuffer abgedeckt sind.</p>
+    <p>Ich helfe dir, deine Finanzen einmalig so zu strukturieren und zu analysieren, dass am 1. des Monats alle Fixkosten und unregelmäßigen Ausgaben abgedeckt sind.</p>
     <div class="hero-actions">
-      <a href="#rechner" class="btn-primary">Puffer-Rechner testen</a>
+      <a href="#rechner" class="btn-primary">Klarheits-Check machen</a>
       <a href="#analyse" class="btn-secondary">Zur Datenanalyse</a>
     </div>
   </header>
 
-  <!-- Live Puffer-Rechner -->
-  <section id="rechner" class="section">
-    <h2>Der Monats-Glättungs-Rechner</h2>
-    <p>Sieh selbst, wie aus unregelmäßigen Rechnungen eine entspannte monatliche Sparrate wird:</p>
-    
-    <div class="calculator">
-      <div class="calc-inputs">
-        <div class="input-group">
-          <label for="kfz">Kfz-Versicherung (Jährlich in €)</label>
-          <input type="number" id="kfz" value="600">
-        </div>
-        <div class="input-group">
-          <label for="gez">Rundfunkbeitrag / GEZ (Vierteljährlich in €)</label>
-          <input type="number" id="gez" value="55.20">
-        </div>
-        <div class="input-group">
-          <label for="sonstiges">Sonstige Jahres-Abos/Versicherungen (€)</label>
-          <input type="number" id="sonstiges" value="240">
-        </div>
+  <!-- Problem & Lösungs Section -->
+  <section class="section problem-section">
+    <div class="split-container">
+      
+      <!-- Linke Karte: Das Problem -->
+      <div class="split-card problem-card">
+        <span class="card-tag tag-problem">Das Problem</span>
+        <h2>Schluss mit dem ständigen Hin- und Herschieben</h2>
+        <ul class="clean-list">
+          <li>❌ <strong>Überraschende Rechnungen:</strong> KFZ, GEZ oder Nachzahlungen kommen immer im falschen Moment.</li>
+          <li>❌ <strong>Konto-Chaos:</strong> Ständiges Umbuchen zwischen Girokonto und Erspartem am Monatsende.</li>
+          <li>❌ <strong>Mentaler Stress:</strong> Die ständige Ungewissheit, ob das Geld bis zum 31. reicht.</li>
+        </ul>
       </div>
-      <div class="calc-result">
-        <span>Dein monatlicher Puffer-Bedarf:</span>
-        <div class="price" id="monthlyPuffer">78,40 €</div>
-        <small>Diesen Betrag legt dein automatisches System am 1. des Monats zur Seite, damit Rechnungen nie wieder überraschen.</small>
+
+      <!-- Rechte Karte: Die Lösung -->
+      <div class="split-card solution-card">
+        <span class="card-tag tag-solution">Die Lösung</span>
+        <h2>Das automatisierte Rücklagen-System</h2>
+        <ul class="clean-list">
+          <li>✓ <strong>Exakter Monats-Bedarf:</strong> Wir berechnen deinen perfekten Glättungs-Betrag.</li>
+          <li>✓ <strong>Vollautomatisch:</strong> Am 1. des Monats wandert deine Rücklage auf ein separates Konto.</li>
+          <li>✓ <strong>Absolute Sorgenfreiheit:</strong> Alle Rechnungen werden völlig entspannt vom Sicherheits-Guthaben bedient.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interaktiver Fragen-Check -->
+  <section id="rechner" class="section">
+    <h2>Der 10-Sekunden-Klarheits-Check</h2>
+    <p>Hast du bei deinen Finanzen die volle Kontrolle? Teste es mit 3 Klicks:</p>
+    
+    <div class="quiz-card">
+      <div class="quiz-list">
+        
+        <!-- Frage 1 -->
+        <div class="quiz-item">
+          <div class="quiz-question">
+            📅 <strong>Weißt du genau, wann KFZ & GEZ abgebucht werden?</strong>
+          </div>
+          <div class="quiz-options">
+            <button class="quiz-btn btn-yes" onclick="handleQuizClick(this, 'yes')">Ja</button>
+            <button class="quiz-btn btn-no" onclick="handleQuizClick(this, 'no')">Nein</button>
+          </div>
+        </div>
+
+        <!-- Frage 2 -->
+        <div class="quiz-item">
+          <div class="quiz-question">
+            💶 <strong>Kennst du deine exakte monatliche Sicherheits-Rücklage?</strong>
+          </div>
+          <div class="quiz-options">
+            <button class="quiz-btn btn-yes" onclick="handleQuizClick(this, 'yes')">Ja</button>
+            <button class="quiz-btn btn-no" onclick="handleQuizClick(this, 'no')">Nein</button>
+          </div>
+        </div>
+
+        <!-- Frage 3 -->
+        <div class="quiz-item">
+          <div class="quiz-question">
+            ⚙️ <strong>Laufen deine Abbuchungen zu 100% vollautomatisch?</strong>
+          </div>
+          <div class="quiz-options">
+            <button class="quiz-btn btn-yes" onclick="handleQuizClick(this, 'yes')">Ja</button>
+            <button class="quiz-btn btn-no" onclick="handleQuizClick(this, 'no')">Nein</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Dynamisches Ergebnis-Feld -->
+      <div id="quizResultBox" class="quiz-result-box" style="display: none;">
+        <h3 id="quizResultTitle">Deine Auswertung:</h3>
+        <p id="quizResultText"></p>
+        <a href="#kontakt" class="btn-primary btn-large">Jetzt Klarheit in der Datenanalyse schaffen</a>
       </div>
     </div>
   </section>
@@ -57,21 +110,18 @@
   <!-- Service & Analyse Showcase -->
   <section id="analyse" class="section showcase-section">
     <div class="showcase-card">
-      <div class="showcase-content">
-        <span class="badge showcase-badge">100% Sorgenfrei-Service</span>
-        <h2>Deine Finanzen. Vollständig analysiert & maßgeschneidert.</h2>
-        <p>Du musst keine Tabellen ausfüllen oder Formeln verstehen. Ich analysiere deine Verträge und erstelle dein persönliches Finanzplaner-Template schlüsselfertig für dich.</p>
-        
-        <ul class="template-features">
-          <li>✓ <strong>Komplette Datenanalyse:</strong> Ich sichte all deine Verträge und Fixkosten für dich</li>
-          <li>✓ <strong>Garantierte Klarheit:</strong> Ein maßgeschneidertes Template, perfekt auf dein Leben abgestimmt</li>
-          <li>✓ <strong>Schlüsselfertiges Ergebnis:</strong> Du weißt genau, welcher Betrag monatlich bezahlt sein muss</li>
-        </ul>
-      </div>
+      <span class="badge showcase-badge">100% Sorgenfrei-Service</span>
+      <h2>Deine Finanzen. Vollständig analysiert & maßgeschneidert.</h2>
+      <p class="showcase-intro">Du musst keine Tabellen ausfüllen oder Formeln verstehen. Ich analysiere deine Verträge und erstelle dein persönliches Finanzplaner-Template schlüsselfertig für dich.</p>
+      
+      <ul class="template-features">
+        <li>✓ <strong>Wann geht was weg?</strong> Ich ordne all deine Abbuchungen chronologisch und übersichtlich ein</li>
+        <li>✓ <strong>Wie viel musst du weglegen?</strong> Wir ermitteln auf den Cent genau deinen monatlichen Rücklagen-Bedarf</li>
+        <li>✓ <strong>Schlüsselfertiges Ergebnis:</strong> Du richtest am 1. des Monats deinen Dauerauftrag ein und hast ab sofort völlige Ruhe</li>
+      </ul>
 
-      <div class="showcase-action">
-        <a href="#kontakt" class="btn-primary">Analyse anfragen</a>
-        <a href="https://derdoublek.github.io/Finanzplaner/" target="_blank" class="btn-secondary">Template-Beispiel ansehen ↗</a>
+      <div class="showcase-action-bottom">
+        <a href="#kontakt" class="btn-primary btn-large">Analyse anfragen</a>
       </div>
     </div>
   </section>
@@ -87,13 +137,12 @@
     </form>
   </section>
 
-  <!-- Footer & Impressum -->
   <!-- Footer -->
   <footer class="footer">
     <div class="footer-content">
       <p>&copy; 2026 Kai Kremer – Finanzielle Ordnung. Alle Rechte vorbehalten.</p>
       <div class="footer-links">
-        <a href="impressum.html">Impressum</a>
+        <a href="impressum.html" class="legal-link">Impressum</a>
       </div>
     </div>
   </footer>
