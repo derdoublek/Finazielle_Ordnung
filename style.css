@@ -42,3 +42,19 @@
 .preview-link-card{display:flex;align-items:center;justify-content:space-between;gap:26px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:clamp(22px,4vw,32px);margin-top:26px;box-shadow:var(--shadow)}
 .preview-link-card h3{font-size:1.35rem;margin:0 0 8px}.preview-link-card p{color:var(--muted);margin:0;max-width:560px}.preview-link-card .btn{flex-shrink:0}
 @media(max-width:760px){.hero{padding-block:54px 35px}.hero h1{font-size:clamp(2rem,8vw,2.8rem);line-height:1.22}.preview-link-card{flex-direction:column;align-items:stretch}.preview-link-card .btn{width:100%}}
+
+/* Desktop: mehr Luft und klarere Zeilenlaengen */
+@media(min-width:1000px){
+ .wrap,.navbar{width:min(100% - 96px,1160px)}
+ .hero{max-width:1160px;padding-top:104px;padding-bottom:94px}
+ .hero h1{max-width:1100px;font-size:clamp(2.65rem,3.45vw,3.3rem);line-height:1.29;letter-spacing:-.043em;margin:36px auto 31px}
+ .hero h1 span{margin-top:.24em}
+ .hero>p:not(.hero-note){max-width:800px;font-size:1.05rem;line-height:1.95}
+ .hero-actions{margin-top:35px;gap:16px}
+ .hero-note{margin-top:24px}
+ .section{margin-block:95px}
+ .section-heading{max-width:800px;margin-bottom:38px}
+ .section-heading h2{line-height:1.4}
+ .final-card{padding:68px 70px}
+ .final-card h2{line-height:1.43;margin-top:24px;margin-bottom:24px}
+}
