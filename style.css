@@ -58,3 +58,28 @@
  .final-card{padding:68px 70px}
  .final-card h2{line-height:1.43;margin-top:24px;margin-bottom:24px}
 }
+
+/* Einheitliches visuelles System der Landingpage */
+:root{--card-radius:20px;--card-border:#e2e8f0;--card-shadow:0 12px 34px rgba(15,23,42,.045)}
+.section{max-width:1020px}
+.section-heading{max-width:740px}
+.section-heading h2{font-size:clamp(1.75rem,2.65vw,2.2rem);line-height:1.32;letter-spacing:-.035em}
+.section-heading p{max-width:670px;margin:0 auto;line-height:1.75}
+.section-kicker{letter-spacing:.09em}
+.mini-card,.step-card,.example-card,.preview-link-card,.final-card{border-radius:var(--card-radius);box-shadow:var(--card-shadow)}
+.mini-card,.step-card{padding:28px;min-height:100%}
+.problem-grid,.steps-grid{gap:20px}
+.mini-card h3,.step-card h3{font-size:1.06rem;line-height:1.4}
+.mini-card p,.step-card p{line-height:1.75}
+.preview-link-card{max-width:1020px;margin:26px auto 0;padding:28px 32px}
+.preview-link-card h3{font-size:1.18rem}
+.final-card{max-width:1020px;background:#fff;border:1px solid var(--card-border);padding:clamp(32px,5vw,58px)}
+.final-card h2{font-size:clamp(1.75rem,2.65vw,2.2rem);line-height:1.35}
+.final-card .section-kicker{margin-bottom:12px}
+.final-card .eyebrow{background:var(--green-soft)}
+.final-card .price-panel{max-width:420px;margin:25px auto 22px;background:var(--green-soft);border-color:#c8eadb}
+.example-card{max-width:800px;padding:clamp(26px,4vw,40px)}
+.price-panel{border-radius:14px}
+.btn{border-radius:12px}
+@media(min-width:1000px){.section{margin-block:88px}.section-heading{margin-bottom:34px}.final-card{padding:58px 66px}}
+@media(max-width:760px){.section{margin-block:55px}.mini-card,.step-card{padding:23px}.problem-grid,.steps-grid{gap:14px}.preview-link-card{padding:23px}.final-card{padding:30px 22px}}
