@@ -29,3 +29,16 @@
 .about-page-actions{justify-content:center;align-items:center;text-align:center}
 .cta-note{font-size:.83rem;margin:15px 0 0!important}
 @media(max-width:760px){.about-story{grid-template-columns:1fr;gap:22px}.about-portrait{width:min(100%,260px);margin:auto}.about-intro{text-align:left}.about-page-actions{width:100%}.about-page-actions .btn{width:100%}}
+
+/* Ruhigere Typografie und klare Produktvorschau */
+.hero{max-width:960px;padding-block:72px 64px}
+.hero h1{font-size:clamp(2.25rem,4.25vw,3.35rem);line-height:1.18;letter-spacing:-.045em;max-width:940px;margin:28px auto 23px;text-wrap:balance}
+.hero h1 span{display:block;margin-top:.13em}
+.hero>p:not(.hero-note){max-width:710px;line-height:1.8}
+.section-heading h2,.final-card h2{font-size:clamp(1.65rem,2.9vw,2.3rem);line-height:1.32;letter-spacing:-.035em;text-wrap:balance}
+.final-card{max-width:920px;padding:clamp(34px,5vw,60px)}
+.final-card h2{max-width:740px;margin:19px auto 17px}
+.final-card>p{max-width:680px;margin-inline:auto;line-height:1.8}
+.preview-link-card{display:flex;align-items:center;justify-content:space-between;gap:26px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:clamp(22px,4vw,32px);margin-top:26px;box-shadow:var(--shadow)}
+.preview-link-card h3{font-size:1.35rem;margin:0 0 8px}.preview-link-card p{color:var(--muted);margin:0;max-width:560px}.preview-link-card .btn{flex-shrink:0}
+@media(max-width:760px){.hero{padding-block:54px 35px}.hero h1{font-size:clamp(2rem,8vw,2.8rem);line-height:1.22}.preview-link-card{flex-direction:column;align-items:stretch}.preview-link-card .btn{width:100%}}
