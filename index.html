@@ -2,73 +2,87 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- Cache-Schutz -->
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Dein persönlicher Finanzüberblick: Einnahmen, Fixkosten, unregelmäßige Ausgaben und Rücklagen. Einmalige Finanzanalyse für 99 € – kein Abo.">
+  <meta name="theme-color" content="#059669">
   <title>Finanzielle Ordnung | Einmalige Finanzanalyse für 99 €</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-
-  <!-- Navigation -->
-  <nav class="navbar">
-    <div class="logo">FINANZIELLE <span>ORDNUNG</span></div>
-    <a href="#analyse" class="btn-primary">99 € Analyse starten</a>
+  <nav class="navbar" aria-label="Hauptnavigation">
+    <a class="logo" href="#start">FINANZIELLE <span>ORDNUNG</span></a>
+    <a href="#analyse" class="btn btn-primary nav-cta">Analyse für 99 €</a>
   </nav>
-
-  <!-- Hero Section -->
-  <header class="hero">
-    <span class="badge">Du brauchst keine neue App. Du brauchst Klarheit.</span>
-    <h1>Weißt du wirklich, was du jeden Monat brauchst?</h1>
-    <p>Ich analysiere deine Einnahmen, Fixkosten und unregelmäßigen Ausgaben und zeige dir, wie viel Geld du monatlich tatsächlich einplanen musst.</p>
-    <div class="hero-actions">
-      <a href="#analyse" class="btn-primary">Einmalige Analyse – 99 €</a>
-      <a href="#whatsapp" class="btn-secondary">Direkt per WhatsApp fragen</a>
-    </div>
-  </header>
-
-  <!-- Leistung & Inhalt Section -->
-  <section id="analyse" class="section showcase-section">
-    <div class="showcase-card" style="max-width: 800px; margin: 0 auto;">
-      <span class="badge showcase-badge">Einmalig • Kein Abo • Keine Software</span>
-      <h2>Dein kompletter Finanzüberblick</h2>
-      <p class="showcase-intro">Keine komplizierte Finanztheorie. Du bekommst eine glasklare, verständliche Analyse deiner aktuellen Situation.</p>
-      
-      <ul class="template-features" style="margin-top: 1.5rem; margin-bottom: 2rem;">
-        <li>✅ <strong>Übersicht deiner monatlichen Fixkosten</strong></li>
-        <li>✅ <strong>Berücksichtigung jährlicher & unregelmäßiger Ausgaben</strong> (KFZ, GEZ etc.)</li>
-        <li>✅ <strong>Berechnung deiner notwendigen monatlichen Rücklagen</strong></li>
-        <li>✅ <strong>Übersicht, was dir nach deinen geplanten Ausgaben tatsächlich bleibt</strong></li>
-        <li>✅ <strong>Dein persönlicher Finanzüberblick</strong> – schlüsselfertig für dich erstellt</li>
-      </ul>
-
-      <div style="background: #f8fafc; border: 1px solid var(--border-light); padding: 1.5rem; border-radius: 8px; text-align: center; margin-bottom: 2rem;">
-        <span style="font-size: 2rem; font-weight: 800; color: var(--accent-color);">99 €</span>
-        <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.3rem;">Einmaliger Festpreis. Keine laufenden Kosten. Kein Abo.</p>
+  <main>
+    <header id="start" class="hero wrap">
+      <span class="eyebrow">Du brauchst keine neue App. Du brauchst Klarheit.</span>
+      <h1>Endlich wissen, <span>wo dein Geld bleibt.</span></h1>
+      <p>Ich analysiere deine Einnahmen, Fixkosten und unregelmäßigen Ausgaben und zeige dir, wie viel Geld du monatlich tatsächlich einplanen musst.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#analyse">Finanzanalyse für 99 €</a>
+        <a class="btn btn-secondary" href="#ablauf">So funktioniert's</a>
       </div>
+      <p class="hero-note">Einmalig 99 € <span aria-hidden="true">·</span> Kein Abo <span aria-hidden="true">·</span> Keine laufenden Kosten</p>
+    </header>
 
-      <div class="showcase-action-bottom" style="text-align: center;">
-        <a href="https://wa.me/4915254160584?text=Hallo%20Kai,%20ich%20möchte%20die%20Finanzanalyse%20für%2099%20€%20starten.%20Lass%20mal%20sprechen." target="_blank" class="btn-primary btn-large" style="background: #25D366; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;">
-          💬 Jetzt Analyse über WhatsApp anfragen
-        </a>
+    <section class="section wrap" aria-labelledby="problem-heading">
+      <div class="section-heading"><span class="section-kicker">KENNST DU DAS?</span><h2 id="problem-heading">Dein Kontostand zeigt, was da ist. <span>Nicht, was noch kommt.</span></h2></div>
+      <div class="problem-grid">
+        <article class="mini-card"><span class="mini-icon" aria-hidden="true">↗</span><h3>Unregelmäßige Rechnungen</h3><p>Versicherungen, KFZ oder Beiträge fallen nicht jeden Monat an – müssen aber trotzdem eingeplant werden.</p></article>
+        <article class="mini-card"><span class="mini-icon" aria-hidden="true">≋</span><h3>Fehlender Überblick</h3><p>Viele kleine und große Ausgaben machen es schwer zu erkennen, was du monatlich wirklich brauchst.</p></article>
+        <article class="mini-card"><span class="mini-icon" aria-hidden="true">?</span><h3>Unsicheres Restbudget</h3><p>Was auf dem Konto liegt, ist nicht automatisch das Geld, das dir tatsächlich zur Verfügung steht.</p></article>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-content">
-      <p>&copy; 2026 Kai Kremer – Finanzielle Ordnung. Alle Rechte vorbehalten.</p>
-      <div class="footer-links">
-        <a href="impressum.html" class="legal-link">Impressum</a>
+    <section id="analyse" class="section wrap" aria-labelledby="analyse-heading">
+      <div class="showcase-card">
+        <span class="eyebrow">Einmalig · Kein Abo · Keine Software</span>
+        <h2 id="analyse-heading">Dein kompletter Finanzüberblick</h2>
+        <p class="lead">Keine komplizierte Finanztheorie. Du bekommst eine glasklare, verständliche Analyse deiner aktuellen Situation.</p>
+        <ul class="feature-list">
+          <li><span aria-hidden="true">✓</span><div><strong>Übersicht deiner monatlichen Fixkosten</strong></div></li>
+          <li><span aria-hidden="true">✓</span><div><strong>Berücksichtigung jährlicher &amp; unregelmäßiger Ausgaben</strong> (KFZ, Rundfunkbeitrag etc.)</div></li>
+          <li><span aria-hidden="true">✓</span><div><strong>Berechnung deiner notwendigen monatlichen Rücklagen</strong></div></li>
+          <li><span aria-hidden="true">✓</span><div><strong>Übersicht, was dir nach deinen geplanten Ausgaben tatsächlich bleibt</strong></div></li>
+          <li><span aria-hidden="true">✓</span><div><strong>Dein persönlicher Finanzüberblick</strong> – schlüsselfertig für dich erstellt</div></li>
+        </ul>
+        <div class="price-panel"><span class="price">99 €</span><span>Einmaliger Festpreis. Keine laufenden Kosten. Kein Abo.</span></div>
+        <a class="btn btn-primary btn-wide" href="https://wa.me/4915254160584?text=Hallo%20Kai%2C%20ich%20m%C3%B6chte%20die%20Finanzanalyse%20f%C3%BCr%2099%20%E2%82%AC%20anfragen." target="_blank" rel="noopener noreferrer">Jetzt Analyse über WhatsApp anfragen <span aria-hidden="true">↗</span></a>
       </div>
-    </div>
-  </footer>
+    </section>
 
+    <section class="section wrap" aria-labelledby="example-heading">
+      <div class="section-heading"><span class="section-kicker">SO KANN DEIN ERGEBNIS AUSSEHEN</span><h2 id="example-heading">Zahlen verstehen statt nur sammeln.</h2><p>Ein einfaches Beispiel zeigt, was ein übersichtlicher Monatsplan sichtbar macht.</p></div>
+      <div class="example-card">
+        <div class="example-top"><div><span class="example-label">BEISPIEL · MONATLICHER ÜBERBLICK</span><h3>3.200 €</h3><p>Monatliche Einnahmen</p></div><span class="example-mark">MUSTER</span></div>
+        <div class="bar" role="img" aria-label="Beispiel: 1.650 Euro Fixkosten, 450 Euro Rücklagen und 1.100 Euro verfügbares Budget"><span class="bar-fixed"></span><span class="bar-reserve"></span><span class="bar-free"></span></div>
+        <div class="example-row"><span><i class="dot dot-fixed"></i> Fixkosten</span><strong>1.650 €</strong></div>
+        <div class="example-row"><span><i class="dot dot-reserve"></i> Monatliche Rücklagen</span><strong>450 €</strong></div>
+        <div class="example-row example-total"><span><i class="dot dot-free"></i> Verfügbares Budget</span><strong>1.100 €</strong></div>
+        <p class="example-footnote">Fiktive Beispielwerte. Dein persönlicher Überblick wird anhand deiner eigenen Angaben erstellt. Die tatsächliche Darstellung kann abweichen.</p>
+      </div>
+    </section>
+
+    <section id="ablauf" class="section wrap" aria-labelledby="ablauf-heading">
+      <div class="section-heading"><span class="section-kicker">EINFACHER ABLAUF</span><h2 id="ablauf-heading">In drei Schritten zu mehr Überblick.</h2></div>
+      <div class="steps-grid">
+        <article class="step-card"><span class="step-number">01</span><h3>Anfrage stellen</h3><p>Du meldest dich per WhatsApp und wir klären, ob die Analyse zu deiner Situation passt.</p></article>
+        <article class="step-card"><span class="step-number">02</span><h3>Finanzen erfassen</h3><p>Du stellst die benötigten Angaben zu deinen Einnahmen und Ausgaben bereit. Den genauen Ablauf besprechen wir vorab.</p></article>
+        <article class="step-card"><span class="step-number">03</span><h3>Überblick erhalten</h3><p>Ich werte deine Angaben aus und erstelle deinen persönlichen Finanzüberblick.</p></article>
+      </div>
+    </section>
+
+    <section class="section wrap" aria-labelledby="about-heading">
+      <div class="about-teaser"><div><span class="section-kicker">PERSÖNLICH STATT ANONYM</span><h2 id="about-heading">Wer steckt hinter Finanzielle Ordnung?</h2><p>Ich bin Kai Kremer und helfe dir, deine Einnahmen und Ausgaben verständlich aufzubereiten – für einen klaren Überblick über deine finanzielle Situation.</p></div><a class="btn btn-secondary" href="ueber-mich.html">Mehr über mich <span aria-hidden="true">→</span></a></div>
+    </section>
+
+    <section class="section wrap" aria-labelledby="final-heading">
+      <div class="final-card"><span class="eyebrow">KLARHEIT STATT GELDCHAOS</span><h2 id="final-heading">Bereit für deinen Finanzüberblick?</h2><p>Eine einmalige Analyse. Ein verständliches Ergebnis. Keine laufenden Kosten.</p><div class="final-price">99 € <span>einmalig</span></div><a class="btn btn-primary" href="https://wa.me/4915254160584?text=Hallo%20Kai%2C%20ich%20m%C3%B6chte%20die%20Finanzanalyse%20f%C3%BCr%2099%20%E2%82%AC%20anfragen." target="_blank" rel="noopener noreferrer">Jetzt unverbindlich per WhatsApp anfragen ↗</a></div>
+    </section>
+  </main>
+  <footer class="footer"><div class="footer-content"><p>© 2026 Kai Kremer – Finanzielle Ordnung.</p><div class="footer-links"><a href="ueber-mich.html">Über mich</a><a href="impressum.html">Impressum</a></div></div></footer>
 </body>
 </html>
