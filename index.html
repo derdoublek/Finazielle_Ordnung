@@ -3,43 +3,90 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Am Gehaltstag alle Verpflichtungen einplanen und wissen, was bis zum nächsten Gehalt übrig bleibt. Digitaler Finanzplaner mit Produktvorschau.">
+  <meta name="description" content="Digitaler Finanzplaner: Einnahmen, Fixkosten, Versicherungen und Raten erfassen und dein verfügbares Monatsbudget sehen. 39 € einmalig, kein Abo.">
   <meta name="theme-color" content="#059669">
   <title>Finanzielle Ordnung | Dein digitaler Finanzplaner</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+<style>
+.landing-refresh .hero .section-kicker{margin-bottom:18px}
+.landing-refresh .hero h1{margin-top:0}
+.landing-refresh .hero .hero-price{font-size:1rem;font-weight:700;color:#173b2d;line-height:1.5;margin:20px auto 0}
+.landing-refresh .budget-preview{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
+.landing-refresh .budget-preview .example-card{width:100%;padding:24px;box-shadow:none;margin:0}
+.landing-refresh .budget-preview h2{margin-bottom:12px}
+.landing-refresh .budget-preview .btn{margin-top:20px}
+.landing-refresh .budget-preview .example-row{font-size:.9rem}
+.landing-refresh .budget-result{background:#075f46;color:#fff;padding:16px 20px;border-radius:12px;margin-top:18px}
+.landing-refresh .budget-result small{display:block;color:#d1fae5}
+.landing-refresh .budget-result strong{display:block;font-size:2rem;letter-spacing:-.04em}
+.landing-refresh .buy-card{background:#fff}
+.landing-refresh .buy-card .final-price{margin-bottom:0}
+.landing-refresh .buy-card .purchase-details{margin:3px auto 22px}
+@media(max-width:760px){.landing-refresh .budget-preview{grid-template-columns:1fr}.landing-refresh .budget-preview .btn{width:100%}.landing-refresh .hero .hero-price{font-size:.94rem}}
+</style>
 </head>
-<body>
+<body class="landing-refresh">
   <nav class="navbar" aria-label="Hauptnavigation">
     <a class="logo" href="#start">FINANZIELLE <span>ORDNUNG</span></a>
     <a href="vorschau.html" class="btn btn-primary nav-cta">Finanzplaner ansehen</a>
   </nav>
   <main>
     <header id="start" class="hero wrap">
-      
-      <h1>Dein Gehalt ist da.<span>Weißt du, was davon wirklich frei ist?</span></h1>
-      <p>Plane deine Verpflichtungen und sieh, was dir wirklich bleibt.</p>
-      <div class="hero-actions"><a class="btn btn-primary" href="vorschau.html">Finanzplaner ansehen →</a></div>
+      <span class="section-kicker">DEIN DIGITALER FINANZPLANER</span>
+      <h1>Dein Gehalt ist da.<span>So weißt du, was zum Leben bleibt.</span></h1>
+      <p>Trage deine Einnahmen, Fixkosten, Versicherungen und Raten ein. Dein Finanzplaner berechnet automatisch, was dir im Monat übrig bleibt – auch mit jährlichen Rechnungen.</p>
+      <p class="hero-price">39 € einmalig · Kein Abo · Als Download</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="vorschau.html">Finanzplaner kostenlos ansehen →</a>
+        <a class="btn btn-secondary" href="https://www.checkout-ds24.com/product/741586" target="_blank" rel="noopener noreferrer">Für 39 € kaufen ↗</a>
+      </div>
+      <p class="hero-note">Vorschau mit Beispieldaten – ohne eigene Finanzdaten.</p>
     </header>
 
     <section class="section wrap" aria-labelledby="vorteile-heading">
-      <div class="section-heading"><span class="section-kicker">DEIN ÜBERBLICK</span><h2 id="vorteile-heading">Alles im Blick.</h2></div>
+      <div class="section-heading"><h2 id="vorteile-heading">Deine Zahlen rein. Klarer Überblick raus.</h2></div>
       <div class="problem-grid">
-        <article class="mini-card"><span class="mini-icon" aria-hidden="true">↓</span><h3>Einnahmen</h3><p>Alle Geldeingänge an einem Ort.</p></article>
-        <article class="mini-card"><span class="mini-icon" aria-hidden="true">↗</span><h3>Zahlungen</h3><p>Fixkosten, Raten und seltene Rechnungen monatlich einplanen.</p></article>
-        <article class="mini-card"><span class="mini-icon" aria-hidden="true">✓</span><h3>Lebensbudget</h3><p>Erkennen, was nach deinen Verpflichtungen übrig bleibt.</p></article>
+        <article class="mini-card"><span class="mini-icon" aria-hidden="true">↓</span><h3>Einnahmen erfassen</h3><p>Gehalt und weitere Geldeingänge an einem Ort.</p></article>
+        <article class="mini-card"><span class="mini-icon" aria-hidden="true">↗</span><h3>Rechnungen einplanen</h3><p>Miete, Strom, Versicherungen und Raten. Jährliche Zahlungen werden auf den Monat umgerechnet.</p></article>
+        <article class="mini-card"><span class="mini-icon" aria-hidden="true">✓</span><h3>Verfügbares Geld sehen</h3><p>Erkenne, was nach deinen Verpflichtungen für Lebensmittel, Freizeit und Alltag bleibt.</p></article>
       </div>
     </section>
 
     <section class="section wrap" aria-labelledby="vorschau-heading">
-      <div class="preview-link-card">
-        <div><span class="section-kicker">ERST ANSEHEN. DANN ENTSCHEIDEN.</span><h2 id="vorschau-heading">Entdecke den Finanzplaner.</h2><p>Teste die Ansicht mit fiktiven Beispieldaten – ohne eigene Finanzdaten.</p></div>
-        <a class="btn btn-secondary" href="vorschau.html">Produktvorschau öffnen ↗</a>
+      <div class="preview-link-card budget-preview">
+        <div><span class="section-kicker">ERST ANSEHEN. DANN ENTSCHEIDEN.</span><h2 id="vorschau-heading">So wird aus Zahlen Klarheit.</h2><p>Du siehst deine monatlichen Einnahmen, deine Verpflichtungen und dein verbleibendes Budget auf einen Blick.</p><a class="btn btn-secondary" href="vorschau.html">Produktvorschau öffnen →</a></div>
+        <div class="example-card" aria-label="Monatsübersicht mit erfundenen Beispieldaten">
+          <span class="example-label">BEISPIEL · MONATSÜBERSICHT</span>
+          <div class="example-row"><span>Einnahmen</span><strong>3.200 €</strong></div>
+          <div class="example-row"><span>Alle Verpflichtungen</span><strong>− 2.100 €</strong></div>
+          <div class="budget-result"><small>Für deinen Alltag bleiben</small><strong>1.100 € / Monat</strong></div>
+          <p class="example-footnote">Erfundene Beispieldaten. Raten und Versicherungen sind bereits in den Verpflichtungen enthalten.</p>
+        </div>
       </div>
     </section>
 
+    <section class="section wrap" aria-labelledby="ablauf-heading">
+      <div class="section-heading"><h2 id="ablauf-heading">In drei Schritten zu deinem Überblick.</h2></div>
+      <div class="steps-grid">
+        <article class="step-card"><span class="step-number" aria-hidden="true">1</span><h3>Kaufen &amp; herunterladen</h3><p>Einmalig 39 € bezahlen und den digitalen Finanzplaner herunterladen.</p></article>
+        <article class="step-card"><span class="step-number" aria-hidden="true">2</span><h3>Eigene Zahlen eintragen</h3><p>Erfasse deine Einnahmen, laufenden Zahlungen, Versicherungen und Raten.</p></article>
+        <article class="step-card"><span class="step-number" aria-hidden="true">3</span><h3>Dein Budget sehen</h3><p>Der Planer berechnet automatisch, was nach deinen Verpflichtungen bleibt.</p></article>
+      </div>
+    </section>
+
+    <section class="section wrap" aria-labelledby="kaufen-heading">
+      <div class="final-card buy-card">
+        <span class="section-kicker">DEIN FINANZÜBERBLICK BEGINNT MIT DEINEN ZAHLEN.</span>
+        <h2 id="kaufen-heading">Bring Ordnung in deine Finanzen.</h2>
+        <div class="final-price">39 €</div>
+        <p class="purchase-details">Einmalig · Kein Abo · Dauerhaft nutzbar</p>
+        <a class="btn btn-primary" href="https://www.checkout-ds24.com/product/741586" target="_blank" rel="noopener noreferrer">Finanzplaner für 39 € kaufen ↗</a>
+        <p class="hero-note">Du füllst den Planer selbst aus. Deine Daten bleiben lokal in deinem Browser.</p>
+      </div>
+    </section>
     <p class="example-footnote" style="text-align:center;max-width:760px;margin:20px auto 30px;padding:0 20px">Der Finanzplaner unterstützt dich bei der eigenständigen Organisation deiner Finanzen. Er ersetzt keine Anlage-, Versicherungs-, Kredit-, Rechts- oder Steuerberatung.</p>
   </main>
   <footer class="footer"><div class="footer-content"><p>© 2026 Kai Kremer – Finanzielle Ordnung.</p><div class="footer-links"><a href="impressum.html">Impressum</a></div></div></footer>
