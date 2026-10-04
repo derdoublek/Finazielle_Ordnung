@@ -83,3 +83,20 @@
 .btn{border-radius:12px}
 @media(min-width:1000px){.section{margin-block:88px}.section-heading{margin-bottom:34px}.final-card{padding:58px 66px}}
 @media(max-width:760px){.section{margin-block:55px}.mini-card,.step-card{padding:23px}.problem-grid,.steps-grid{gap:14px}.preview-link-card{padding:23px}.final-card{padding:30px 22px}}
+
+/* Vertikale Abstaende: Abschnitte klar, aber kompakter verbinden */
+.hero{padding-bottom:34px}
+.hero + .section{margin-top:34px}
+.section{margin-block:60px}
+.section-heading{margin-bottom:28px}
+@media(min-width:1000px){
+ .hero{padding-bottom:36px}
+ .hero + .section{margin-top:30px}
+ .section{margin-block:64px}
+ .section-heading{margin-bottom:28px}
+}
+@media(max-width:760px){
+ .hero{padding-bottom:26px}
+ .hero + .section{margin-top:30px}
+ .section{margin-block:48px}
+}
