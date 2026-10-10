@@ -125,7 +125,10 @@ h2.sec span{font-weight:600;letter-spacing:0;text-transform:none;font-size:13px}
 .field label{display:block;font-size:12px;font-weight:700;color:var(--muted);margin-bottom:5px}
 .field input,.field select,textarea{width:100%;border:1px solid var(--line);background:var(--bg);border-radius:10px;padding:11px 12px;min-width:0}
 .actions{grid-column:1/-1;display:flex;gap:8px;flex-wrap:wrap}
-.chips{display:flex;gap:6px;flex-wrap:wrap;margin:16px 0 4px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:16px 0 4px;scroll-margin-top:calc(72px + env(safe-area-inset-top,0px))}
+.chip .cc{font-weight:600;opacity:.65;font-variant-numeric:tabular-nums}
+.listsum{margin:8px 0 0;font-size:13px;color:var(--muted)}
+.listsum b{color:var(--ink)}
 .chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:7px 13px;font-size:13px;font-weight:700;color:var(--muted)}
 .chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 .group{margin-top:18px}
@@ -226,7 +229,10 @@ function demo(){
 function validE(e){return e&&typeof e.id==='string'&&typeof e.name==='string'&&e.name.length<=160&&Number.isFinite(e.amount)&&e.amount>=0&&e.amount<=1e9&&Object.hasOwn(PER,e.period)}
 function validState(s){return s&&Array.isArray(s.income)&&Array.isArray(s.accounts)&&Array.isArray(s.entries)&&s.income.every(validE)&&s.entries.every(e=>validE(e)&&Object.hasOwn(CAT,e.cat)&&typeof e.acc==='string')&&s.accounts.every(a=>a&&typeof a.id==='string'&&typeof a.name==='string'&&Number.isFinite(a.transfer)&&a.transfer>=0)}
 let S;
-try{const r=JSON.parse(localStorage.getItem(KEY)||'null');S=validState(r)?r:demo()}catch{S=demo()}
+/* Umlaute reparieren, falls Text unterwegs falsch kodiert wurde (z. B. „GlÃ¤ubiger“ → „Gläubiger“) */
+function fixText(s){if(typeof s!=='string'||!/[ÃÂâ]/.test(s))return s;try{const t=decodeURIComponent(escape(s));return t}catch{return s}}
+function fixState(s){if(!s)return s;(s.income||[]).forEach(x=>x.name=fixText(x.name));(s.accounts||[]).forEach(x=>x.name=fixText(x.name));(s.entries||[]).forEach(x=>x.name=fixText(x.name));if(s.catNames&&typeof s.catNames==='object')for(const k in s.catNames)s.catNames[k]=fixText(s.catNames[k]);return s}
+try{const r=JSON.parse(localStorage.getItem(KEY)||'null');S=validState(r)?fixState(r):demo()}catch{S=demo()}
 let tab='verteiler';try{tab=localStorage.getItem(KEY+'_tab')||'verteiler'}catch{}
 if(!['verteiler','zahlungen','konten'].includes(tab))tab='verteiler';
 let edit=null,armed=null,armTimer=null,filter='all',toastTimer=null;
@@ -310,8 +316,10 @@ function vZahlungen(){
   <div class="field"><label for="eCat">Kategorie</label><select id="eCat">${Object.keys(CAT).map(k=>`<option value="${k}" ${dCat===k?'selected':''}>${esc(catName(k))}</option>`).join('')}</select></div>
   <div class="field"><label for="eAcc">Abbuchung von</label><select id="eAcc">${accOptions(dAcc)}</select></div>
   <div class="actions"><button class="btn" type="submit">${e?'Änderung speichern':'Hinzufügen'}</button>${e?'<button class="btn ghost" type="button" data-act="cancel">Abbrechen</button>':''}</div></form></section>`;
-  h+=`<div class="chips" role="group" aria-label="Nach Kategorie filtern">${[['all','Alle'],...Object.keys(CAT).map(k=>[k,catName(k)])].map(([k,v])=>`<button class="chip" data-act="filter" data-f="${k}" aria-pressed="${filter===k}">${esc(v)}</button>`).join('')}</div>`;
+  const cnt=k=>k==='all'?S.entries.length:S.entries.filter(x=>x.cat===k).length;
+  h+=`<div class="chips" id="chips" role="group" aria-label="Nach Kategorie filtern">${[['all','Alle'],...Object.keys(CAT).map(k=>[k,catName(k)])].map(([k,v])=>`<button class="chip" data-act="filter" data-f="${k}" aria-pressed="${filter===k}">${esc(v)} <span class="cc">${cnt(k)}</span></button>`).join('')}</div>`;
   const list=S.entries.filter(x=>filter==='all'||x.cat===filter);
+  if(list.length)h+=`<p class="listsum"><b>${list.length} ${list.length===1?'Zahlung':'Zahlungen'}</b>${filter!=='all'?' in „'+esc(catName(filter))+'“':''} · ${eur(sum(list,mon))} pro Monat</p>`;
   if(!list.length)return h+`<div class="empty" style="margin-top:14px">Noch keine Zahlungen${filter!=='all'?' in dieser Kategorie':''}.</div>`;
   const groups=[...S.accounts.map((a,i)=>({id:a.id,name:a.name,c:col(i)})),{id:'',name:'Hauptkonto',c:'var(--k0)'}];
   const ids=new Set(S.accounts.map(a=>a.id));
@@ -358,7 +366,7 @@ document.addEventListener('click',ev=>{
   if(act==='closeUnlock')return closeUnlock();
   if(!licensed&&['edit','del','fresh','reset'].includes(act))return openUnlock();
   if(act==='goto')setTab(b.dataset.to);
-  else if(act==='filter'){filter=b.dataset.f;render()}
+  else if(act==='filter'){filter=b.dataset.f;render();const c=$('#chips');if(c)c.scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}
   else if(act==='cancel'){edit=null;render()}
   else if(act==='edit'){edit={kind,id};render();const f=document.querySelector(kind==='entry'?'#eName':kind==='income'?'#iName':'#aName');if(f){f.focus();f.scrollIntoView({block:'center'})}}
   else if(act==='del'){
@@ -393,7 +401,7 @@ document.addEventListener('submit',ev=>{
     owned();const a=edit&&edit.kind==='account'&&S.accounts.find(x=>x.id===edit.id);
     if(a)Object.assign(a,{name,transfer});else S.accounts.push({id:uid(),name,transfer});edit=null;changed();toast('Gespeichert')}
   if(f.id==='fCats'){owned();const c={};Object.keys(CAT).forEach(k=>{const v=$('#cn_'+k).value.trim().slice(0,40);if(v)c[k]=v});S.catNames=c;changed();toast('Kategorienamen gespeichert')}
-  if(f.id==='fImport'){try{const d=JSON.parse($('#impText').value);if(!validState(d))throw 0;const cn={};if(d.catNames&&typeof d.catNames==='object')Object.keys(CAT).forEach(k=>{if(typeof d.catNames[k]==='string'&&d.catNames[k].trim())cn[k]=d.catNames[k].trim().slice(0,40)});S={v:1,demo:false,catNames:cn,income:d.income,accounts:d.accounts,entries:d.entries};edit=null;changed();toast('Sicherung eingelesen')}catch{toast('Das ist keine gültige Sicherung.')}}
+  if(f.id==='fImport'){try{const d=JSON.parse($('#impText').value);if(!validState(d))throw 0;const cn={};if(d.catNames&&typeof d.catNames==='object')Object.keys(CAT).forEach(k=>{if(typeof d.catNames[k]==='string'&&d.catNames[k].trim())cn[k]=d.catNames[k].trim().slice(0,40)});S={v:1,demo:false,catNames:cn,income:d.income,accounts:d.accounts,entries:d.entries};fixState(S);edit=null;changed();toast('Sicherung eingelesen')}catch{toast('Das ist keine gültige Sicherung.')}}
 });
 render();
 (()=>{
