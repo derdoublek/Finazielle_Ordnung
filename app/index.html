@@ -103,6 +103,28 @@ h2.sec span{font-weight:600;letter-spacing:0;text-transform:none;font-size:13px}
 .meter span{display:block;height:100%;background:var(--c);border-radius:999px}
 .meter.bad span{background:var(--bad)}
 .acc details{border-top:1px solid var(--line);padding-top:10px}
+.acc.tap{cursor:pointer;transition:border-color .15s,box-shadow .15s}
+.acc.tap:hover{border-color:var(--c);box-shadow:0 6px 18px rgba(0,0,0,.06)}
+.more{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;border-top:1px solid var(--line);background:none;padding:11px 0 0;margin-top:2px;font-size:13.5px;font-weight:700;color:var(--accent);text-align:left}
+.more span{font-size:20px;line-height:1}
+.lines .more{border-top:0;padding-top:10px}
+.back{border:0;background:none;color:var(--accent);font-weight:700;font-size:15px;padding:6px 0;margin-bottom:10px;display:inline-flex;gap:6px;align-items:center;min-height:44px}
+.back span{font-size:22px;line-height:1}
+.dhero{background:var(--surface);border:1px solid var(--line);border-top:5px solid var(--c);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:14px}
+.dtop{display:flex;align-items:center;gap:10px}
+.dtop h2{margin:0;font-size:22px;font-weight:800;flex:1;min-width:0;overflow-wrap:anywhere}
+.dnums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.dnums small{display:block;font-size:12px;color:var(--muted);font-weight:600}
+.dnums strong{font-size:21px;font-weight:800;letter-spacing:-.02em}
+.dhero .meter span{background:var(--c)}.dhero .meter.bad span{background:var(--bad)}
+.dgroup{margin-bottom:10px;padding:14px 16px}
+.dgroup h3{display:flex;justify-content:space-between;gap:10px;margin:0 0 4px;font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.dgroup h3 .amt{letter-spacing:0;text-transform:none;font-size:13px}
+.drow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px 0;border-top:1px solid var(--line)}
+.drow strong{display:block;font-size:14.5px;overflow-wrap:anywhere}
+.drow small{display:block;font-size:12.5px;color:var(--muted)}
+.drow .r{text-align:right}
+@media (max-width:520px){.dnums{grid-template-columns:1fr 1fr}.dnums>div:last-child{grid-column:1/-1}}
 .acc summary{cursor:pointer;font-size:13px;font-weight:700;color:var(--accent);list-style:none}
 .acc summary::-webkit-details-marker{display:none}
 .acc summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
@@ -170,6 +192,59 @@ dialog::backdrop{background:rgba(10,20,15,.55)}
 .sheet .row2{display:flex;gap:8px;flex-wrap:wrap}
 .sheet .btn{background:#fff;color:var(--brand)}
 .sheet .btn.ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.4)}
+
+/* ---- Aufgeräumte Ansicht ---- */
+body{font-size:16.5px}
+.field input,.field select{font-size:17px;padding:13px 12px}
+.tab{font-size:12.5px}
+.hero2{background:var(--brand);color:var(--brand-ink);border-radius:22px;padding:26px 22px 22px;display:flex;flex-direction:column;gap:6px}
+.hero2 .lbl,.dhero2 .lbl{font-size:13px;font-weight:700;color:var(--brand-soft)}
+.huge{font-size:clamp(40px,12vw,56px);font-weight:800;letter-spacing:-.04em;line-height:1.05}
+.hero2 .sub{margin:8px 0 0;display:flex;flex-wrap:wrap;gap:6px 16px;font-size:15px;color:var(--brand-soft)}
+.hero2 .sub b{color:#fff}.hero2 .sub b.warn{color:#ffd9a8}
+.sec2{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin:30px 2px 10px;font-size:14px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.sec2 .num{letter-spacing:0;text-transform:none;font-weight:700}
+.sec2 .gname{display:flex;align-items:center;gap:8px;color:var(--ink);letter-spacing:0;text-transform:none;font-size:17px}
+.alist,.plist{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.arow,.prow{display:flex;align-items:center;gap:14px;width:100%;border:0;background:none;text-align:left;padding:18px 16px;border-top:1px solid var(--line);min-height:76px}
+.alist>:first-child,.plist>:first-child{border-top:0}
+.arow:active,.prow:active{background:var(--soft)}
+.cbar{width:6px;align-self:stretch;border-radius:4px;background:var(--c);flex:none}
+.arow.isbad .cbar{background:var(--bad)}
+.aname,.pname{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.aname b{font-size:18px;overflow-wrap:anywhere}.pname b{font-size:17px;font-weight:700;overflow-wrap:anywhere}
+.aname small,.pname small{font-size:14px;color:var(--muted)}
+.st{display:flex;flex-direction:column;align-items:flex-end;font-size:18px;font-weight:800;white-space:nowrap}
+.st small{font-size:12.5px;font-weight:600;color:var(--muted)}
+.st.ok{color:var(--ok)}.st.bad{color:var(--bad)}.st.neutral{font-size:14px;color:var(--muted);font-weight:700}.st.plain{color:var(--ink)}
+.pamt{font-size:18px;font-weight:800;white-space:nowrap}
+.chev{font-size:26px;color:var(--muted);line-height:1;margin-left:-4px}
+.prow.static{min-height:64px}
+.back{border:0;background:none;color:var(--accent);font-weight:700;font-size:16px;padding:4px 0;margin-bottom:8px;display:inline-flex;gap:6px;align-items:center;min-height:44px}
+.back span{font-size:24px;line-height:1}
+.dhero2{background:var(--surface);border:1px solid var(--line);border-top:6px solid var(--c);border-radius:22px;padding:22px 20px;display:flex;flex-direction:column;gap:8px}
+.dhero2 .lbl{color:var(--muted)}
+.dname{display:flex;align-items:center;gap:10px;font-size:24px;font-weight:800;margin-bottom:10px}
+.dhero2 .meter{height:10px;margin-top:8px}.dhero2 .meter span{background:var(--c)}.dhero2 .meter.bad span{background:var(--bad)}
+.pair{display:flex;justify-content:space-between;gap:12px;font-size:14px;color:var(--muted);margin-top:4px}
+.pair span{display:flex;flex-direction:column}.pair span:last-child{text-align:right}
+.pair b{font-size:19px;color:var(--ink)}
+.tip{margin:6px 0 0;font-size:15px;color:var(--muted)}.tip b{color:var(--ink)}
+.btn.add{width:100%;min-height:58px;font-size:17px;border-radius:14px}
+.btn.big{min-height:52px;font-size:16px;flex:1}
+.fpanel{border-radius:20px}
+.fhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.fhead h2{margin:0;font-size:21px}
+.x{border:0;background:var(--soft);border-radius:12px;width:44px;height:44px;font-size:18px;color:var(--muted)}
+.chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:22px -16px 0;padding:0 16px 2px}
+.chips::-webkit-scrollbar{display:none}
+.chip{font-size:15px;padding:10px 16px;white-space:nowrap;min-height:44px}
+.empty{font-size:15px}
+.btn.add2{width:100%;min-height:52px;margin-top:10px;font-size:16px;border-radius:14px}
+.fpanel{margin-bottom:10px}
+#copyText{width:100%;border:1px solid var(--line);background:var(--bg);border-radius:10px;padding:11px 12px}
+button{-webkit-tap-highlight-color:transparent}
+.field select{font-size:16px;padding-right:6px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head><body>
@@ -235,7 +310,7 @@ function fixState(s){if(!s)return s;(s.income||[]).forEach(x=>x.name=fixText(x.n
 try{const r=JSON.parse(localStorage.getItem(KEY)||'null');S=validState(r)?fixState(r):demo()}catch{S=demo()}
 let tab='verteiler';try{tab=localStorage.getItem(KEY+'_tab')||'verteiler'}catch{}
 if(!['verteiler','zahlungen','konten'].includes(tab))tab='verteiler';
-let edit=null,armed=null,armTimer=null,filter='all',toastTimer=null;
+let edit=null,armed=null,armTimer=null,filter='all',toastTimer=null,detail=null,showForm=false,kForm=null;
 /* Formular merkt sich Kategorie, Konto und Rhythmus für die nächste Zahlung */
 const FKEY=KEY+'_form';
 let form={cat:'creditors',per:'monthly',catAcc:{}};
@@ -258,7 +333,7 @@ function closeUnlock(){const d=$('#dlgUnlock');try{d.close()}catch{d.removeAttri
 const lockNote=()=>licensed?'':`<div class="notice"><p>Du siehst die <b>Vorschau mit Beispieldaten</b>. Mit deinem Freischaltcode trägst du deine eigenen Zahlen ein.</p><button class="btn small" data-act="unlock">Code eingeben</button></div>`;
 
 function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch{toast('Speichern im Browser nicht möglich. Bitte Sicherung kopieren.')}}
-function changed(){save();render()}
+function changed(){kForm=null;save();render()}
 function toast(t){let el=$('.toast');if(!el){el=document.createElement('div');el.className='toast';el.setAttribute('role','status');document.body.appendChild(el)}el.textContent=t;el.hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.hidden=true,2600)}
 
 function stats(){
@@ -272,33 +347,50 @@ function stats(){
 const col=i=>`var(--k${i%6+1})`;const accName=id=>(S.accounts.find(a=>a.id===id)||{name:'Hauptkonto'}).name;
 
 /* ---------- Verteiler ---------- */
+function accStatus(has,bad,diff){return !has?`<span class="st neutral">Rücklage</span>`:bad?`<span class="st bad num">${eur(diff)}<small>fehlen</small></span>`:`<span class="st ok num">+${eur(diff)}<small>Puffer</small></span>`}
 function vVerteiler(){
   const t=stats();
-  if(!S.income.length&&!S.accounts.length)return`<section class="panel"><h2 style="margin:0 0 8px;font-size:20px">Lege deinen Verteiler an</h2><p class="muted" style="margin:0 0 14px">Trage dein Gehalt und deine Unterkonten mit dem festen Überweisungsbetrag ein. Danach ordnest du jede Zahlung einem Konto zu.</p><button class="btn" data-act="goto" data-to="konten">Konten einrichten</button></section>`;
+  if(!S.income.length&&!S.accounts.length)return`<section class="panel"><h2 style="margin:0 0 8px;font-size:22px">Lege deinen Verteiler an</h2><p class="muted" style="margin:0 0 16px">Trage dein Gehalt und deine Unterkonten ein. Danach ordnest du jede Zahlung einem Konto zu.</p><button class="btn" data-act="goto" data-to="konten">Konten einrichten</button></section>`;
   const under=t.acc.filter(a=>a.items.length&&a.diff<-0.004);
-  const base=Math.max(t.inc,t.transfers,1);
-  const segs=t.acc.filter(a=>a.transfer>0).map(a=>`<span style="width:${a.transfer/base*100}%;background:${col(a.i)}" title="${esc(a.name)}"></span>`).join('')+(t.rest>0?`<span style="width:${t.rest/base*100}%;background:var(--k0)" title="Hauptkonto"></span>`:'');
-  const leg=t.acc.map(a=>`<li><i style="background:${col(a.i)}"></i>${esc(a.name)} <b class="num">${eur(a.transfer)}</b></li>`).join('')+`<li><i style="background:var(--k0)"></i>Hauptkonto <b class="num">${eur(t.rest)}</b></li>`;
   let h='';
-  if(S.demo&&licensed)h+=`<div class="notice"><p>Das sind <b>Beispieldaten</b>, damit du siehst, wie der Verteiler arbeitet.</p><button class="btn small" data-act="fresh">Mit eigenen Daten starten</button></div>`;
-  if(under.length)h+=`<div class="notice bad"><p>${under.map(a=>`<b>${esc(a.name)}</b> ist um ${eur(-a.diff)} unterdeckt. Erhöhe den Verteiler bei der Bank auf mindestens ${eur(Math.ceil(a.need))}.`).join('<br>')}</p></div>`;
-  if(t.rest<0)h+=`<div class="notice bad"><p>Deine Verteiler-Überweisungen sind ${eur(-t.rest)} höher als dein Gehaltseingang.</p></div>`;
-  h+=`<section class="hero"><div class="hero-top"><div><span class="lbl">Gehaltseingang pro Monat</span><div class="big num">${eur(t.inc)}</div></div><div class="right"><span class="lbl">Frei zum Leben</span><div class="mid num">${eur(t.life)}</div></div></div><div class="flow" role="img" aria-label="Aufteilung deines Gehalts auf die Konten">${segs}</div><ul class="legend">${leg}</ul></section>`;
-  h+=`<div class="kpis"><div class="kpi"><small>Automatisch verteilt</small><strong class="num">${eur(t.transfers)}</strong></div><div class="kpi"><small>Bleibt auf dem Hauptkonto</small><strong class="num ${t.rest<0?'neg':''}">${eur(t.rest)}</strong></div><div class="kpi"><small>Puffer auf Unterkonten / Monat</small><strong class="num pos">${eur(t.buffer)}</strong></div></div>`;
-  h+=`<h2 class="sec">Unterkonten <span>Überweisung im Vergleich zum tatsächlichen Bedarf</span></h2><div class="accs">`;
-  h+=t.acc.map(a=>{
-    const has=a.items.length,bad=has&&a.diff<-0.004;
-    const pill=!has?`<span class="pill neutral">Rücklage</span>`:bad?`<span class="pill bad">${eur(a.diff)} fehlen</span>`:`<span class="pill ok">+${eur(a.diff)} Puffer</span>`;
-    const w=a.transfer>0?Math.min(100,a.need/a.transfer*100):(has?100:0);
-    const body=has?`<div class="meter ${bad?'bad':''}" role="img" aria-label="${Math.round(w)} % der Überweisung verplant"><span style="width:${w}%"></span></div><details><summary>${a.items.length} ${a.items.length===1?'Zahlung':'Zahlungen'} anzeigen</summary><ul class="mini">${a.items.slice().sort((x,y)=>mon(y)-mon(x)).map(e=>`<li><span>${esc(e.name)}${e.period!=='monthly'?` <em>(${eur(e.amount)} ${PER[e.period][0]})</em>`:''}</span><span class="num">${eur(mon(e))}</span></li>`).join('')}</ul></details>`:`<p class="hint">Keine Zahlungen zugeordnet. Der Betrag sammelt sich jeden Monat als Rücklage an.</p>`;
-    return`<article class="acc" style="--c:${col(a.i)}"><header><span class="dot"></span><h3>${esc(a.name)}</h3>${pill}</header><div class="nums"><div><small>Überweisung</small><strong class="num">${eur(a.transfer)}</strong></div><div class="need"><small>Tatsächlicher Bedarf</small><strong class="num">${has?eur(a.need):'–'}</strong></div></div>${body}</article>`;
-  }).join('');
-  h+=`</div><h2 class="sec">Hauptkonto <span>was nach dem Verteiler übrig bleibt</span></h2><section class="panel lines">`+
-    `<div class="line"><span>Gehaltseingang</span><span class="num">${eur(t.inc)}</span></div>`+
-    `<div class="line"><span>Abzüglich Verteiler auf ${t.acc.length} Unterkonten</span><span class="num">−${eur(t.transfers)}</span></div>`+
-    t.mainItems.map(e=>`<div class="line"><span>${esc(e.name)} <span class="muted" style="font-size:13px">vom Hauptkonto</span></span><span class="num">−${eur(mon(e))}</span></div>`).join('')+
-    `<div class="line"><span>Frei zum Leben</span><span class="num ${t.life<0?'neg':'pos'}">${eur(t.life)}</span></div></section>`;
-  h+=`<p class="foot">Nicht monatliche Zahlungen zählen mit ihrem Monatsanteil: 600 € jährlich ergeben 50 € pro Monat. Der Puffer bleibt auf dem jeweiligen Unterkonto und deckt diese Zahlungen, wenn sie fällig werden.</p>`;
+  if(S.demo&&licensed)h+=`<div class="notice"><p>Das sind <b>Beispieldaten</b>.</p><button class="btn small" data-act="fresh">Eigene Daten</button></div>`;
+  if(t.rest<0)h+=`<div class="notice bad"><p>Der Verteiler überweist ${eur(-t.rest)} mehr, als Gehalt eingeht.</p></div>`;
+  h+=`<section class="hero2"><span class="lbl">Frei zum Leben im Monat</span><div class="huge num">${eur(t.life)}</div><p class="sub">${under.length?`<b class="warn">${under.length===1?'1 Konto braucht':under.length+' Konten brauchen'} mehr Geld</b>`:'<b>✓ Alle Konten gedeckt</b>'}<span>Gehalt ${eur(t.inc)}</span></p></section>`;
+  h+=`<h2 class="sec2">Deine Konten</h2><div class="alist">`;
+  h+=t.acc.map(a=>{const has=a.items.length,bad=has&&a.diff<-0.004;
+    return`<button class="arow ${bad?'isbad':''}" type="button" data-act="detail" data-id="${esc(a.id)}" style="--c:${col(a.i)}"><span class="cbar"></span><span class="aname"><b>${esc(a.name)}</b><small class="num">${eur(a.transfer)} im Monat</small></span>${accStatus(has,bad,a.diff)}<span class="chev" aria-hidden="true">›</span></button>`}).join('');
+  h+=`<button class="arow" type="button" data-act="detail" data-id="__main" style="--c:var(--k0)"><span class="cbar"></span><span class="aname"><b>Hauptkonto</b><small>Rest nach dem Verteiler</small></span><span class="st plain num">${eur(t.rest)}<small>bleiben</small></span><span class="chev" aria-hidden="true">›</span></button></div>`;
+  return h;
+}
+
+/* ---------- Einzelansicht eines Kontos ---------- */
+function vDetail(id){
+  const t=stats();const isMain=id==='__main';
+  const a=isMain?null:t.acc.find(x=>x.id===id);
+  if(!isMain&&!a){detail=null;return vVerteiler()}
+  const items=(isMain?t.mainItems:a.items).slice();
+  const name=isMain?'Hauptkonto':a.name, c=isMain?'var(--k0)':col(a.i);
+  const transfer=isMain?t.rest:a.transfer, need=isMain?t.mainNeed:a.need, diff=transfer-need, bad=items.length&&diff<-0.004;
+  const w=transfer>0?Math.min(100,need/transfer*100):(items.length?100:0);
+  let h=`<button class="back" type="button" data-act="back"><span aria-hidden="true">‹</span> Alle Konten</button>`;
+  h+=`<section class="dhero2" style="--c:${c}"><div class="dname"><span class="dot"></span>${esc(name)}</div>`;
+  if(items.length){
+    h+=`<span class="lbl">${isMain?'Frei zum Leben':(bad?'Fehlen im Monat':'Puffer im Monat')}</span><div class="huge num ${bad?'neg':'pos'}">${bad?'':'+'}${eur(diff)}</div>
+    <div class="meter ${bad?'bad':''}" role="img" aria-label="${Math.round(w)} % verplant"><span style="width:${w}%"></span></div>
+    <div class="pair num"><span>${isMain?'Nach Verteiler':'Überweisung'}<b>${eur(transfer)}</b></span><span>${isMain?'Abbuchungen':'Bedarf'}<b>${eur(need)}</b></span></div>`;
+    if(bad)h+=`<p class="tip">Stell den Verteiler bei deiner Bank auf mindestens <b>${eur(Math.ceil(need))}</b>.</p>`;
+  }else{
+    h+=`<span class="lbl">${isMain?'Bleibt im Monat':'Sammelt sich im Monat an'}</span><div class="huge num">${eur(transfer)}</div><p class="tip">${isMain?'Vom Hauptkonto geht keine Zahlung ab.':'Diesem Konto ist keine Zahlung zugeordnet.'}</p>`;
+  }
+  h+=`</section>`;
+  if(!items.length)return h;
+  const order=['monthly','quarterly','halfyear','yearly','weekly'];
+  const label={monthly:'Monatlich',quarterly:'Vierteljährlich',halfyear:'Halbjährlich',yearly:'Jährlich',weekly:'Wöchentlich'};
+  for(const p of order){
+    const g=items.filter(e=>e.period===p).sort((x,y)=>mon(y)-mon(x));if(!g.length)continue;
+    h+=`<h2 class="sec2">${label[p]}<span class="num">${eur(sum(g,mon))} / Monat</span></h2><div class="plist">`+
+      g.map(e=>`<div class="prow static"><span class="pname"><b>${esc(e.name)}</b>${p==='monthly'?'':`<small class="num">${eur(e.amount)} ${PER[p][0]}</small>`}</span><span class="pamt num">${eur(mon(e))}</span></div>`).join('')+`</div>`;
+  }
   return h;
 }
 
@@ -308,26 +400,33 @@ function perOptions(sel){return Object.entries(PER).map(([k,v])=>`<option value=
 function rowBtns(kind,id){return`<div class="icons"><button class="ib" data-act="edit" data-kind="${kind}" data-id="${esc(id)}" aria-label="Bearbeiten">✎</button><button class="ib ${armed===id?'armed':''}" data-act="del" data-kind="${kind}" data-id="${esc(id)}" aria-label="Löschen">${armed===id?'Löschen?':'×'}</button></div>`}
 function vZahlungen(){
   const e=edit&&edit.kind==='entry'?S.entries.find(x=>x.id===edit.id):null;
-  const dCat=e?e.cat:(filter!=='all'?filter:form.cat), dAcc=e?e.acc:accForCat(dCat), dPer=e?e.period:form.per;
-  let h=`<section class="panel"><h2 style="margin:0 0 4px;font-size:19px">${e?'Zahlung bearbeiten':'Zahlung hinzufügen'}</h2><p class="muted" style="margin:0 0 14px;font-size:14px">${e?'Ändere die Angaben und speichere.':'Kategorie, Konto und Rhythmus bleiben für die nächste Zahlung eingestellt. So trägst du mehrere Zahlungen nacheinander ein.'}</p>
-  <form class="form" id="fEntry"><div class="field w3 first"><label for="eName">Bezeichnung</label><input id="eName" maxlength="160" required placeholder="z. B. Hausrat" value="${e?esc(e.name):''}"></div>
-  <div class="field w3"><label for="eAmt">Betrag in €</label><input id="eAmt" type="number" inputmode="decimal" min="0.01" step="0.01" required placeholder="0,00" value="${e?e.amount:''}"></div>
-  <div class="field"><label for="ePer">Rhythmus</label><select id="ePer">${perOptions(dPer)}</select></div>
-  <div class="field"><label for="eCat">Kategorie</label><select id="eCat">${Object.keys(CAT).map(k=>`<option value="${k}" ${dCat===k?'selected':''}>${esc(catName(k))}</option>`).join('')}</select></div>
-  <div class="field"><label for="eAcc">Abbuchung von</label><select id="eAcc">${accOptions(dAcc)}</select></div>
-  <div class="actions"><button class="btn" type="submit">${e?'Änderung speichern':'Hinzufügen'}</button>${e?'<button class="btn ghost" type="button" data-act="cancel">Abbrechen</button>':''}</div></form></section>`;
+  let h='';
+  if(e||showForm){
+    const dCat=e?e.cat:(filter!=='all'?filter:form.cat), dAcc=e?e.acc:accForCat(dCat), dPer=e?e.period:form.per;
+    h+=`<section class="panel fpanel"><div class="fhead"><h2>${e?'Zahlung bearbeiten':'Neue Zahlung'}</h2><button class="x" type="button" data-act="cancel" aria-label="Schließen">✕</button></div>
+    <form class="form" id="fEntry"><div class="field w6"><label for="eName">Bezeichnung</label><input id="eName" maxlength="160" required placeholder="z. B. Hausrat" value="${e?esc(e.name):''}"></div>
+    <div class="field w3"><label for="eAmt">Betrag in €</label><input id="eAmt" type="number" inputmode="decimal" min="0.01" step="0.01" required placeholder="0,00" value="${e?e.amount:''}"></div>
+    <div class="field w3"><label for="ePer">Rhythmus</label><select id="ePer">${perOptions(dPer)}</select></div>
+    <div class="field w3"><label for="eCat">Kategorie</label><select id="eCat">${Object.keys(CAT).map(k=>`<option value="${k}" ${dCat===k?'selected':''}>${esc(catName(k))}</option>`).join('')}</select></div>
+    <div class="field w3"><label for="eAcc">Abbuchung von</label><select id="eAcc">${accOptions(dAcc)}</select></div>
+    <div class="actions"><button class="btn big" type="submit">${e?'Speichern':'Hinzufügen'}</button>${e?`<button class="btn danger big" type="button" data-act="del" data-kind="entry" data-id="${esc(e.id)}">${armed===e.id?'Wirklich löschen?':'Löschen'}</button>`:'<button class="btn ghost big" type="button" data-act="cancel">Fertig</button>'}</div></form>
+    ${e?'':'<p class="hint" style="margin-top:10px">Kategorie und Konto bleiben für die nächste Zahlung eingestellt.</p>'}</section>`;
+  }else{
+    h+=`<button class="btn add" type="button" data-act="addform">+ Zahlung hinzufügen</button>`;
+  }
   const cnt=k=>k==='all'?S.entries.length:S.entries.filter(x=>x.cat===k).length;
   h+=`<div class="chips" id="chips" role="group" aria-label="Nach Kategorie filtern">${[['all','Alle'],...Object.keys(CAT).map(k=>[k,catName(k)])].map(([k,v])=>`<button class="chip" data-act="filter" data-f="${k}" aria-pressed="${filter===k}">${esc(v)} <span class="cc">${cnt(k)}</span></button>`).join('')}</div>`;
   const list=S.entries.filter(x=>filter==='all'||x.cat===filter);
-  if(list.length)h+=`<p class="listsum"><b>${list.length} ${list.length===1?'Zahlung':'Zahlungen'}</b>${filter!=='all'?' in „'+esc(catName(filter))+'“':''} · ${eur(sum(list,mon))} pro Monat</p>`;
   if(!list.length)return h+`<div class="empty" style="margin-top:14px">Noch keine Zahlungen${filter!=='all'?' in dieser Kategorie':''}.</div>`;
   const groups=[...S.accounts.map((a,i)=>({id:a.id,name:a.name,c:col(i)})),{id:'',name:'Hauptkonto',c:'var(--k0)'}];
   const ids=new Set(S.accounts.map(a=>a.id));
   for(const g of groups){
-    const items=list.filter(x=>g.id===''?!ids.has(x.acc):x.acc===g.id).sort((a,b)=>a.name.localeCompare(b.name,'de'));
+    const items=list.filter(x=>g.id===''?!ids.has(x.acc):x.acc===g.id).sort((a,b)=>mon(b)-mon(a));
     if(!items.length)continue;
-    h+=`<div class="group"><h3><span class="dot" style="--c:${g.c}"></span>${esc(g.name)}<span class="amt">${eur(sum(items,mon))} / Monat</span></h3>`+items.map(x=>`<div class="row"><div><strong>${esc(x.name)}</strong><small><span class="cat">${esc(catShort(x.cat))}</span>${eur(x.amount)} ${PER[x.period][0]}</small></div><div class="r"><strong class="num">${eur(mon(x))}</strong><small>pro Monat</small></div>${rowBtns('entry',x.id)}</div>`).join('')+`</div>`;
+    h+=`<h2 class="sec2" style="--c:${g.c}"><span class="gname"><span class="dot"></span>${esc(g.name)}</span><span class="num">${eur(sum(items,mon))} / Monat</span></h2><div class="plist">`+
+      items.map(x=>`<button class="prow" type="button" data-act="edit" data-kind="entry" data-id="${esc(x.id)}"><span class="pname"><b>${esc(x.name)}</b>${x.period==='monthly'?'':`<small class="num">${eur(x.amount)} ${PER[x.period][0]}</small>`}</span><span class="pamt num">${eur(mon(x))}</span><span class="chev" aria-hidden="true">›</span></button>`).join('')+`</div>`;
   }
+  h+=`<p class="hint" style="margin-top:14px">Beträge pro Monat. Tippe eine Zahlung an, um sie zu ändern oder zu löschen.</p>`;
   return h;
 }
 
@@ -335,40 +434,71 @@ function vZahlungen(){
 function vKonten(){
   const ei=edit&&edit.kind==='income'?S.income.find(x=>x.id===edit.id):null;
   const ea=edit&&edit.kind==='account'?S.accounts.find(x=>x.id===edit.id):null;
-  let h=`<h2 class="sec" style="margin-top:4px">Einnahmen</h2><section class="panel">`+
-    (S.income.length?S.income.map(x=>`<div class="row"><div><strong>${esc(x.name)}</strong><small>${eur(x.amount)} ${PER[x.period][0]}</small></div><div class="r"><strong class="num">${eur(mon(x))}</strong><small>pro Monat</small></div>${rowBtns('income',x.id)}</div>`).join(''):'<div class="empty">Noch kein Gehalt eingetragen.</div>')+
-    `<form class="form" id="fIncome" style="margin-top:14px"><div class="field first"><label for="iName">Bezeichnung</label><input id="iName" maxlength="160" required placeholder="z. B. Gehalt" value="${ei?esc(ei.name):''}"></div><div class="field"><label for="iAmt">Betrag in €</label><input id="iAmt" type="number" inputmode="decimal" min="0.01" step="0.01" required placeholder="0,00" value="${ei?ei.amount:''}"></div><div class="field"><label for="iPer">Rhythmus</label><select id="iPer">${perOptions(ei?ei.period:'monthly')}</select></div><div class="actions"><button class="btn" type="submit">${ei?'Änderung speichern':'Einnahme hinzufügen'}</button>${ei?'<button class="btn ghost" type="button" data-act="cancel">Abbrechen</button>':''}</div></form></section>`;
-  h+=`<h2 class="sec">Unterkonten <span>fester Betrag, den die Bank bei Gehaltseingang überweist</span></h2><section class="panel">`+
-    (S.accounts.length?S.accounts.map((a,i)=>{const n=S.entries.filter(e=>e.acc===a.id).length;return`<div class="row"><div><strong><span class="dot" style="--c:${col(i)};display:inline-block;margin-right:7px"></span>${esc(a.name)}</strong><small>${n} ${n===1?'Zahlung':'Zahlungen'} zugeordnet</small></div><div class="r"><strong class="num">${eur(a.transfer)}</strong><small>pro Monat</small></div>${rowBtns('account',a.id)}</div>`}).join(''):'<div class="empty">Noch keine Unterkonten. Lege z. B. „Versicherungen“ oder „Gläubigerkonto“ an.</div>')+
-    `<form class="form" id="fAcc" style="margin-top:14px"><div class="field w3 first"><label for="aName">Kontoname</label><input id="aName" maxlength="60" required placeholder="z. B. Versicherungen" value="${ea?esc(ea.name):''}"></div><div class="field w3"><label for="aAmt">Überweisung pro Monat in €</label><input id="aAmt" type="number" inputmode="decimal" min="0" step="0.01" required placeholder="0,00" value="${ea?ea.transfer:''}"></div><div class="actions"><button class="btn" type="submit">${ea?'Änderung speichern':'Unterkonto hinzufügen'}</button>${ea?'<button class="btn ghost" type="button" data-act="cancel">Abbrechen</button>':''}</div></form>
-    <p class="hint" style="margin-top:12px">Löschst du ein Unterkonto, wandern seine Zahlungen aufs Hauptkonto.</p></section>`;
-  h+=`<h2 class="sec">Kategorien <span>nenne sie so, wie du sie im Alltag nennst</span></h2><section class="panel"><form class="form" id="fCats">${Object.keys(CAT).map(k=>`<div class="field"><label for="cn_${k}">Statt „${CAT[k]}“</label><input id="cn_${k}" maxlength="40" placeholder="${CAT[k]}" value="${esc(S.catNames&&S.catNames[k]||'')}"></div>`).join('')}<div class="actions"><button class="btn" type="submit">Namen speichern</button></div></form><p class="hint" style="margin-top:12px">Leeres Feld = Standardname. Deine Zahlungen bleiben dabei unverändert.</p></section>`;
-  h+=`<h2 class="sec">Sicherung</h2><section class="panel"><p class="hint" style="margin-bottom:12px">Deine Daten bleiben nur auf diesem Gerät. Kopiere die Sicherung und bewahre sie z. B. in einer Notiz auf. Zum Wiederherstellen fügst du sie unten ein.</p>
-    <div class="actions" style="margin-bottom:12px"><button class="btn ghost" data-act="copy">Sicherung kopieren</button></div>
-    <form id="fImport"><label class="muted" for="impText" style="display:block;font-size:12px;font-weight:700;margin-bottom:5px">Sicherung einfügen</label><textarea id="impText" placeholder='{"v":1, …}'></textarea><div class="actions" style="margin-top:8px"><button class="btn ghost" type="submit">Sicherung einlesen</button><button class="btn danger ${armed==='__reset'?'':''}" type="button" data-act="reset">${armed==='__reset'?'Wirklich alles löschen?':'Alle Daten löschen'}</button></div></form></section>
-    <p class="foot"><b>© 2026 Finanzielle Ordnung · Kai Kremer.</b> Werkzeug zur eigenständigen Organisation deiner Einnahmen und Ausgaben. Keine Bankanbindung und keine Anlage-, Kredit-, Rechts- oder Steuerberatung. <a href="https://finanzielle-ordnung.de/impressum.html" target="_blank" rel="noopener noreferrer" style="color:var(--accent)">Impressum</a></p>`;
+  const delBtn=(kind,id)=>`<button class="btn danger big" type="button" data-act="del" data-kind="${kind}" data-id="${esc(id)}">${armed===id?'Wirklich löschen?':'Löschen'}</button>`;
+  const head=(t,close)=>`<div class="fhead"><h2>${t}</h2><button class="x" type="button" data-act="cancel" aria-label="Schließen">✕</button></div>`;
+  let h='';
+  /* Einnahmen */
+  h+=`<h2 class="sec2" style="margin-top:6px">Einnahmen<span class="num">${eur(sum(S.income,mon))} / Monat</span></h2>`;
+  if(ei||kForm==='income'){
+    h+=`<section class="panel fpanel">${head(ei?'Einnahme bearbeiten':'Neue Einnahme')}<form class="form" id="fIncome"><div class="field w6"><label for="iName">Bezeichnung</label><input id="iName" maxlength="160" required placeholder="z. B. Gehalt" value="${ei?esc(ei.name):''}"></div><div class="field w3"><label for="iAmt">Betrag in €</label><input id="iAmt" type="number" inputmode="decimal" min="0.01" step="0.01" required placeholder="0,00" value="${ei?ei.amount:''}"></div><div class="field w3"><label for="iPer">Rhythmus</label><select id="iPer">${perOptions(ei?ei.period:'monthly')}</select></div><div class="actions"><button class="btn big" type="submit">${ei?'Speichern':'Hinzufügen'}</button>${ei?delBtn('income',ei.id):''}</div></form></section>`;
+  }
+  if(S.income.length)h+=`<div class="plist">`+S.income.map(x=>`<button class="prow" type="button" data-act="edit" data-kind="income" data-id="${esc(x.id)}"><span class="pname"><b>${esc(x.name)}</b>${x.period==='monthly'?'':`<small class="num">${eur(x.amount)} ${PER[x.period][0]}</small>`}</span><span class="pamt num">${eur(mon(x))}</span><span class="chev" aria-hidden="true">›</span></button>`).join('')+`</div>`;
+  else if(kForm!=='income')h+=`<div class="empty">Noch kein Gehalt eingetragen.</div>`;
+  if(!ei&&kForm!=='income')h+=`<button class="btn ghost add2" type="button" data-act="addincome">+ Einnahme hinzufügen</button>`;
+
+  /* Unterkonten */
+  h+=`<h2 class="sec2">Unterkonten<span class="num">${eur(sum(S.accounts,a=>a.transfer))} / Monat</span></h2>`;
+  if(ea||kForm==='account'){
+    h+=`<section class="panel fpanel">${head(ea?'Unterkonto bearbeiten':'Neues Unterkonto')}<form class="form" id="fAcc"><div class="field w6"><label for="aName">Kontoname</label><input id="aName" maxlength="60" required placeholder="z. B. Versicherungen" value="${ea?esc(ea.name):''}"></div><div class="field w6"><label for="aAmt">Überweisung pro Monat in €</label><input id="aAmt" type="number" inputmode="decimal" min="0" step="0.01" required placeholder="0,00" value="${ea?ea.transfer:''}"></div><div class="actions"><button class="btn big" type="submit">${ea?'Speichern':'Hinzufügen'}</button>${ea?delBtn('account',ea.id):''}</div></form>${ea?'<p class="hint" style="margin-top:10px">Löschst du das Konto, wandern seine Zahlungen aufs Hauptkonto.</p>':'<p class="hint" style="margin-top:10px">Der feste Betrag, den deine Bank bei Gehaltseingang überweist.</p>'}</section>`;
+  }
+  if(S.accounts.length)h+=`<div class="plist">`+S.accounts.map((a,i)=>{const n=S.entries.filter(e=>e.acc===a.id).length;return`<button class="prow" type="button" data-act="edit" data-kind="account" data-id="${esc(a.id)}" style="--c:${col(i)}"><span class="cbar"></span><span class="pname"><b>${esc(a.name)}</b><small>${n} ${n===1?'Zahlung':'Zahlungen'}</small></span><span class="pamt num">${eur(a.transfer)}</span><span class="chev" aria-hidden="true">›</span></button>`}).join('')+`</div>`;
+  else if(kForm!=='account')h+=`<div class="empty">Noch keine Unterkonten.</div>`;
+  if(!ea&&kForm!=='account')h+=`<button class="btn ghost add2" type="button" data-act="addacc">+ Unterkonto hinzufügen</button>`;
+
+  /* Einstellungen */
+  h+=`<h2 class="sec2">Einstellungen</h2>`;
+  if(kForm==='cats'){
+    h+=`<section class="panel fpanel">${head('Kategorien benennen')}<form class="form" id="fCats">${Object.keys(CAT).map(k=>`<div class="field w6"><label for="cn_${k}">Statt „${CAT[k]}“</label><input id="cn_${k}" maxlength="40" placeholder="${CAT[k]}" value="${esc(S.catNames&&S.catNames[k]||'')}"></div>`).join('')}<div class="actions"><button class="btn big" type="submit">Speichern</button></div></form><p class="hint" style="margin-top:10px">Leeres Feld = Standardname.</p></section>`;
+  }else if(kForm==='import'){
+    h+=`<section class="panel fpanel">${head('Sicherung einfügen')}<form id="fImport"><label for="impText" class="hint" style="display:block;margin-bottom:8px">Füge hier den kopierten Sicherungstext ein. Er ersetzt alle aktuellen Daten.</label><textarea id="impText" placeholder='{"v":1, …}'></textarea><div class="actions" style="margin-top:10px"><button class="btn big" type="submit">Sicherung einlesen</button></div></form></section>`;
+  }else if(kForm==='copy'){
+    h+=`<section class="panel fpanel">${head('Sicherung kopieren')}<p class="hint" style="margin-bottom:8px">Der Text ist markiert. Tippe auf „Kopieren“ und speichere ihn z. B. in deinen Notizen.</p><textarea id="copyText" readonly>${esc(JSON.stringify(S))}</textarea></section>`;
+  }else if(kForm==='reset'){
+    h+=`<section class="panel fpanel">${head('Alle Daten löschen')}<p class="hint" style="margin-bottom:12px">Alle Einnahmen, Konten und Zahlungen auf diesem Gerät werden gelöscht. Kopiere vorher eine Sicherung.</p><div class="actions"><button class="btn danger big" type="button" data-act="reset">${armed==='__reset'?'Wirklich alles löschen?':'Alles löschen'}</button></div></section>`;
+  }
+  h+=`<div class="plist">
+    <button class="prow" type="button" data-act="kform" data-f="cats"><span class="pname"><b>Kategorien benennen</b><small>${Object.keys(CAT).map(k=>esc(catName(k))).join(' · ')}</small></span><span class="chev" aria-hidden="true">›</span></button>
+    <button class="prow" type="button" data-act="copy"><span class="pname"><b>Sicherung kopieren</b><small>Daten sichern, z. B. in deinen Notizen</small></span><span class="chev" aria-hidden="true">›</span></button>
+    <button class="prow" type="button" data-act="kform" data-f="import"><span class="pname"><b>Sicherung einfügen</b><small>Gesicherte Daten wiederherstellen</small></span><span class="chev" aria-hidden="true">›</span></button>
+    <button class="prow" type="button" data-act="kform" data-f="reset"><span class="pname"><b class="neg">Alle Daten löschen</b></span><span class="chev" aria-hidden="true">›</span></button>
+  </div>`;
+  h+=`<p class="foot"><b>© 2026 Finanzielle Ordnung · Kai Kremer.</b> Werkzeug zur eigenständigen Organisation deiner Einnahmen und Ausgaben. Keine Bankanbindung und keine Anlage-, Kredit-, Rechts- oder Steuerberatung. Deine Daten bleiben nur auf diesem Gerät. <a href="https://finanzielle-ordnung.de/impressum.html" target="_blank" rel="noopener noreferrer" style="color:var(--accent)">Impressum</a></p>`;
   return h;
 }
 
 function render(){
   document.querySelectorAll('.tab').forEach(b=>b.setAttribute('aria-current',b.dataset.tab===tab?'page':'false'));
   $('#demoTag').hidden=!S.demo;
-  $('#view').innerHTML=lockNote()+(tab==='verteiler'?vVerteiler():tab==='zahlungen'?vZahlungen():vKonten());
+  $('#view').innerHTML=(tab==='verteiler'&&detail?'':lockNote())+(tab==='verteiler'?(detail?vDetail(detail):vVerteiler()):tab==='zahlungen'?vZahlungen():vKonten());
 }
-function setTab(t){tab=t;edit=null;armed=null;try{localStorage.setItem(KEY+'_tab',t)}catch{}render();scrollTo({top:0})}
+function setTab(t){tab=t;edit=null;armed=null;detail=null;showForm=false;kForm=null;try{localStorage.setItem(KEY+'_tab',t)}catch{}render();scrollTo({top:0})}
 function arm(id){armed=id;clearTimeout(armTimer);armTimer=setTimeout(()=>{armed=null;render()},3500);render()}
 function owned(){if(S.demo){S.demo=false}}
 
 document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>setTab(b.dataset.tab)));
 document.addEventListener('click',ev=>{
   const b=ev.target.closest('[data-act]');if(!b)return;const act=b.dataset.act,id=b.dataset.id,kind=b.dataset.kind;
+  if(act==='detail'){detail=b.dataset.id;render();scrollTo({top:0});return}
+  if(act==='back'){detail=null;render();scrollTo({top:0});return}
   if(act==='unlock')return openUnlock();
   if(act==='closeUnlock')return closeUnlock();
-  if(!licensed&&['edit','del','fresh','reset'].includes(act))return openUnlock();
+  if(!licensed&&['edit','del','fresh','reset','addform','addincome','addacc','kform'].includes(act))return openUnlock();
   if(act==='goto')setTab(b.dataset.to);
   else if(act==='filter'){filter=b.dataset.f;render();const c=$('#chips');if(c)c.scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}
-  else if(act==='cancel'){edit=null;render()}
-  else if(act==='edit'){edit={kind,id};render();const f=document.querySelector(kind==='entry'?'#eName':kind==='income'?'#iName':'#aName');if(f){f.focus();f.scrollIntoView({block:'center'})}}
+  else if(act==='cancel'){edit=null;showForm=false;kForm=null;armed=null;render()}
+  else if(act==='addincome'||act==='addacc'||act==='kform'){edit=null;armed=null;kForm=act==='addincome'?'income':act==='addacc'?'account':b.dataset.f;render();const p=document.querySelector('.fpanel');if(p)p.scrollIntoView({block:'center'});const f=document.querySelector(kForm==='income'?'#iName':kForm==='account'?'#aName':kForm==='import'?'#impText':'#nothing');if(f)f.focus()}
+  else if(act==='addform'){showForm=true;render();const f=$('#eName');if(f)f.focus()}
+  else if(act==='edit'){edit={kind,id};kForm=null;armed=null;render();const f=document.querySelector(kind==='entry'?'#eName':kind==='income'?'#iName':'#aName');if(f){f.focus();f.scrollIntoView({block:'center'})}}
   else if(act==='del'){
     if(armed!==id)return arm(id);
     armed=null;owned();
@@ -378,7 +508,7 @@ document.addEventListener('click',ev=>{
     if(edit&&edit.id===id)edit=null;changed();toast('Gelöscht')}
   else if(act==='fresh'){S={v:1,demo:false,income:[],accounts:[],entries:[]};edit=null;changed();setTab('konten');toast('Leerer Start. Trage zuerst dein Gehalt ein.')}
   else if(act==='reset'){if(armed!=='__reset')return arm('__reset');armed=null;S={v:1,demo:false,income:[],accounts:[],entries:[]};edit=null;changed();toast('Alle Daten gelöscht')}
-  else if(act==='copy'){const txt=JSON.stringify(S);const fb=()=>{const t=$('#impText');t.value=txt;t.focus();t.select();toast('Sicherung markiert. Jetzt kopieren.')};try{navigator.clipboard.writeText(txt).then(()=>toast('Sicherung kopiert'),fb)}catch{fb()}}
+  else if(act==='copy'){const txt=JSON.stringify(S);const fb=()=>{kForm='copy';render();const t=$('#copyText');if(t){t.scrollIntoView({block:'center'});t.focus();t.select()}};try{navigator.clipboard.writeText(txt).then(()=>toast('Sicherung kopiert. Füge sie z. B. in deine Notizen ein.'),fb)}catch{fb()}}
 });
 document.addEventListener('change',ev=>{
   if(ev.target.id==='eCat'&&!(edit&&edit.kind==='entry')){const a=$('#eAcc');if(a)a.value=accForCat(ev.target.value)}
@@ -390,7 +520,7 @@ document.addEventListener('submit',ev=>{
   if(f.id==='fEntry'){const name=$('#eName').value.trim(),amount=n($('#eAmt').value),period=$('#ePer').value,cat=$('#eCat').value,acc=$('#eAcc').value;
     if(!name||!(amount>0))return toast('Bitte Bezeichnung und Betrag eintragen.');
     owned();const e=edit&&edit.kind==='entry'&&S.entries.find(x=>x.id===edit.id);
-    if(e)Object.assign(e,{name,amount,period,cat,acc});else{S.entries.push({id:uid(),name,amount,period,cat,acc});form.cat=cat;form.per=period;form.catAcc[cat]=acc;saveForm()}
+    if(e){Object.assign(e,{name,amount,period,cat,acc});showForm=false}else{S.entries.push({id:uid(),name,amount,period,cat,acc});form.cat=cat;form.per=period;form.catAcc[cat]=acc;saveForm()}
     edit=null;changed();toast(e?'Gespeichert':'Zahlung hinzugefügt');$('#eName')?.focus()}
   if(f.id==='fIncome'){const name=$('#iName').value.trim(),amount=n($('#iAmt').value),period=$('#iPer').value;
     if(!name||!(amount>0))return toast('Bitte Bezeichnung und Betrag eintragen.');
