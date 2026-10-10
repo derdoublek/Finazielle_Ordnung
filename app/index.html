@@ -214,6 +214,7 @@ body{font-size:16.5px}
 .aname,.pname{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
 .aname b{font-size:18px;overflow-wrap:anywhere}.pname b{font-size:17px;font-weight:700;overflow-wrap:anywhere}
 .aname small,.pname small{font-size:14px;color:var(--muted)}
+.aname small.need{font-size:13.5px}
 .st{display:flex;flex-direction:column;align-items:flex-end;font-size:18px;font-weight:800;white-space:nowrap}
 .st small{font-size:12.5px;font-weight:600;color:var(--muted)}
 .st.ok{color:var(--ok)}.st.bad{color:var(--bad)}.st.neutral{font-size:14px;color:var(--muted);font-weight:700}.st.plain{color:var(--ink)}
@@ -364,8 +365,8 @@ function vVerteiler(){
   h+=`<section class="hero2"><span class="lbl">Frei zum Leben im Monat</span><div class="huge num">${eur(t.life)}</div><p class="sub">${under.length?`<b class="warn">${under.length===1?'1 Konto braucht':under.length+' Konten brauchen'} mehr Geld</b>`:'<b>✓ Alle Konten gedeckt</b>'}<span>Geldeingang ${eur(t.inc)}</span></p></section>`;
   h+=`<h2 class="sec2">Deine Konten</h2><div class="alist">`;
   h+=t.acc.map(a=>{const has=a.items.length,bad=has&&a.diff<-0.004;
-    return`<button class="arow ${bad?'isbad':''}" type="button" data-act="detail" data-id="${esc(a.id)}" style="--c:${col(a.i)}"><span class="cbar"></span><span class="aname"><b>${esc(a.name)}</b><small class="num">${eur(a.transfer)} im Monat</small></span>${accStatus(has,bad,a.diff)}<span class="chev" aria-hidden="true">›</span></button>`}).join('');
-  h+=`<button class="arow" type="button" data-act="detail" data-id="__main" style="--c:var(--k0)"><span class="cbar"></span><span class="aname"><b>Lebenkonto</b><small>Rest nach dem Verteiler</small></span><span class="st plain num">${eur(t.rest)}<small>bleiben</small></span><span class="chev" aria-hidden="true">›</span></button></div>`;
+    return`<button class="arow ${bad?'isbad':''}" type="button" data-act="detail" data-id="${esc(a.id)}" style="--c:${col(a.i)}"><span class="cbar"></span><span class="aname"><b>${esc(a.name)}</b><small class="num">Überweisung ${eur(a.transfer)}</small><small class="num need">Bedarf ${has?eur(a.need):'–'}</small></span>${accStatus(has,bad,a.diff)}<span class="chev" aria-hidden="true">›</span></button>`}).join('');
+  h+=`<button class="arow" type="button" data-act="detail" data-id="__main" style="--c:var(--k0)"><span class="cbar"></span><span class="aname"><b>Lebenkonto</b><small>Rest nach dem Verteiler</small>${t.mainItems.length?`<small class="num need">Bedarf ${eur(t.mainNeed)}</small>`:''}</span><span class="st plain num">${eur(t.rest)}<small>bleiben</small></span><span class="chev" aria-hidden="true">›</span></button></div>`;
   return h;
 }
 
