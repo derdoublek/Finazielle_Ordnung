@@ -202,6 +202,9 @@ const KEY='fo_kontoverteiler_v1';
 const PER={monthly:['monatlich',1],quarterly:['vierteljährlich',3],halfyear:['halbjährlich',6],yearly:['jährlich',12],weekly:['wöchentlich',12/52]};
 const CAT={creditors:'Fixkosten',insurance:'Versicherungen',rates:'Raten'};
 const CAT1={creditors:'Fixkosten',insurance:'Versicherung',rates:'Rate'};
+/* Eigene Kategorienamen (in den Daten gespeichert, Standard bleibt für alle anderen) */
+const catName=k=>(S&&S.catNames&&typeof S.catNames[k]==='string'&&S.catNames[k])||CAT[k];
+const catShort=k=>(S&&S.catNames&&typeof S.catNames[k]==='string'&&S.catNames[k])||CAT1[k];
 const fmt=new Intl.NumberFormat('de-DE',{style:'currency',currency:'EUR'});
 const eur=n=>{const v=Math.round(n*100)/100;return fmt.format(v===0?0:v)};
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -304,10 +307,10 @@ function vZahlungen(){
   <form class="form" id="fEntry"><div class="field w3 first"><label for="eName">Bezeichnung</label><input id="eName" maxlength="160" required placeholder="z. B. Hausrat" value="${e?esc(e.name):''}"></div>
   <div class="field w3"><label for="eAmt">Betrag in €</label><input id="eAmt" type="number" inputmode="decimal" min="0.01" step="0.01" required placeholder="0,00" value="${e?e.amount:''}"></div>
   <div class="field"><label for="ePer">Rhythmus</label><select id="ePer">${perOptions(dPer)}</select></div>
-  <div class="field"><label for="eCat">Kategorie</label><select id="eCat">${Object.entries(CAT).map(([k,v])=>`<option value="${k}" ${dCat===k?'selected':''}>${v}</option>`).join('')}</select></div>
+  <div class="field"><label for="eCat">Kategorie</label><select id="eCat">${Object.keys(CAT).map(k=>`<option value="${k}" ${dCat===k?'selected':''}>${esc(catName(k))}</option>`).join('')}</select></div>
   <div class="field"><label for="eAcc">Abbuchung von</label><select id="eAcc">${accOptions(dAcc)}</select></div>
   <div class="actions"><button class="btn" type="submit">${e?'Änderung speichern':'Hinzufügen'}</button>${e?'<button class="btn ghost" type="button" data-act="cancel">Abbrechen</button>':''}</div></form></section>`;
-  h+=`<div class="chips" role="group" aria-label="Nach Kategorie filtern">${[['all','Alle'],...Object.entries(CAT)].map(([k,v])=>`<button class="chip" data-act="filter" data-f="${k}" aria-pressed="${filter===k}">${v}</button>`).join('')}</div>`;
+  h+=`<div class="chips" role="group" aria-label="Nach Kategorie filtern">${[['all','Alle'],...Object.keys(CAT).map(k=>[k,catName(k)])].map(([k,v])=>`<button class="chip" data-act="filter" data-f="${k}" aria-pressed="${filter===k}">${esc(v)}</button>`).join('')}</div>`;
   const list=S.entries.filter(x=>filter==='all'||x.cat===filter);
   if(!list.length)return h+`<div class="empty" style="margin-top:14px">Noch keine Zahlungen${filter!=='all'?' in dieser Kategorie':''}.</div>`;
   const groups=[...S.accounts.map((a,i)=>({id:a.id,name:a.name,c:col(i)})),{id:'',name:'Hauptkonto',c:'var(--k0)'}];
@@ -315,7 +318,7 @@ function vZahlungen(){
   for(const g of groups){
     const items=list.filter(x=>g.id===''?!ids.has(x.acc):x.acc===g.id).sort((a,b)=>a.name.localeCompare(b.name,'de'));
     if(!items.length)continue;
-    h+=`<div class="group"><h3><span class="dot" style="--c:${g.c}"></span>${esc(g.name)}<span class="amt">${eur(sum(items,mon))} / Monat</span></h3>`+items.map(x=>`<div class="row"><div><strong>${esc(x.name)}</strong><small><span class="cat">${CAT1[x.cat]}</span>${eur(x.amount)} ${PER[x.period][0]}</small></div><div class="r"><strong class="num">${eur(mon(x))}</strong><small>pro Monat</small></div>${rowBtns('entry',x.id)}</div>`).join('')+`</div>`;
+    h+=`<div class="group"><h3><span class="dot" style="--c:${g.c}"></span>${esc(g.name)}<span class="amt">${eur(sum(items,mon))} / Monat</span></h3>`+items.map(x=>`<div class="row"><div><strong>${esc(x.name)}</strong><small><span class="cat">${esc(catShort(x.cat))}</span>${eur(x.amount)} ${PER[x.period][0]}</small></div><div class="r"><strong class="num">${eur(mon(x))}</strong><small>pro Monat</small></div>${rowBtns('entry',x.id)}</div>`).join('')+`</div>`;
   }
   return h;
 }
@@ -331,6 +334,7 @@ function vKonten(){
     (S.accounts.length?S.accounts.map((a,i)=>{const n=S.entries.filter(e=>e.acc===a.id).length;return`<div class="row"><div><strong><span class="dot" style="--c:${col(i)};display:inline-block;margin-right:7px"></span>${esc(a.name)}</strong><small>${n} ${n===1?'Zahlung':'Zahlungen'} zugeordnet</small></div><div class="r"><strong class="num">${eur(a.transfer)}</strong><small>pro Monat</small></div>${rowBtns('account',a.id)}</div>`}).join(''):'<div class="empty">Noch keine Unterkonten. Lege z. B. „Versicherungen“ oder „Gläubigerkonto“ an.</div>')+
     `<form class="form" id="fAcc" style="margin-top:14px"><div class="field w3 first"><label for="aName">Kontoname</label><input id="aName" maxlength="60" required placeholder="z. B. Versicherungen" value="${ea?esc(ea.name):''}"></div><div class="field w3"><label for="aAmt">Überweisung pro Monat in €</label><input id="aAmt" type="number" inputmode="decimal" min="0" step="0.01" required placeholder="0,00" value="${ea?ea.transfer:''}"></div><div class="actions"><button class="btn" type="submit">${ea?'Änderung speichern':'Unterkonto hinzufügen'}</button>${ea?'<button class="btn ghost" type="button" data-act="cancel">Abbrechen</button>':''}</div></form>
     <p class="hint" style="margin-top:12px">Löschst du ein Unterkonto, wandern seine Zahlungen aufs Hauptkonto.</p></section>`;
+  h+=`<h2 class="sec">Kategorien <span>nenne sie so, wie du sie im Alltag nennst</span></h2><section class="panel"><form class="form" id="fCats">${Object.keys(CAT).map(k=>`<div class="field"><label for="cn_${k}">Statt „${CAT[k]}“</label><input id="cn_${k}" maxlength="40" placeholder="${CAT[k]}" value="${esc(S.catNames&&S.catNames[k]||'')}"></div>`).join('')}<div class="actions"><button class="btn" type="submit">Namen speichern</button></div></form><p class="hint" style="margin-top:12px">Leeres Feld = Standardname. Deine Zahlungen bleiben dabei unverändert.</p></section>`;
   h+=`<h2 class="sec">Sicherung</h2><section class="panel"><p class="hint" style="margin-bottom:12px">Deine Daten bleiben nur auf diesem Gerät. Kopiere die Sicherung und bewahre sie z. B. in einer Notiz auf. Zum Wiederherstellen fügst du sie unten ein.</p>
     <div class="actions" style="margin-bottom:12px"><button class="btn ghost" data-act="copy">Sicherung kopieren</button></div>
     <form id="fImport"><label class="muted" for="impText" style="display:block;font-size:12px;font-weight:700;margin-bottom:5px">Sicherung einfügen</label><textarea id="impText" placeholder='{"v":1, …}'></textarea><div class="actions" style="margin-top:8px"><button class="btn ghost" type="submit">Sicherung einlesen</button><button class="btn danger ${armed==='__reset'?'':''}" type="button" data-act="reset">${armed==='__reset'?'Wirklich alles löschen?':'Alle Daten löschen'}</button></div></form></section>
@@ -388,7 +392,8 @@ document.addEventListener('submit',ev=>{
     if(!name||!(transfer>=0))return toast('Bitte Kontoname und Betrag eintragen.');
     owned();const a=edit&&edit.kind==='account'&&S.accounts.find(x=>x.id===edit.id);
     if(a)Object.assign(a,{name,transfer});else S.accounts.push({id:uid(),name,transfer});edit=null;changed();toast('Gespeichert')}
-  if(f.id==='fImport'){try{const d=JSON.parse($('#impText').value);if(!validState(d))throw 0;S={v:1,demo:false,income:d.income,accounts:d.accounts,entries:d.entries};edit=null;changed();toast('Sicherung eingelesen')}catch{toast('Das ist keine gültige Sicherung.')}}
+  if(f.id==='fCats'){owned();const c={};Object.keys(CAT).forEach(k=>{const v=$('#cn_'+k).value.trim().slice(0,40);if(v)c[k]=v});S.catNames=c;changed();toast('Kategorienamen gespeichert')}
+  if(f.id==='fImport'){try{const d=JSON.parse($('#impText').value);if(!validState(d))throw 0;const cn={};if(d.catNames&&typeof d.catNames==='object')Object.keys(CAT).forEach(k=>{if(typeof d.catNames[k]==='string'&&d.catNames[k].trim())cn[k]=d.catNames[k].trim().slice(0,40)});S={v:1,demo:false,catNames:cn,income:d.income,accounts:d.accounts,entries:d.entries};edit=null;changed();toast('Sicherung eingelesen')}catch{toast('Das ist keine gültige Sicherung.')}}
 });
 render();
 (()=>{
