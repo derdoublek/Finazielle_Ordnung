@@ -1,0 +1,46 @@
+.stage{display:flex;flex-wrap:wrap;gap:48px 80px;align-items:flex-start;justify-content:center}
+.side{flex:1 1 300px;max-width:420px;display:flex;flex-direction:column;gap:20px;padding-top:12px}
+.phone{flex:0 0 auto;width:390px;max-width:100%;height:800px;background:#f5f6f0;border:10px solid #0f3a29;border-radius:38px;overflow:hidden;display:flex;flex-direction:column;position:relative;font-family:'Manrope',system-ui,sans-serif;color:#1a2d24;font-size:16px;line-height:1.4;box-shadow:0 30px 60px -30px rgba(15,58,41,.5)}
+.ah{padding:14px 18px 12px;border-bottom:1px solid #e2e7dc;background:#f5f6f0}
+.ah b{display:block;font-weight:800;letter-spacing:.08em;font-size:13px}
+.ah b i{font-style:normal;color:#0c8458}
+.ah span{font-size:13px;color:#5f7268}
+.body{flex:1;overflow-y:auto;padding:16px 16px 24px}
+.tabs{display:flex;gap:6px;padding:8px 10px 10px;border-top:1px solid #e2e7dc;background:#fff}
+.tabs button{flex:1;border:0;background:transparent;border-radius:12px;padding:8px 4px;display:flex;flex-direction:column;align-items:center;gap:3px;font:600 12px 'Manrope',sans-serif;color:#5f7268;cursor:pointer;min-height:48px}
+.tabs button[aria-selected=true]{background:#eef2e7;color:#0c8458}
+.tabs svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.hero2{background:#164e38;color:#fff;border-radius:22px;padding:22px 20px}
+.hero2 small{font-size:13px;font-weight:600;color:#cfe6d8}
+.hero2 .big{font-size:44px;font-weight:800;letter-spacing:-.03em;line-height:1.1;margin:4px 0 12px}
+.hero2 .ln{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:13px;color:#cfe6d8}
+.hero2 .ln b{color:#fff}
+.sec{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#5f7268;margin:22px 4px 10px;display:flex;justify-content:space-between;gap:8px}
+.sec span{letter-spacing:0;text-transform:none;font-weight:700;font-size:13px}
+.card{background:#fff;border:1px solid #e2e7dc;border-radius:18px;overflow:hidden}
+.rw{display:flex;align-items:center;gap:12px;padding:14px 16px;border:0;background:transparent;width:100%;text-align:left;font:inherit;color:inherit;cursor:pointer;border-bottom:1px solid #e2e7dc}
+.rw:last-child{border-bottom:0}
+.rw .bar{width:5px;align-self:stretch;border-radius:3px;flex:0 0 5px}
+.rw .mid{flex:1;min-width:0}
+.rw .t{font-weight:700;font-size:17px}
+.rw .s{font-size:13px;color:#5f7268}
+.rw .r{text-align:right}
+.rw .r b{font-size:17px;font-weight:800}
+.rw .r .s{display:block}
+.rw svg{width:16px;height:16px;stroke:#5f7268;fill:none;stroke-width:2;flex:0 0 16px}
+.pos{color:#0c7a51}
+.det{background:#f5f6f0;padding:4px 16px 10px 33px;border-bottom:1px solid #e2e7dc}
+.det div{display:flex;justify-content:space-between;gap:12px;padding:6px 0;font-size:14px;border-bottom:1px dashed #d6ddd0}
+.det div:last-child{border-bottom:0}
+.det small{color:#5f7268}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:2px 0 14px}
+.chips button{flex:0 0 auto;border:1px solid #e2e7dc;background:#fff;border-radius:999px;padding:9px 14px;font:700 14px 'Manrope',sans-serif;color:#5f7268;cursor:pointer;min-height:40px}
+.chips button span{font-weight:500;margin-left:4px}
+.chips button[aria-pressed=true]{background:#1a2d24;border-color:#1a2d24;color:#fff}
+.addb{display:block;width:100%;border:0;border-radius:16px;background:#0c8458;color:#fff;font:700 17px 'Manrope',sans-serif;padding:15px;margin-bottom:14px;cursor:pointer}
+.addb.l{background:#eef2e7;color:#1a2d24;border:1px solid #e2e7dc;font-weight:600;margin:10px 0 0}
+.gh{display:flex;align-items:center;gap:8px;margin:6px 2px 8px;font-weight:800;font-size:17px}
+.gh i{width:12px;height:12px;border-radius:4px;display:block}
+.gh span{margin-left:auto;font-weight:700;font-size:13px;color:#5f7268}
+.toast{position:absolute;left:16px;right:16px;bottom:78px;background:#1a2d24;color:#fff;border-radius:12px;padding:12px 14px;font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .2s}
+.toast.on{opacity:1}

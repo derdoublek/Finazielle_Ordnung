@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Entwurf – Finanzielle Ordnung</title>
+<meta name="description" content="Finanzplaner mit Kontoverteiler: Gehalt, Unterkonten und Zahlungen eintragen und sehen, ob jedes Konto gedeckt ist. Einmalig 19,95 €, kein Abo.">
+<meta name="theme-color" content="#164e38">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="stil.css">
+<link rel="stylesheet" href="planer-demo.css">
+<meta name="robots" content="noindex">
+<style>
+.hero{background:#164e38;color:#f1f5f2}
+.hero .in{padding-top:36px;padding-bottom:88px}
+.hero h1{margin:0;font-size:clamp(44px,8.2vw,92px);line-height:.98;font-weight:800;letter-spacing:-.035em;max-width:980px}
+.eyebrow{font-size:15px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#e3c46a}
+.label{font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#4c5f55}
+.facts{display:flex;flex-wrap:wrap;border-top:1px solid rgba(241,245,242,.28);margin-top:72px}
+.facts div{flex:1 1 200px;padding:18px 0;font-weight:600;color:#e9f0ec}
+.tool{display:flex;flex-wrap:wrap;gap:48px 72px;align-items:flex-start}
+.tool-l{flex:1 1 320px;max-width:400px;display:flex;flex-direction:column;gap:28px}
+.tool-r{flex:2 1 480px;min-width:0}
+.bignum{display:flex;align-items:baseline;gap:8px;border-bottom:2px solid #12241b;margin-top:6px}
+.bignum input{flex:1;min-width:0;border:0;background:transparent;font-size:clamp(40px,6vw,60px);font-weight:800;letter-spacing:-.03em;color:#12241b;padding:0;outline:none}
+.bignum span{font-size:36px;font-weight:700}
+.bar{display:flex;height:16px;gap:2px}
+.bar i{display:block;min-width:0}
+.leg{margin-top:16px;display:flex;flex-direction:column;gap:6px;font-size:15px}
+.leg div{display:flex;align-items:center;gap:10px}
+.leg b{width:10px;height:10px;flex:0 0 10px}
+.leg span{flex:1}
+.leg em{font-style:normal;font-weight:600}
+.acc{border-top:1.5px solid #12241b;padding:22px 0 26px}
+.acc .top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 24px}
+.acc .nm{font-size:24px;font-weight:700;letter-spacing:-.01em}
+.acc .sub{margin-top:14px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 24px;font-size:15px;color:#4c5f55}
+.acc .sub strong{color:#12241b;font-size:18px}
+.acc input[type=range]{margin-top:6px}
+.meter{margin-top:10px;height:6px;background:#d3dcd5;position:relative}
+.meter i{position:absolute;left:0;top:0;bottom:0}
+.lnk{margin-top:14px;padding:0;border:0;background:transparent;color:#164e38;font-weight:700;font-size:15px;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.items{margin-top:14px;display:none;flex-direction:column;font-size:16px}
+.items.open{display:flex}
+.items div{display:flex;justify-content:space-between;gap:16px;padding:8px 0;border-bottom:1px solid #d3dcd5}
+.items small{color:#5a6e63;font-size:14px}
+.ok{color:#1d6b4a}.bad{color:#a83a24}
+.sum{border-top:3px solid #12241b;padding-top:22px;display:flex;flex-wrap:wrap;gap:12px 48px;justify-content:space-between;align-items:baseline;color:#4c5f55}
+.sum strong{color:#12241b;font-size:24px}
+.calc{background:#164e38;color:#f1f5f2}
+.calc .in{padding-top:96px;padding-bottom:96px;display:flex;flex-wrap:wrap;gap:56px 88px;align-items:flex-start}
+.calc h2{margin:0;font-size:clamp(32px,4.4vw,46px);line-height:1.05;font-weight:800;letter-spacing:-.03em}
+.calc p{margin:0;color:#c9dbd1}
+.calc .bignum{border-color:#f1f5f2}
+.calc .bignum input{color:#f1f5f2;font-size:44px}
+.calc .bignum span{font-size:28px}
+.rh{margin-top:8px;display:flex;flex-wrap:wrap;gap:8px}
+.rh button{padding:11px 16px;min-height:44px;border-radius:3px;border:1.5px solid rgba(241,245,242,.45);background:transparent;color:#f1f5f2;font-weight:600;font-size:15px;cursor:pointer}
+.rh button.on{border-color:#e3c46a;background:#e3c46a;color:#0f3a29;font-weight:700}
+.result{margin-top:32px;border-top:1px solid rgba(241,245,242,.28);padding-top:20px}
+.result .big{font-size:clamp(48px,7vw,76px);line-height:1.05;font-weight:800;letter-spacing:-.035em;color:#e3c46a}
+.steps,.feats{display:flex;flex-wrap:wrap;gap:40px 56px}
+.steps>div,.feats>div{flex:1 1 280px;min-width:0}
+.steps>div{border-top:1.5px solid #12241b;padding-top:20px}
+.steps .n{font-size:88px;line-height:.9;font-weight:800;letter-spacing:-.04em;color:#164e38}
+.steps h3{margin:20px 0 10px;font-size:23px;line-height:1.2;font-weight:700}
+.steps p,.feats p{margin:0;color:#4c5f55;font-size:16px}
+.feats{border-top:1.5px solid #12241b;padding-top:32px}
+.feats h3{margin:0 0 8px;font-size:21px;font-weight:700}
+.price{background:#0f3a29;color:#f1f5f2}
+.price .in{padding-top:96px;padding-bottom:96px}
+.offers{margin-top:56px;display:flex;flex-wrap:wrap;border-top:1px solid rgba(241,245,242,.28)}
+.offer{min-width:0;box-sizing:border-box;padding-top:32px;display:flex;flex-direction:column;gap:20px}
+.offer.a{flex:3 1 420px;padding-right:48px}
+.offer.b{flex:2 1 320px;padding-left:48px;border-left:1px solid rgba(241,245,242,.28)}
+.offer .p{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 16px}
+.offer .p b{font-size:clamp(52px,7vw,80px);line-height:1;font-weight:800;letter-spacing:-.035em}
+.offer .p span{color:#b9d0c4}
+.offer ul{margin:0;padding:0;list-style:none}
+.offer li{padding:10px 0;border-bottom:1px solid rgba(241,245,242,.2)}
+@media (max-width:760px){.offer.a{padding-right:0}.offer.b{padding-left:0;border-left:0;border-top:1px solid rgba(241,245,242,.28);margin-top:32px}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+<div class="wrap in">
+<a href="index.html" class="mark">FINANZIELLE ORDNUNG</a>
+
+<div style="margin-top:clamp(56px,10vw,120px);display:flex;flex-direction:column;gap:20px">
+<div class="eyebrow">Finanzplaner mit Kontoverteiler</div>
+<h1>Dein Geld. Endlich übersichtlich.</h1>
+</div>
+
+<div style="margin-top:48px;display:flex;flex-wrap:wrap;gap:40px 80px;align-items:flex-end;justify-content:space-between">
+<p style="margin:0;flex:1 1 380px;max-width:520px;font-size:20px;line-height:1.5;color:#c9dbd1">Trag dein Gehalt, deine Unterkonten und jede Zahlung ein. Der Planer zeigt dir, ob jedes Konto gedeckt ist und was im Monat frei bleibt. Auch jährliche Beiträge rechnet er auf den Monat um.</p>
+<div style="display:flex;flex-wrap:wrap;gap:12px">
+<a class="btn btn-line" href="#vorschau">Vorschau kostenlos ansehen</a>
+<a class="btn btn-gold" href="https://www.checkout-ds24.com/product/741586">Für 19,95 € kaufen</a>
+</div>
+</div>
+
+<div class="facts">
+<div>Einmalig 19,95 €</div><div>Kein Abo</div><div>Keine Bankanbindung</div><div>Läuft als App auf dem Handy</div>
+</div>
+</div>
+</header>
+
+<main>
+<section class="wrap" style="padding-top:96px;padding-bottom:40px">
+<div style="display:flex;flex-wrap:wrap;gap:32px 80px;align-items:flex-start">
+<div style="flex:1 1 280px;max-width:360px">
+<div style="font-size:14px;font-weight:700;letter-spacing:.12em;color:#5a6e63;text-transform:uppercase">Vorher</div>
+<h2 style="margin:12px 0;font-size:30px;line-height:1.15;font-weight:700;color:#5a6e63;letter-spacing:-.01em">Zahlungen überall. Kein Überblick.</h2>
+<p style="margin:0;color:#5a6e63">Monatlich, jährlich, Raten, Versicherungen. Wie viel muss eigentlich auf welches Konto?</p>
+</div>
+<div style="flex:2 1 460px;min-width:0">
+<div style="font-size:14px;font-weight:700;letter-spacing:.12em;color:#164e38;text-transform:uppercase">Nachher</div>
+<h2 style="margin:12px 0;font-size:clamp(36px,5.4vw,56px);line-height:1.02;font-weight:800;letter-spacing:-.03em">Jede Zahlung hat ihr Konto.</h2>
+<p style="margin:0;max-width:560px">Jährliche Beiträge auf den Monat umgerechnet. Pro Konto siehst du Bedarf und Puffer.</p>
+</div>
+</div>
+</section>
+
+<section id="vorschau" class="wrap" style="padding-top:24px;padding-bottom:96px">
+<div class="stage">
+<div class="side">
+<div class="lab">Probier es aus</div>
+<h2 style="margin:0;font-size:clamp(30px,4vw,40px);line-height:1.08;font-weight:800;letter-spacing:-.03em">Das ist der echte Planer. Mit Beispieldaten.</h2>
+<p style="margin:0;color:#4c5f55">Wechsle unten zwischen Verteiler, Zahlungen und Konten. Tippe auf ein Konto, um seine Zahlungen zu sehen. Gespeichert wird nichts.</p>
+</div>
+
+<div class="phone" role="application" aria-label="Vorschau des Planers">
+<div class="ah"><b>FINANZIELLE <i>ORDNUNG</i></b><span>Mein Kontoverteiler</span></div>
+<div class="body" id="body"></div>
+<div id="toast" class="toast" role="status"></div>
+<div class="tabs" role="tablist" aria-label="Bereiche">
+<button type="button" role="tab" data-tab="v" aria-selected="true"><svg viewBox="0 0 24 24"><path d="M12 3v7M12 10l-6 6M12 10l6 6"/><circle cx="12" cy="3" r="1.4"/><circle cx="6" cy="18" r="2.4"/><circle cx="18" cy="18" r="2.4"/></svg>Verteiler</button>
+<button type="button" role="tab" data-tab="z" aria-selected="false"><svg viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1.2"/><circle cx="4.5" cy="12" r="1.2"/><circle cx="4.5" cy="18" r="1.2"/></svg>Zahlungen</button>
+<button type="button" role="tab" data-tab="k" aria-selected="false"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2.5"/><path d="M3 10.5h18M7 15h4"/></svg>Konten</button>
+</div>
+</div>
+</div>
+</section>
+
+<section id="preis" class="price">
+<div class="wrap in">
+<h2 style="margin:0;font-size:clamp(36px,5.4vw,56px);line-height:1.02;font-weight:800;letter-spacing:-.03em">Erst ansehen. Dann entscheiden.</h2>
+<p style="margin:16px 0 0;max-width:560px;color:#b9d0c4">Die Vorschau zeigt den kompletten Planer mit Beispieldaten. Du richtest ihn selbst ein oder lässt dir dabei helfen.</p>
+<div class="offers">
+<div class="offer a">
+<div class="eyebrow" style="font-size:14px">Finanzplaner</div>
+<div class="p"><b class="num">19,95 €</b><span>einmalig, kein Abo</span></div>
+<ul style="font-size:17px">
+<li>Kontoverteiler mit Überweisung, Bedarf und Puffer</li>
+<li>Fixkosten, Versicherungen und Raten in einer Liste</li>
+<li>Jährliche Zahlungen automatisch auf den Monat umgerechnet</li>
+<li>Als App fürs Handy, auch offline</li>
+</ul>
+<div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:8px">
+<a class="btn btn-gold" href="https://www.checkout-ds24.com/product/741586">Jetzt kaufen und herunterladen</a>
+<a class="btn btn-line" href="#vorschau">Erst die Vorschau ansehen</a>
+</div>
+</div>
+<div class="offer b">
+<div style="font-size:14px;font-weight:700;letter-spacing:.12em;color:#b9d0c4;text-transform:uppercase">Einmalige Einrichtung</div>
+<div class="p"><b class="num">99 €</b><span>einmalig</span></div>
+<p style="margin:0;color:#c9dbd1;font-size:17px">Du willst nicht allein starten? Wir gehen deine Einnahmen, Zahlungen und Konten gemeinsam durch und verschaffen dir den Überblick. Danach läuft dein Planer.</p>
+<div><a class="btn" href="ueber-mich.html" style="border-color:rgba(241,245,242,.6);color:#f1f5f2">Einrichtung anfragen</a></div>
+</div>
+</div>
+</div>
+</section>
+</main>
+
+<footer class="foot">
+<div class="wrap" style="padding-top:32px;padding-bottom:48px;display:flex;flex-direction:column;gap:20px">
+<p style="margin:0;max-width:720px">Finanzielle Ordnung ist ein Werkzeug zur eigenständigen Organisation deiner Einnahmen und Ausgaben. Es ersetzt keine Anlage-, Versicherungs-, Kredit-, Rechts- oder Steuerberatung.</p>
+<div style="display:flex;flex-wrap:wrap;gap:8px 28px;justify-content:space-between">
+<span>© 2026 Finanzielle Ordnung · Kai Kremer</span>
+<span style="display:flex;gap:24px"><a href="ueber-mich.html">Über mich</a><a href="impressum.html">Impressum</a></span>
+</div>
+</div>
+</footer>
+
+<script src="planer-demo.js"></script>
+</body>
+</html>
