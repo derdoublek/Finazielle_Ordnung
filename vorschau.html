@@ -8,108 +8,93 @@
 <meta name="theme-color" content="#164e38">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Schibsted+Grotesk:wght@400;500;600;700;800&amp;display=swap">
 <link rel="stylesheet" href="stil.css">
 <style>
-.kpis{display:flex;flex-wrap:wrap;border-top:1.5px solid #12241b}
-.kpis>div{flex:1 1 240px;padding:18px 24px 18px 0}
-.kpis .k{font-size:14px;color:#4c5f55;font-weight:600}
-.kpis .v{font-size:30px;font-weight:800;letter-spacing:-.02em}
-.accs{display:flex;flex-wrap:wrap;gap:0 48px}
-.acc{flex:1 1 300px;min-width:0;border-top:1.5px solid #12241b;padding:20px 0 26px;display:flex;flex-direction:column;gap:12px}
-.acc .h{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
-.acc .h strong{flex:1;font-size:22px;letter-spacing:-.01em}
-.acc .sw{width:12px;height:12px;display:inline-block;flex:0 0 12px}
-.ok{color:#1d6b4a;font-weight:700;font-size:15px}
-.mut{color:#4c5f55;font-size:15px}
-.two{display:flex;gap:24px}
-.two>div{flex:1}
-.two small{display:block;font-size:13px;color:#4c5f55}
-.two b{font-size:21px}
-.trk{height:6px;background:#d3dcd5}
-.trk i{display:block;height:100%}
+.stage{display:flex;flex-wrap:wrap;gap:48px 80px;align-items:flex-start;justify-content:center}
+.side{flex:1 1 300px;max-width:420px;display:flex;flex-direction:column;gap:20px;padding-top:12px}
+.phone{flex:0 0 auto;width:390px;max-width:100%;height:800px;background:#f5f6f0;border:10px solid #0f3a29;border-radius:38px;overflow:hidden;display:flex;flex-direction:column;position:relative;font-family:'Manrope',system-ui,sans-serif;color:#1a2d24;font-size:16px;line-height:1.4;box-shadow:0 30px 60px -30px rgba(15,58,41,.5)}
+.ah{padding:14px 18px 12px;border-bottom:1px solid #e2e7dc;background:#f5f6f0}
+.ah b{display:block;font-weight:800;letter-spacing:.08em;font-size:13px}
+.ah b i{font-style:normal;color:#0c8458}
+.ah span{font-size:13px;color:#5f7268}
+.body{flex:1;overflow-y:auto;padding:16px 16px 24px}
+.tabs{display:flex;gap:6px;padding:8px 10px 10px;border-top:1px solid #e2e7dc;background:#fff}
+.tabs button{flex:1;border:0;background:transparent;border-radius:12px;padding:8px 4px;display:flex;flex-direction:column;align-items:center;gap:3px;font:600 12px 'Manrope',sans-serif;color:#5f7268;cursor:pointer;min-height:48px}
+.tabs button[aria-selected=true]{background:#eef2e7;color:#0c8458}
+.tabs svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.hero2{background:#164e38;color:#fff;border-radius:22px;padding:22px 20px}
+.hero2 small{font-size:13px;font-weight:600;color:#cfe6d8}
+.hero2 .big{font-size:44px;font-weight:800;letter-spacing:-.03em;line-height:1.1;margin:4px 0 12px}
+.hero2 .ln{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:13px;color:#cfe6d8}
+.hero2 .ln b{color:#fff}
+.sec{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#5f7268;margin:22px 4px 10px;display:flex;justify-content:space-between;gap:8px}
+.sec span{letter-spacing:0;text-transform:none;font-weight:700;font-size:13px}
+.card{background:#fff;border:1px solid #e2e7dc;border-radius:18px;overflow:hidden}
+.rw{display:flex;align-items:center;gap:12px;padding:14px 16px;border:0;background:transparent;width:100%;text-align:left;font:inherit;color:inherit;cursor:pointer;border-bottom:1px solid #e2e7dc}
+.rw:last-child{border-bottom:0}
+.rw .bar{width:5px;align-self:stretch;border-radius:3px;flex:0 0 5px}
+.rw .mid{flex:1;min-width:0}
+.rw .t{font-weight:700;font-size:17px}
+.rw .s{font-size:13px;color:#5f7268}
+.rw .r{text-align:right}
+.rw .r b{font-size:17px;font-weight:800}
+.rw .r .s{display:block}
+.rw svg{width:16px;height:16px;stroke:#5f7268;fill:none;stroke-width:2;flex:0 0 16px}
+.pos{color:#0c7a51}
+.det{background:#f5f6f0;padding:4px 16px 10px 33px;border-bottom:1px solid #e2e7dc}
+.det div{display:flex;justify-content:space-between;gap:12px;padding:6px 0;font-size:14px;border-bottom:1px dashed #d6ddd0}
+.det div:last-child{border-bottom:0}
+.det small{color:#5f7268}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:2px 0 14px}
+.chips button{flex:0 0 auto;border:1px solid #e2e7dc;background:#fff;border-radius:999px;padding:9px 14px;font:700 14px 'Manrope',sans-serif;color:#5f7268;cursor:pointer;min-height:40px}
+.chips button span{font-weight:500;margin-left:4px}
+.chips button[aria-pressed=true]{background:#1a2d24;border-color:#1a2d24;color:#fff}
+.addb{display:block;width:100%;border:0;border-radius:16px;background:#0c8458;color:#fff;font:700 17px 'Manrope',sans-serif;padding:15px;margin-bottom:14px;cursor:pointer}
+.addb.l{background:#eef2e7;color:#1a2d24;border:1px solid #e2e7dc;font-weight:600;margin:10px 0 0}
+.gh{display:flex;align-items:center;gap:8px;margin:6px 2px 8px;font-weight:800;font-size:17px}
+.gh i{width:12px;height:12px;border-radius:4px;display:block}
+.gh span{margin-left:auto;font-weight:700;font-size:13px;color:#5f7268}
+.toast{position:absolute;left:16px;right:16px;bottom:78px;background:#1a2d24;color:#fff;border-radius:12px;padding:12px 14px;font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .2s}
+.toast.on{opacity:1}
+.cta{border-top:3px solid #12241b;padding-top:32px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
 </style>
 </head>
 <body>
 
 <header class="band">
-<div class="wrap" style="padding-top:36px;padding-bottom:88px">
+<div class="wrap" style="padding-top:36px;padding-bottom:80px">
 <a href="index.html" class="mark">FINANZIELLE ORDNUNG</a>
 <div style="margin-top:clamp(48px,8vw,96px)">
 <div class="eyebrow">Vorschau mit Beispieldaten</div>
 <h1 class="page-h1" style="margin-top:20px">So sieht dein Monat im Planer aus.</h1>
 <p style="margin:28px 0 0;color:#c9dbd1;font-size:20px;line-height:1.5;max-width:36em">Ein Gehalt, fünf Unterkonten, jede Zahlung zugeordnet. Die Zahlen sind erfunden. In deiner Version trägst du deine eigenen ein.</p>
 </div>
-
-<div style="margin-top:72px;display:flex;flex-wrap:wrap;gap:24px 64px;align-items:flex-end">
-<div><div style="font-size:14px;font-weight:600;color:#b9d0c4">Gehaltseingang pro Monat</div><div class="num" style="font-size:clamp(44px,7vw,72px);font-weight:800;letter-spacing:-.035em;line-height:1.05">3.400,00 €</div></div>
-<div><div style="font-size:14px;font-weight:600;color:#b9d0c4">Frei zum Leben</div><div class="num" style="font-size:clamp(34px,5vw,48px);font-weight:800;letter-spacing:-.03em;color:#e3c46a;line-height:1.1">620,10 €</div></div>
-</div>
-<div style="display:flex;gap:2px;height:16px;margin:28px 0 14px">
-<span style="width:10.3%;background:#a6c5b4"></span><span style="width:7.35%;background:#79a98f"></span><span style="width:55.9%;background:#4b8a6c"></span><span style="width:4.4%;background:#2d6a50"></span><span style="width:2.95%;background:#0f3a29;outline:1px solid #a6c5b4;outline-offset:-1px"></span><span style="width:19.1%;background:#e3c46a"></span>
-</div>
-<div style="display:flex;flex-wrap:wrap;gap:6px 20px;font-size:14px;color:#b9d0c4">
-<span>Auto <b class="num" style="color:#fff">350 €</b></span><span>Versicherungen <b class="num" style="color:#fff">250 €</b></span><span>Gläubigerkonto <b class="num" style="color:#fff">1.900 €</b></span><span>Rücklagen <b class="num" style="color:#fff">150 €</b></span><span>Urlaub <b class="num" style="color:#fff">100 €</b></span><span>Hauptkonto <b class="num" style="color:#fff">650 €</b></span>
-</div>
 </div>
 </header>
 
-<main class="wrap" style="padding-top:64px;padding-bottom:88px;display:flex;flex-direction:column;gap:56px">
+<main class="wrap" style="padding-top:72px;padding-bottom:96px;display:flex;flex-direction:column;gap:80px">
 
-<div class="kpis">
-<div><div class="k">Automatisch verteilt</div><div class="v num">2.750,00 €</div></div>
-<div><div class="k">Bleibt auf dem Hauptkonto</div><div class="v num">650,00 €</div></div>
-<div><div class="k">Puffer auf Unterkonten / Monat</div><div class="v num ok" style="font-size:30px;font-weight:800">223,02 €</div></div>
+<div class="stage">
+<div class="side">
+<div class="lab">Probier es aus</div>
+<h2 style="margin:0;font-size:clamp(30px,4vw,40px);line-height:1.08;font-weight:800;letter-spacing:-.03em">Das ist der echte Planer. Mit Beispieldaten.</h2>
+<p style="margin:0;color:#4c5f55">Wechsle unten zwischen Verteiler, Zahlungen und Konten. Tippe auf ein Konto, um seine Zahlungen zu sehen. Gespeichert wird nichts.</p>
 </div>
 
-<section>
-<div class="lab" style="margin-bottom:24px">Unterkonten <span style="text-transform:none;letter-spacing:0;font-weight:500;margin-left:8px">Überweisung im Vergleich zum tatsächlichen Bedarf</span></div>
-<div class="accs">
-
-<div class="acc">
-<div class="h"><span class="sw" style="background:#a6c5b4"></span><strong>Auto</strong><span class="ok num">+80,50 € Puffer</span></div>
-<div class="two num"><div><small>Überweisung</small><b>350,00 €</b></div><div><small>Tatsächlicher Bedarf</small><b style="color:#4c5f55">269,50 €</b></div></div>
-<div class="trk"><i style="width:77%;background:#164e38"></i></div>
-<div class="mut">4 Zahlungen</div>
+<div class="phone" role="application" aria-label="Vorschau des Planers">
+<div class="ah"><b>FINANZIELLE <i>ORDNUNG</i></b><span>Mein Kontoverteiler</span></div>
+<div class="body" id="body"></div>
+<div id="toast" class="toast" role="status"></div>
+<div class="tabs" role="tablist" aria-label="Bereiche">
+<button type="button" role="tab" data-tab="v" aria-selected="true"><svg viewBox="0 0 24 24"><path d="M12 3v7M12 10l-6 6M12 10l6 6"/><circle cx="12" cy="3" r="1.4"/><circle cx="6" cy="18" r="2.4"/><circle cx="18" cy="18" r="2.4"/></svg>Verteiler</button>
+<button type="button" role="tab" data-tab="z" aria-selected="false"><svg viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1.2"/><circle cx="4.5" cy="12" r="1.2"/><circle cx="4.5" cy="18" r="1.2"/></svg>Zahlungen</button>
+<button type="button" role="tab" data-tab="k" aria-selected="false"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2.5"/><path d="M3 10.5h18M7 15h4"/></svg>Konten</button>
+</div>
+</div>
 </div>
 
-<div class="acc">
-<div class="h"><span class="sw" style="background:#79a98f"></span><strong>Versicherungen</strong><span class="ok num">+56,08 € Puffer</span></div>
-<div class="two num"><div><small>Überweisung</small><b>250,00 €</b></div><div><small>Tatsächlicher Bedarf</small><b style="color:#4c5f55">193,92 €</b></div></div>
-<div class="trk"><i style="width:77.6%;background:#164e38"></i></div>
-<div class="mut">5 Zahlungen</div>
-</div>
-
-<div class="acc">
-<div class="h"><span class="sw" style="background:#4b8a6c"></span><strong>Gläubigerkonto</strong><span class="ok num">+86,44 € Puffer</span></div>
-<div class="two num"><div><small>Überweisung</small><b>1.900,00 €</b></div><div><small>Tatsächlicher Bedarf</small><b style="color:#4c5f55">1.813,56 €</b></div></div>
-<div class="trk"><i style="width:95.5%;background:#164e38"></i></div>
-<div class="mut">2 Zahlungen</div>
-</div>
-
-<div class="acc">
-<div class="h"><span class="sw" style="background:#2d6a50"></span><strong>Rücklagen</strong><span class="mut" style="font-weight:700">Rücklage</span></div>
-<div class="two num"><div><small>Überweisung</small><b>150,00 €</b></div><div><small>Tatsächlicher Bedarf</small><b style="color:#4c5f55">–</b></div></div>
-<div class="mut">Keine Zahlungen zugeordnet. Der Betrag sammelt sich jeden Monat an.</div>
-</div>
-
-<div class="acc">
-<div class="h"><span class="sw" style="background:#0f3a29"></span><strong>Urlaub</strong><span class="mut" style="font-weight:700">Rücklage</span></div>
-<div class="two num"><div><small>Überweisung</small><b>100,00 €</b></div><div><small>Tatsächlicher Bedarf</small><b style="color:#4c5f55">–</b></div></div>
-<div class="mut">Keine Zahlungen zugeordnet. Der Betrag sammelt sich jeden Monat an.</div>
-</div>
-
-<div class="acc" style="gap:10px">
-<div class="h"><span class="sw" style="background:#e3c46a"></span><strong>Hauptkonto</strong></div>
-<div class="num" style="display:flex;justify-content:space-between"><span>Nach dem Verteiler</span><span>650,00 €</span></div>
-<div class="num" style="display:flex;justify-content:space-between"><span>Fitnessstudio</span><span>−29,90 €</span></div>
-<div class="num" style="display:flex;justify-content:space-between;font-weight:800;border-top:1px solid #12241b;padding-top:10px"><span>Frei zum Leben</span><span style="color:#1d6b4a">620,10 €</span></div>
-</div>
-
-</div>
-</section>
-
-<section style="border-top:3px solid #12241b;padding-top:32px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap">
+<section class="cta">
 <div style="min-width:0;flex:1 1 320px"><h2 style="margin:0 0 6px;font-size:clamp(28px,3.6vw,38px);line-height:1.1;font-weight:800;letter-spacing:-.03em">Passt der Planer zu dir?</h2><p style="margin:0;color:#4c5f55">Einmalig 19,95 €, kein Abo. Nach dem Kauf bekommst du den Planer als App zum Installieren.</p></div>
 <div style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn btn-dark" href="https://www.checkout-ds24.com/product/741586">Für 19,95 € kaufen</a><a class="btn" href="index.html" style="border-color:#164e38;color:#164e38">Zur Startseite</a></div>
 </section>
@@ -122,5 +107,76 @@
 </div>
 </footer>
 
+<script>
+(function(){
+// Beispieldaten, alle erfunden. per = Monate pro Zahlung
+var INCOME=3400;
+var ACCS=[
+ {id:'g',name:'Gläubigerkonto',color:'#2f7d5b',t:1900,items:[['Kreditrate',1450,1],['Ratenkauf',363.56,1]]},
+ {id:'v',name:'Versicherungen',color:'#b8862b',t:250,items:[['Berufsunfähigkeit',87,1],['Kfz-Versicherung',64.5,1],['Rechtsschutz',26.42,1],['Hausrat',114,12],['Privathaftpflicht',78,12]]},
+ {id:'a',name:'Auto',color:'#4b6fa8',t:350,items:[['Tanken',200,1],['Werkstatt',600,12],['Kfz-Steuer',180,12],['Automobilclub',54,12]]},
+ {id:'r',name:'Rücklagen',color:'#8a5a9f',t:150,items:[]},
+ {id:'u',name:'Urlaub',color:'#c25a48',t:100,items:[]}
+];
+var CHEV='<svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>';
+function fmt(n){return n.toLocaleString('de-DE',{minimumFractionDigits:2,maximumFractionDigits:2})+' €';}
+function m(it){return it[1]/it[2];}
+function need(a){return a.items.reduce(function(s,it){return s+m(it);},0);}
+function cnt(a){return a.items.length===1?'1 Zahlung':a.items.length+' Zahlungen';}
+var sumT=ACCS.reduce(function(s,a){return s+a.t;},0);
+var state={tab:'v',open:'',filter:'all'};
+var body=document.getElementById('body'),toast=document.getElementById('toast'),tt;
+function say(msg){toast.textContent=msg;toast.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('on');},2200);}
+function note(it){return it[2]===12?fmt(it[1]).replace(',00','')+'/Jahr':'';}
+
+function viewV(){
+ var h='<div class="hero2"><small>Frei zum Leben im Monat</small><div class="big num">'+fmt(INCOME-sumT)+'</div><div class="ln"><b>✓ Alle Konten gedeckt</b><span>Geldeingang '+fmt(INCOME)+'</span></div></div>';
+ h+='<div class="sec">Deine Konten</div><div class="card">';
+ ACCS.forEach(function(a){
+  var has=a.items.length>0,open=state.open===a.id,d=a.t-need(a);
+  h+='<button type="button" class="rw" data-acc="'+a.id+'" aria-expanded="'+open+'"><span class="bar" style="background:'+a.color+'"></span><span class="mid"><div class="t">'+a.name+'</div><div class="s num">Überweisung '+fmt(a.t)+'</div>'+(has?'<div class="s num">Bedarf '+fmt(need(a))+'</div>':'')+'</span><span class="r">'+(has?'<b class="pos num">+'+fmt(d).replace('+','')+'</b><span class="s">Puffer</span>':'<b class="num" style="color:#5f7268">Rücklage</b>')+'</span>'+CHEV+'</button>';
+  if(open&&has)h+='<div class="det">'+a.items.slice().sort(function(x,y){return m(y)-m(x);}).map(function(it){return '<div><span>'+it[0]+' <small>'+note(it)+'</small></span><b class="num">'+fmt(m(it))+'</b></div>';}).join('')+'</div>';
+  if(open&&!has)h+='<div class="det"><div><span>Keine Zahlungen zugeordnet.</span></div><div><small>Der Betrag sammelt sich jeden Monat an.</small></div></div>';
+ });
+ h+='<div class="rw" style="cursor:default"><span class="bar" style="background:#9aa89f"></span><span class="mid"><div class="t">Lebenskonto</div><div class="s">Rest nach dem Verteiler</div></span><span class="r"><b class="num">'+fmt(INCOME-sumT)+'</b><span class="s">bleiben</span></span></div></div>';
+ return h;
+}
+function viewZ(){
+ var all=ACCS.filter(function(a){return a.items.length;}),total=all.reduce(function(s,a){return s+a.items.length;},0);
+ var h='<button type="button" class="addb" data-toast="1">+ Zahlung hinzufügen</button><div class="chips" role="group" aria-label="Filter"><button type="button" data-f="all" aria-pressed="'+(state.filter==='all')+'">Alle<span class="num">'+total+'</span></button>';
+ all.forEach(function(a){h+='<button type="button" data-f="'+a.id+'" aria-pressed="'+(state.filter===a.id)+'">'+a.name+'<span class="num">'+a.items.length+'</span></button>';});
+ h+='</div>';
+ all.filter(function(a){return state.filter==='all'||state.filter===a.id;}).forEach(function(a){
+  h+='<div class="gh"><i style="background:'+a.color+'"></i>'+a.name+'<span class="num">'+fmt(need(a))+' / Monat</span></div><div class="card" style="margin-bottom:16px">';
+  a.items.slice().sort(function(x,y){return m(y)-m(x);}).forEach(function(it){
+   h+='<button type="button" class="rw" data-toast="1"><span class="mid"><div class="t" style="font-size:16px">'+it[0]+'</div>'+(note(it)?'<div class="s">'+note(it)+'</div>':'')+'</span><span class="r"><b class="num">'+fmt(m(it))+'</b></span>'+CHEV+'</button>';
+  });
+  h+='</div>';
+ });
+ return h;
+}
+function viewK(){
+ var h='<div class="sec" style="margin-top:6px">Geldeingang <span class="num">'+fmt(INCOME)+' / Monat</span></div><div class="card"><button type="button" class="rw" data-toast="1"><span class="mid"><div class="t">Gehalt</div></span><span class="r"><b class="num">'+fmt(INCOME)+'</b></span>'+CHEV+'</button></div><button type="button" class="addb l" data-toast="1">+ Einnahme hinzufügen</button>';
+ h+='<div class="sec">Unterkonten <span class="num">'+fmt(sumT)+' / Monat</span></div><div class="card">';
+ ACCS.forEach(function(a){h+='<button type="button" class="rw" data-toast="1"><span class="bar" style="background:'+a.color+'"></span><span class="mid"><div class="t">'+a.name+'</div><div class="s">'+(a.items.length?cnt(a):'Keine Zahlungen')+'</div></span><span class="r"><b class="num">'+fmt(a.t)+'</b></span>'+CHEV+'</button>';});
+ h+='</div><div class="sec">Einstellungen</div><div class="card"><button type="button" class="rw" data-toast="1"><span class="mid"><div class="t">Sicherung kopieren</div><div class="s">Daten sichern, z. B. in deinen Notizen</div></span>'+CHEV+'</button><button type="button" class="rw" data-toast="1"><span class="mid"><div class="t">Sicherung einfügen</div><div class="s">Gesicherte Daten wiederherstellen</div></span>'+CHEV+'</button><button type="button" class="rw" data-toast="1"><span class="mid"><div class="t" style="color:#b13a2c">Alle Daten löschen</div></span>'+CHEV+'</button></div>';
+ return h;
+}
+function render(){
+ var top=body.scrollTop;
+ body.innerHTML=state.tab==='v'?viewV():state.tab==='z'?viewZ():viewK();
+ body.scrollTop=top;
+ [].forEach.call(document.querySelectorAll('.tabs button'),function(b){b.setAttribute('aria-selected',b.getAttribute('data-tab')===state.tab);});
+}
+body.addEventListener('click',function(e){
+ var t=e.target.closest('[data-acc],[data-f],[data-toast]');if(!t)return;
+ if(t.hasAttribute('data-acc')){var id=t.getAttribute('data-acc');state.open=state.open===id?'':id;render();}
+ else if(t.hasAttribute('data-f')){state.filter=t.getAttribute('data-f');render();}
+ else say('Das geht nur in der echten App.');
+});
+[].forEach.call(document.querySelectorAll('.tabs button'),function(b){b.addEventListener('click',function(){state.tab=b.getAttribute('data-tab');body.scrollTop=0;render();});});
+render();
+})();
+</script>
 </body>
 </html>

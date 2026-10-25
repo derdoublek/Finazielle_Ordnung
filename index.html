@@ -146,8 +146,8 @@
 <div id="accs"></div>
 
 <div class="acc">
-<div class="top"><div class="nm">Hauptkonto</div><div id="haupt" class="num" style="font-weight:700;font-size:20px"></div></div>
-<div style="margin-top:6px;color:#4c5f55;font-size:15px">Was nach den Überweisungen auf den Unterkonten übrig bleibt. Davon gehen noch 29,90 € für das Fitnessstudio ab.</div>
+<div class="top"><div class="nm">Lebenskonto</div><div id="haupt" class="num" style="font-weight:700;font-size:20px"></div></div>
+<div style="margin-top:6px;color:#4c5f55;font-size:15px">Rest nach dem Verteiler. Das ist der Betrag, der dir frei zum Leben bleibt.</div>
 </div>
 
 <div class="sum num">
@@ -251,7 +251,6 @@ var DEFS=[
  {id:'urlaub',name:'Urlaub',max:800,t:100,items:[]}
 ];
 var GREENS=['#164e38','#2d6a50','#4b8a6c','#79a98f','#a6c5b4'];
-var HAUPT_BEDARF=29.9;
 var state={salary:3400,betrag:114,per:12,open:'vers'};
 function fmt(n){return n.toLocaleString('de-DE',{minimumFractionDigits:2,maximumFractionDigits:2})+' €';}
 function sgn(n){return (n>=0?'+':'−')+fmt(Math.abs(n));}
@@ -300,7 +299,7 @@ function update(){
    el.querySelector('.lnk').setAttribute('aria-expanded',open);
   }
  });
- var haupt=state.salary-sumT,free=haupt-HAUPT_BEDARF;
+ var haupt=state.salary-sumT,free=haupt;
  var fr=$('frei');fr.textContent=fmt(free);fr.className='num '+(free>=0?'ok':'bad');fr.style.color=free>=0?'#164e38':'';
  $('freiHint').style.display=free<0?'block':'none';
  $('haupt').textContent=fmt(haupt);
@@ -308,7 +307,7 @@ function update(){
  sync($('gehalt'),state.salary);$('gehaltR').value=state.salary;
  // Balken und Legende
  var segs=DEFS.map(function(d,i){return{n:d.name,v:Math.max(d.t,0.0001),c:GREENS[i],f:fmt(d.t)};});
- if(haupt>0)segs.push({n:'Hauptkonto',v:haupt,c:'#e3c46a',f:fmt(haupt)});
+ if(haupt>0)segs.push({n:'Lebenskonto',v:haupt,c:'#e3c46a',f:fmt(haupt)});
  $('bar').innerHTML=segs.map(function(s){return '<i style="flex:'+s.v+' 1 0;background:'+s.c+'"></i>';}).join('');
  $('leg').innerHTML=segs.map(function(s){return '<div><b style="background:'+s.c+'"></b><span>'+s.n+'</span><em class="num">'+s.f+'</em></div>';}).join('');
  // Rechner
