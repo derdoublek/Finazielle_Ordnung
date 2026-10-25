@@ -8,63 +8,40 @@
 <meta name="theme-color" content="#164e38">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap">
-<style>
-body{margin:0}
-*{box-sizing:border-box}
-a{color:#0c8458}a:hover{color:#164e38}
-.w{max-width:1120px;margin:0 auto;padding-inline:24px}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:18px}
-.links{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:12px;font-weight:700;text-decoration:none;font-size:15px}
-.btn.p{background:#0c8458;color:#fff}.btn.p:hover{background:#0a6e4a;color:#fff}
-.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-@media (max-width:760px){.g2{grid-template-columns:minmax(0,1fr)}}
-</style>
-<style>html{scroll-behavior:smooth}@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}:focus-visible{outline:3px solid #0c8458;outline-offset:2px}</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="stil.css">
 </head>
 <body>
-<div style="background:#f5f6f0;color:#1a2d24;font-family:Manrope, ui-sans-serif, system-ui, sans-serif;font-size:16px;line-height:1.6">
 
-<header style="border-bottom:1px solid #e2e7dc">
-<div class="w nav">
-<a href="index.html" style="text-decoration:none;color:#1a2d24;font-weight:800;letter-spacing:.07em;font-size:14px">FINANZIELLE <span style="color:#0c8458">ORDNUNG</span></a>
-<nav class="links" aria-label="Hauptnavigation">
-<a href="index.html" style="color:#1a2d24;text-decoration:none;font-weight:600;font-size:15px">Startseite</a>
-<a href="vorschau.html" style="color:#1a2d24;text-decoration:none;font-weight:600;font-size:15px">Vorschau</a>
-<a class="btn p" href="index.html#preis" style="min-height:42px;padding:0 16px;font-size:14px">Für 19,95 € kaufen</a>
-</nav>
+<header class="band">
+<div class="wrap" style="padding-top:36px;padding-bottom:72px">
+<a href="index.html" class="mark">FINANZIELLE ORDNUNG</a>
+<h1 class="page-h1" style="margin-top:72px">Impressum</h1>
+<p style="margin:16px 0 0;color:#c9dbd1">Angaben gemäß § 5 DDG</p>
 </div>
 </header>
 
-<section class="w" style="padding-block:56px 72px;display:flex;flex-direction:column;gap:28px">
-<div>
-<h1 style="margin:0 0 6px;font-family:'Bricolage Grotesque', Manrope, sans-serif;font-weight:800;font-size:clamp(34px,5vw,48px);letter-spacing:-.035em">Impressum</h1>
-<p style="margin:0;color:#5f7268">Angaben gemäß § 5 DDG</p>
+<main class="wrap" style="padding-top:64px;padding-bottom:96px">
+<div class="row2" style="border-top-width:3px">
+<div class="lab">Diensteanbieter</div>
+<address style="font-style:normal">Kai Kremer<br>Finanzielle Ordnung<br>Haide 38<br>95233 Helmbrechts</address>
 </div>
-<div class="g2">
-<div style="background:#ffffff;border:1px solid #e2e7dc;border-radius:18px;padding:26px;display:flex;flex-direction:column;gap:10px">
-<span style="font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#0c8458">Diensteanbieter</span>
-<address style="font-style:normal;font-size:17px">Kai Kremer<br>Finanzielle Ordnung<br>Haide 38<br>95233 Helmbrechts</address>
+<div class="row2">
+<div class="lab">Kontakt</div>
+<div>Telefon: 0152 / 541 60 584<br>E-Mail: <a class="tl" href="mailto:kai@deine-digitale-ordnung.de">kai@deine-digitale-ordnung.de</a></div>
 </div>
-<div style="background:#ffffff;border:1px solid #e2e7dc;border-radius:18px;padding:26px;display:flex;flex-direction:column;gap:10px">
-<span style="font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#0c8458">Kontakt</span>
-<div style="font-size:17px">Telefon: 0152 / 541 60 584<br>E-Mail: <a href="mailto:kai@deine-digitale-ordnung.de">kai@deine-digitale-ordnung.de</a></div>
+<div class="row2" style="border-bottom:1.5px solid #12241b">
+<div class="lab">Umsatzsteuer</div>
+<div>Gemäß § 19 UStG wird keine Umsatzsteuer erhoben.</div>
 </div>
-<div style="background:#ffffff;border:1px solid #e2e7dc;border-radius:18px;padding:26px;display:flex;flex-direction:column;gap:10px;grid-column:1/-1">
-<span style="font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#0c8458">Umsatzsteuer</span>
-<div style="font-size:17px">Gemäß § 19 UStG wird keine Umsatzsteuer erhoben.</div>
-</div>
-</div>
-</section>
+</main>
 
-<footer style="border-top:1px solid #e2e7dc">
-<div class="w" style="padding-block:28px 36px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:14px">
-<span style="color:#5f7268">© 2026 Finanzielle Ordnung · Kai Kremer</span>
-<span style="display:flex;gap:18px"><a href="index.html">Startseite</a><a href="ueber-mich.html">Über mich</a></span>
+<footer class="foot">
+<div class="wrap" style="padding-top:28px;padding-bottom:40px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
+<span>© 2026 Finanzielle Ordnung · Kai Kremer</span>
+<span style="display:flex;gap:24px"><a href="index.html">Startseite</a><a href="ueber-mich.html">Über mich</a></span>
 </div>
 </footer>
 
-</div>
 </body>
 </html>

@@ -8,344 +8,320 @@
 <meta name="theme-color" content="#164e38">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="stil.css">
 <style>
-body{margin:0}
-*{box-sizing:border-box}
-a{color:#0c8458}a:hover{color:#164e38}
-.w{max-width:1120px;margin:0 auto;padding-inline:24px}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:18px}
-.links{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:12px;font-weight:700;text-decoration:none;font-size:15px}
-.btn.p{background:#0c8458;color:#fff}.btn.p:hover{background:#0a6e4a;color:#fff}
-.btn.s{background:#fff;color:#1a2d24;border:1px solid #d6ddd0}.btn.s:hover{color:#164e38;border-color:#0c8458}
-.btn.l{background:#ffffff;color:#164e38}.btn.l:hover{background:#e3f4ea;color:#164e38}
-.hero{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,1fr);gap:56px;align-items:center}
-.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px;align-items:center}
-.accs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.num{font-variant-numeric:tabular-nums}
-@media (max-width:880px){.hero,.g3,.g2{grid-template-columns:minmax(0,1fr)}.hero{gap:36px}}
-@media (max-width:460px){.accs{grid-template-columns:minmax(0,1fr)}}
-</style>
-<style>html{scroll-behavior:smooth}@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}:focus-visible{outline:3px solid #0c8458;outline-offset:2px}</style>
-<style>
-/* Scroll-Szene: Chaos -> Überblick */
-.fo-scene{position:relative;background:#164e38;color:#fff}
-.fo-stage{display:flex;flex-direction:column;justify-content:center;gap:22px;padding-block:48px}
-.fo-head{display:grid}
-.fo-head>*{grid-area:1/1}
-.fo-t0{opacity:0}
-.fo-h{margin:0;font-family:'Bricolage Grotesque', Manrope, sans-serif;font-weight:800;font-size:clamp(28px,4.2vw,46px);line-height:1.05;letter-spacing:-.03em;text-wrap:balance}
-.fo-sub{margin:8px 0 0;color:#cfe6d8;font-size:17px;max-width:36em}
-.fo-tag{font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#a9d9be;display:block;margin-bottom:8px}
-.fo-board{position:relative;transform-origin:top left}
-.fo-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.fo-col{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:14px;display:flex;flex-direction:column;gap:8px;color:#fff}
-.fo-ch{display:flex;align-items:center;gap:8px;font-weight:800;font-size:15px}
-.fo-dot{width:10px;height:10px;border-radius:3px;flex:none}
-.fo-badge{margin-left:auto;font-size:11px;font-weight:800;background:#e3f4ea;color:#0c7a51;padding:3px 8px;border-radius:999px}
-.fo-slot{height:36px}
-.fo-cf{display:flex;justify-content:space-between;font-size:13px;color:#cfe6d8;padding-top:4px;border-top:1px solid rgba(255,255,255,.14)}
-.fo-cf b{color:#fff}
-.fo-sum{display:flex;flex-wrap:wrap;gap:8px 28px;justify-content:center;background:#fff;color:#1a2d24;border-radius:16px;padding:14px 20px;font-weight:700;font-size:15px}
-.fo-sum b{font-weight:800}
-.fo-chip{position:relative;flex:none;height:36px;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:0 12px 0 14px;background:#fff;color:#1a2d24;border-radius:10px;font-size:14px;font-weight:600;box-shadow:0 10px 24px -10px rgba(0,0,0,.45);white-space:nowrap;overflow:hidden;will-change:transform}
-.fo-chip::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--c);opacity:var(--o,1)}
-.fo-chip .n{overflow:hidden;text-overflow:ellipsis}
-.fo-amt{display:grid;font-weight:800}
-.fo-amt>*{grid-area:1/1;justify-self:end}
-.fo-amt .raw{color:#b4442f}
-/* nur mit JS + Bewegung aktiv */
-.fo-anim .fo-chip{position:absolute;left:0;top:0}
-.fo-anim .fo-scene{height:280vh}
-.fo-anim .fo-stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;overflow:clip;padding-block:28px}
-@media (max-width:880px){
- .fo-cols{grid-template-columns:minmax(0,1fr);gap:8px}
- .fo-col{padding:10px 12px;gap:4px;border-radius:14px}
- .fo-slot,.fo-chip{height:25px}
- .fo-chip{font-size:12.5px;border-radius:8px;padding:0 10px 0 12px}
- .fo-ch{font-size:14px}
- .fo-cf{font-size:12px;padding-top:2px}
- .fo-sum{font-size:13px;padding:10px 14px;gap:4px 16px}
- .fo-sub{font-size:15px}
- .fo-stage{gap:14px}
- .fo-anim .fo-scene{height:300vh}
- .fo-anim .fo-stage{padding-block:16px}
-}
-@media (max-width:880px) and (max-height:820px){.fo-anim .fo-sub{display:none}.fo-tag{margin-bottom:4px}}
+.hero{background:#164e38;color:#f1f5f2}
+.hero .in{padding-top:36px;padding-bottom:88px}
+.hero h1{margin:0;font-size:clamp(44px,8.2vw,92px);line-height:.98;font-weight:800;letter-spacing:-.035em;max-width:980px}
+.eyebrow{font-size:15px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#e3c46a}
+.label{font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#4c5f55}
+.facts{display:flex;flex-wrap:wrap;border-top:1px solid rgba(241,245,242,.28);margin-top:72px}
+.facts div{flex:1 1 200px;padding:18px 0;font-weight:600;color:#e9f0ec}
+.tool{display:flex;flex-wrap:wrap;gap:48px 72px;align-items:flex-start}
+.tool-l{flex:1 1 320px;max-width:400px;display:flex;flex-direction:column;gap:28px}
+.tool-r{flex:2 1 480px;min-width:0}
+.bignum{display:flex;align-items:baseline;gap:8px;border-bottom:2px solid #12241b;margin-top:6px}
+.bignum input{flex:1;min-width:0;border:0;background:transparent;font-size:clamp(40px,6vw,60px);font-weight:800;letter-spacing:-.03em;color:#12241b;padding:0;outline:none}
+.bignum span{font-size:36px;font-weight:700}
+.bar{display:flex;height:16px;gap:2px}
+.bar i{display:block;min-width:0}
+.leg{margin-top:16px;display:flex;flex-direction:column;gap:6px;font-size:15px}
+.leg div{display:flex;align-items:center;gap:10px}
+.leg b{width:10px;height:10px;flex:0 0 10px}
+.leg span{flex:1}
+.leg em{font-style:normal;font-weight:600}
+.acc{border-top:1.5px solid #12241b;padding:22px 0 26px}
+.acc .top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 24px}
+.acc .nm{font-size:24px;font-weight:700;letter-spacing:-.01em}
+.acc .sub{margin-top:14px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 24px;font-size:15px;color:#4c5f55}
+.acc .sub strong{color:#12241b;font-size:18px}
+.acc input[type=range]{margin-top:6px}
+.meter{margin-top:10px;height:6px;background:#d3dcd5;position:relative}
+.meter i{position:absolute;left:0;top:0;bottom:0}
+.lnk{margin-top:14px;padding:0;border:0;background:transparent;color:#164e38;font-weight:700;font-size:15px;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.items{margin-top:14px;display:none;flex-direction:column;font-size:16px}
+.items.open{display:flex}
+.items div{display:flex;justify-content:space-between;gap:16px;padding:8px 0;border-bottom:1px solid #d3dcd5}
+.items small{color:#5a6e63;font-size:14px}
+.ok{color:#1d6b4a}.bad{color:#a83a24}
+.sum{border-top:3px solid #12241b;padding-top:22px;display:flex;flex-wrap:wrap;gap:12px 48px;justify-content:space-between;align-items:baseline;color:#4c5f55}
+.sum strong{color:#12241b;font-size:24px}
+.calc{background:#164e38;color:#f1f5f2}
+.calc .in{padding-top:96px;padding-bottom:96px;display:flex;flex-wrap:wrap;gap:56px 88px;align-items:flex-start}
+.calc h2{margin:0;font-size:clamp(32px,4.4vw,46px);line-height:1.05;font-weight:800;letter-spacing:-.03em}
+.calc p{margin:0;color:#c9dbd1}
+.calc .bignum{border-color:#f1f5f2}
+.calc .bignum input{color:#f1f5f2;font-size:44px}
+.calc .bignum span{font-size:28px}
+.rh{margin-top:8px;display:flex;flex-wrap:wrap;gap:8px}
+.rh button{padding:11px 16px;min-height:44px;border-radius:3px;border:1.5px solid rgba(241,245,242,.45);background:transparent;color:#f1f5f2;font-weight:600;font-size:15px;cursor:pointer}
+.rh button.on{border-color:#e3c46a;background:#e3c46a;color:#0f3a29;font-weight:700}
+.result{margin-top:32px;border-top:1px solid rgba(241,245,242,.28);padding-top:20px}
+.result .big{font-size:clamp(48px,7vw,76px);line-height:1.05;font-weight:800;letter-spacing:-.035em;color:#e3c46a}
+.steps,.feats{display:flex;flex-wrap:wrap;gap:40px 56px}
+.steps>div,.feats>div{flex:1 1 280px;min-width:0}
+.steps>div{border-top:1.5px solid #12241b;padding-top:20px}
+.steps .n{font-size:88px;line-height:.9;font-weight:800;letter-spacing:-.04em;color:#164e38}
+.steps h3{margin:20px 0 10px;font-size:23px;line-height:1.2;font-weight:700}
+.steps p,.feats p{margin:0;color:#4c5f55;font-size:16px}
+.feats{border-top:1.5px solid #12241b;padding-top:32px}
+.feats h3{margin:0 0 8px;font-size:21px;font-weight:700}
+.price{background:#0f3a29;color:#f1f5f2}
+.price .in{padding-top:96px;padding-bottom:96px}
+.offers{margin-top:56px;display:flex;flex-wrap:wrap;border-top:1px solid rgba(241,245,242,.28)}
+.offer{min-width:0;box-sizing:border-box;padding-top:32px;display:flex;flex-direction:column;gap:20px}
+.offer.a{flex:3 1 420px;padding-right:48px}
+.offer.b{flex:2 1 320px;padding-left:48px;border-left:1px solid rgba(241,245,242,.28)}
+.offer .p{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 16px}
+.offer .p b{font-size:clamp(52px,7vw,80px);line-height:1;font-weight:800;letter-spacing:-.035em}
+.offer .p span{color:#b9d0c4}
+.offer ul{margin:0;padding:0;list-style:none}
+.offer li{padding:10px 0;border-bottom:1px solid rgba(241,245,242,.2)}
+@media (max-width:760px){.offer.a{padding-right:0}.offer.b{padding-left:0;border-left:0;border-top:1px solid rgba(241,245,242,.28);margin-top:32px}}
 </style>
 </head>
 <body>
-<div style="background:#f5f6f0;color:#1a2d24;font-family:Manrope, ui-sans-serif, system-ui, sans-serif;font-size:16px;line-height:1.55">
 
-<header style="border-bottom:1px solid #e2e7dc">
-<div class="w nav">
-<a href="index.html" style="text-decoration:none;color:#1a2d24;font-weight:800;letter-spacing:.07em;font-size:14px">FINANZIELLE <span style="color:#0c8458">ORDNUNG</span></a>
-<nav class="links" aria-label="Hauptnavigation">
-<a href="vorschau.html" style="color:#1a2d24;text-decoration:none;font-weight:600;font-size:15px">Vorschau</a>
-<a href="ueber-mich.html" style="color:#1a2d24;text-decoration:none;font-weight:600;font-size:15px">Über mich</a>
-<a class="btn p" href="#preis" style="min-height:42px;padding:0 16px;font-size:14px">Für 19,95 € kaufen</a>
-</nav>
+<header class="hero">
+<div class="wrap in">
+<a href="index.html" class="mark">FINANZIELLE ORDNUNG</a>
+
+<div style="margin-top:clamp(56px,10vw,120px);display:flex;flex-direction:column;gap:20px">
+<div class="eyebrow">Finanzplaner mit Kontoverteiler</div>
+<h1>Dein Geld. Endlich übersichtlich.</h1>
+</div>
+
+<div style="margin-top:48px;display:flex;flex-wrap:wrap;gap:40px 80px;align-items:flex-end;justify-content:space-between">
+<p style="margin:0;flex:1 1 380px;max-width:520px;font-size:20px;line-height:1.5;color:#c9dbd1">Trag dein Gehalt, deine Unterkonten und jede Zahlung ein. Der Planer zeigt dir, ob jedes Konto gedeckt ist und was im Monat frei bleibt. Auch jährliche Beiträge rechnet er auf den Monat um.</p>
+<div style="display:flex;flex-wrap:wrap;gap:12px">
+<a class="btn btn-line" href="vorschau.html">Vorschau kostenlos ansehen</a>
+<a class="btn btn-gold" href="https://www.checkout-ds24.com/product/741586">Für 19,95 € kaufen</a>
+</div>
+</div>
+
+<div class="facts">
+<div>Einmalig 19,95 €</div><div>Kein Abo</div><div>Keine Bankanbindung</div><div>Läuft als App auf dem Handy</div>
+</div>
 </div>
 </header>
 
-<section class="w hero" style="padding-block:64px 72px">
-<div style="display:flex;flex-direction:column;gap:22px;min-width:0">
-<span style="font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#0c8458">Finanzplaner mit Kontoverteiler</span>
-<h1 style="margin:0;font-family:'Bricolage Grotesque', Manrope, sans-serif;font-weight:800;font-size:clamp(40px,6vw,66px);line-height:1.02;letter-spacing:-.035em;text-wrap:balance">Dein Geld.<br>Endlich übersichtlich.</h1>
-<p style="margin:0;font-size:18px;color:#4d6157;max-width:34em">Trag dein Gehalt, deine Unterkonten und jede Zahlung ein. Der Planer zeigt dir, ob jedes Konto gedeckt ist und was im Monat frei bleibt. Auch jährliche Beiträge rechnet er auf den Monat um.</p>
-<div style="display:flex;gap:12px;flex-wrap:wrap">
-<a class="btn p" href="vorschau.html">Vorschau kostenlos ansehen</a>
-<a class="btn s" href="https://www.checkout-ds24.com/product/741586">Für 19,95 € kaufen</a>
+<main>
+<section class="wrap" style="padding-top:96px;padding-bottom:40px">
+<div style="display:flex;flex-wrap:wrap;gap:32px 80px;align-items:flex-start">
+<div style="flex:1 1 280px;max-width:360px">
+<div style="font-size:14px;font-weight:700;letter-spacing:.12em;color:#5a6e63;text-transform:uppercase">Vorher</div>
+<h2 style="margin:12px 0;font-size:30px;line-height:1.15;font-weight:700;color:#5a6e63;letter-spacing:-.01em">Zahlungen überall. Kein Überblick.</h2>
+<p style="margin:0;color:#5a6e63">Monatlich, jährlich, Raten, Versicherungen. Wie viel muss eigentlich auf welches Konto?</p>
 </div>
-<div style="display:flex;gap:8px 18px;flex-wrap:wrap;font-size:14px;color:#5f7268;font-weight:600">
-<span>Einmalig 19,95 €</span><span>Kein Abo</span><span>Keine Bankanbindung</span><span>Läuft als App auf dem Handy</span>
-</div>
-</div>
-
-<div style="min-width:0">
-<div style="background:#ffffff;border:1px solid #e2e7dc;border-radius:24px;padding:14px;box-shadow:0 40px 70px -40px rgba(22,78,56,.45);display:flex;flex-direction:column;gap:10px">
-<div style="background:#164e38;color:#ffffff;border-radius:16px;padding:20px 20px 16px">
-<div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:flex-end">
-<div><div style="font-size:12px;font-weight:700;color:#cfe6d8">Gehaltseingang pro Monat</div><div class="num" style="font-size:36px;font-weight:800;letter-spacing:-.03em;line-height:1.1">3.400,00 €</div></div>
-<div style="text-align:right"><div style="font-size:12px;font-weight:700;color:#cfe6d8">Frei zum Leben</div><div class="num" style="font-size:22px;font-weight:800">620,10 €</div></div>
-</div>
-<div style="display:flex;gap:2px;height:12px;border-radius:999px;overflow:hidden;margin:16px 0 10px">
-<span style="width:10.3%;background:#5bbf8f"></span><span style="width:7.35%;background:#e0b056"></span><span style="width:55.9%;background:#7fa2dc"></span><span style="width:4.4%;background:#bb8ad0"></span><span style="width:2.95%;background:#ec8b78"></span><span style="width:19.1%;background:#9aa89f"></span>
-</div>
-<div style="display:flex;flex-wrap:wrap;gap:4px 12px;font-size:12px;color:#cfe6d8">
-<span>Auto 350 €</span><span>Versicherungen 250 €</span><span>Gläubigerkonto 1.900 €</span><span>Rücklagen 150 €</span><span>Urlaub 100 €</span><span>Hauptkonto 650 €</span>
-</div>
-</div>
-<div class="accs">
-<div style="border:1px solid #e2e7dc;border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:9px">
-<div style="display:flex;align-items:center;gap:8px"><span style="width:10px;height:10px;border-radius:3px;background:#b8862b"></span><strong style="flex:1;font-size:14px">Versicherungen</strong><span class="num" style="font-size:11px;font-weight:800;background:#e3f4ea;color:#0c7a51;padding:3px 8px;border-radius:999px">+56,08 €</span></div>
-<div style="display:flex;justify-content:space-between;font-size:12px;color:#5f7268"><span>Überweisung</span><span>Bedarf</span></div>
-<div class="num" style="display:flex;justify-content:space-between;font-weight:800;font-size:16px"><span>250,00 €</span><span style="color:#5f7268">193,92 €</span></div>
-<div style="height:7px;border-radius:999px;background:#eef2e7;overflow:hidden"><div style="width:77.6%;height:100%;background:#b8862b;border-radius:999px"></div></div>
-</div>
-<div style="border:1px solid #e2e7dc;border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:9px">
-<div style="display:flex;align-items:center;gap:8px"><span style="width:10px;height:10px;border-radius:3px;background:#4b6fa8"></span><strong style="flex:1;font-size:14px">Gläubigerkonto</strong><span class="num" style="font-size:11px;font-weight:800;background:#e3f4ea;color:#0c7a51;padding:3px 8px;border-radius:999px">+86,44 €</span></div>
-<div style="display:flex;justify-content:space-between;font-size:12px;color:#5f7268"><span>Überweisung</span><span>Bedarf</span></div>
-<div class="num" style="display:flex;justify-content:space-between;font-weight:800;font-size:16px"><span>1.900,00 €</span><span style="color:#5f7268">1.813,56 €</span></div>
-<div style="height:7px;border-radius:999px;background:#eef2e7;overflow:hidden"><div style="width:95.5%;height:100%;background:#4b6fa8;border-radius:999px"></div></div>
-</div>
-</div>
-<div style="font-size:12px;color:#5f7268;text-align:center;padding-top:2px">Beispieldaten</div>
+<div style="flex:2 1 460px;min-width:0">
+<div style="font-size:14px;font-weight:700;letter-spacing:.12em;color:#164e38;text-transform:uppercase">Nachher</div>
+<h2 style="margin:12px 0;font-size:clamp(36px,5.4vw,56px);line-height:1.02;font-weight:800;letter-spacing:-.03em">Jede Zahlung hat ihr Konto.</h2>
+<p style="margin:0;max-width:560px">Jährliche Beiträge auf den Monat umgerechnet. Pro Konto siehst du Bedarf und Puffer.</p>
 </div>
 </div>
 </section>
 
-<section class="fo-scene" id="ueberblick" aria-label="Vom Zahlungschaos zum Überblick">
-<div class="fo-stage">
-<div class="w" style="width:100%">
-<div class="fo-head">
-<div class="fo-t fo-t0" aria-hidden="true"><span class="fo-tag">Vorher</span><h2 class="fo-h">Zahlungen überall. Kein Überblick.</h2><p class="fo-sub">Monatlich, jährlich, Raten, Versicherungen. Wie viel muss eigentlich auf welches Konto?</p></div>
-<div class="fo-t fo-t1"><span class="fo-tag">Nachher</span><h2 class="fo-h">Jede Zahlung hat ihr Konto.</h2><p class="fo-sub">Jährliche Beiträge auf den Monat umgerechnet. Pro Konto siehst du Bedarf und Puffer.</p></div>
+<section class="wrap" style="padding-top:24px;padding-bottom:96px">
+<div class="tool">
+<div class="tool-l">
+<div>
+<label class="label" for="gehalt" style="display:block">Gehaltseingang pro Monat</label>
+<div class="bignum"><input id="gehalt" class="num" type="number" min="0" max="12000" step="50" value="3400"><span>€</span></div>
+<input id="gehaltR" type="range" min="1000" max="8000" step="50" value="3400" aria-label="Gehaltseingang einstellen" style="margin-top:14px">
 </div>
+<div>
+<div class="label">Frei zum Leben</div>
+<div id="frei" class="num" style="font-size:clamp(38px,5vw,52px);line-height:1.1;font-weight:800;letter-spacing:-.03em"></div>
+<div id="freiHint" class="bad" style="font-weight:600;margin-top:4px;display:none">Es ist mehr verteilt, als an Gehalt eingeht.</div>
 </div>
-<div class="w" style="width:100%">
-<div class="fo-board">
-<div class="fo-cols">
-<div class="fo-col" style="--c:#b8862b">
-<div class="fo-ch"><span class="fo-dot" style="background:#b8862b"></span>Versicherungen<span class="fo-badge fo-r num">+56,08 €</span></div>
-<div class="fo-chip num"><span class="n">Berufsunfähigkeit</span><span class="fo-amt"><span class="mon">87,00 €</span></span></div>
-<div class="fo-chip num"><span class="n">Kfz-Versicherung</span><span class="fo-amt"><span class="mon">64,50 €</span></span></div>
-<div class="fo-chip num"><span class="n">Rechtsschutz</span><span class="fo-amt"><span class="mon">26,42 €</span></span></div>
-<div class="fo-chip num"><span class="n">Hausrat</span><span class="fo-amt"><span class="raw">114 €/Jahr</span><span class="mon">9,50 €</span></span></div>
-<div class="fo-chip num"><span class="n">Privathaftpflicht</span><span class="fo-amt"><span class="raw">78 €/Jahr</span><span class="mon">6,50 €</span></span></div>
-<div class="fo-cf fo-r num"><span>Bedarf <b>193,92 €</b></span><span>Überweisung <b>250,00 €</b></span></div>
+<div>
+<div id="bar" class="bar" role="img" aria-label="Aufteilung des Gehalts auf die Konten"></div>
+<div id="leg" class="leg"></div>
 </div>
-<div class="fo-col" style="--c:#4b6fa8">
-<div class="fo-ch"><span class="fo-dot" style="background:#7fa2dc"></span>Gläubigerkonto<span class="fo-badge fo-r num">+86,44 €</span></div>
-<div class="fo-chip num"><span class="n">Kreditrate</span><span class="fo-amt"><span class="mon">1.450,00 €</span></span></div>
-<div class="fo-chip num"><span class="n">Ratenkauf</span><span class="fo-amt"><span class="mon">363,56 €</span></span></div>
-<div class="fo-cf fo-r num"><span>Bedarf <b>1.813,56 €</b></span><span>Überweisung <b>1.900,00 €</b></span></div>
+<div style="font-size:13px;color:#5a6e63">Beispieldaten. Regler verschieben, nichts wird gespeichert.</div>
 </div>
-<div class="fo-col" style="--c:#5bbf8f">
-<div class="fo-ch"><span class="fo-dot" style="background:#5bbf8f"></span>Auto<span class="fo-badge fo-r num">+80,50 €</span></div>
-<div class="fo-chip num"><span class="n">Tanken</span><span class="fo-amt"><span class="mon">200,00 €</span></span></div>
-<div class="fo-chip num"><span class="n">Werkstatt</span><span class="fo-amt"><span class="raw">600 €/Jahr</span><span class="mon">50,00 €</span></span></div>
-<div class="fo-chip num"><span class="n">Kfz-Steuer</span><span class="fo-amt"><span class="raw">180 €/Jahr</span><span class="mon">15,00 €</span></span></div>
-<div class="fo-chip num"><span class="n">Automobilclub</span><span class="fo-amt"><span class="raw">54 €/Jahr</span><span class="mon">4,50 €</span></span></div>
-<div class="fo-cf fo-r num"><span>Bedarf <b>269,50 €</b></span><span>Überweisung <b>350,00 €</b></span></div>
-</div>
-</div>
-</div>
-</div>
-<div class="w" style="width:100%">
-<div class="fo-sum fo-r num"><span>Überweisung <b>2.500,00 €</b></span><span>Bedarf <b>2.276,98 €</b></span><span style="color:#0c7a51">Puffer <b>+223,02 € im Monat</b></span></div>
-</div>
-</div>
-</section>
-<script>
-(function(){
-var root=document.documentElement;
-if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-var scene=document.getElementById('ueberblick');if(!scene)return;
-var board=scene.querySelector('.fo-board'),stage=scene.querySelector('.fo-stage');
-var chips=[].slice.call(scene.querySelectorAll('.fo-chip'));
-var reveal=[].slice.call(scene.querySelectorAll('.fo-r'));
-var cols=[].slice.call(scene.querySelectorAll('.fo-col'));
-var t0=scene.querySelector('.fo-t0'),t1=scene.querySelector('.fo-t1');
-document.body.classList.add('fo-anim');
-// Platzhalter an Stelle jeder Zahlung, Zahlung selbst wird frei beweglich
-var slots=chips.map(function(c){var s=document.createElement('div');s.className='fo-slot';c.parentNode.insertBefore(s,c);board.appendChild(c);c.style.setProperty('--c',getComputedStyle(s.parentNode).getPropertyValue('--c'));return s;});
-function rnd(i){var x=Math.sin(i*12.9898+4.1)*43758.5453;return x-Math.floor(x);}
-var L=[],scale=1;
-function layout(){
- board.style.transform='';board.style.marginBottom='';var bw=board.offsetWidth,bh=board.offsetHeight;
- // Board verkleinern, falls es nicht in den Bildschirm passt
- var cs=getComputedStyle(stage),kids=[].slice.call(stage.children),other=0;kids.forEach(function(k){if(!k.contains(board))other+=k.offsetHeight;});
- var avail=stage.clientHeight-parseFloat(cs.paddingTop)-parseFloat(cs.paddingBottom)-parseFloat(cs.rowGap||0)*(kids.length-1)-other;
- scale=Math.min(1,avail/bh);if(scale<1){board.style.transform='scale('+scale+')';board.style.marginBottom=(bh*scale-bh)+'px';}else board.style.marginBottom='';
- var br=board.getBoundingClientRect();
- L=slots.map(function(s,i){var r=s.getBoundingClientRect(),w=r.width/scale;
-  var cw=Math.min(w,bw*0.62,250);
-  return{w:w,x:(r.left-br.left)/scale,y:(r.top-br.top)/scale,
-   cx:rnd(i)*(bw-cw),cy:(0.02+rnd(i+31)*0.9)*bh-18,cr:(rnd(i+7)-.5)*26,cw:cw,
-   sx:(i%2?bw+60:-cw-60)+(rnd(i+3)-.5)*80,sy:(rnd(i+11)*1.4-.2)*bh,sr:(rnd(i+5)-.5)*70};});
- update();
-}
-function cl(v){return v<0?0:v>1?1:v}
-function e(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2}
-function seg(p,a,b){return e(cl((p-a)/(b-a)))}
-function lerp(a,b,t){return a+(b-a)*t}
-var ticking=false;
-function update(){ticking=false;
- var r=scene.getBoundingClientRect(),vh=window.innerHeight;
- var p=cl((vh*0.55-r.top)/(r.height-vh+vh*0.55));
- var n=chips.length;
- chips.forEach(function(c,i){var l=L[i];if(!l)return;
-  var a=0.02+i/n*0.16,f=seg(p,a,a+0.16);
-  var b=0.42+i/n*0.2,o=seg(p,b,b+0.16);
-  var x=lerp(lerp(l.sx,l.cx,f),l.x,o),y=lerp(lerp(l.sy,l.cy,f),l.y,o),rot=lerp(lerp(l.sr,l.cr,f),0,o),w=lerp(l.cw,l.w,o);
-  c.style.width=w+'px';c.style.transform='translate('+x+'px,'+y+'px) rotate('+rot+'deg)';
-  c.style.setProperty('--o',o);
-  var raw=c.querySelector('.raw'),mon=c.querySelector('.mon');
-  if(raw){raw.style.opacity=1-seg(p,b+0.08,b+0.16);mon.style.opacity=seg(p,b+0.08,b+0.16);}
- });
- var q=seg(p,0.76,0.9);
- reveal.forEach(function(el){el.style.opacity=q;el.style.transform='translateY('+(1-q)*8+'px)';});
- var k=seg(p,0.4,0.62);
- cols.forEach(function(el){el.style.opacity=0.35+0.65*k;});
- var h=seg(p,0.6,0.74);t0.style.opacity=1-h;t1.style.opacity=h;
- t0.setAttribute('aria-hidden',h>.5);t1.setAttribute('aria-hidden',h<=.5);
-}
-function onScroll(){if(!ticking){ticking=true;requestAnimationFrame(update);}}
-window.addEventListener('scroll',onScroll,{passive:true});
-var rt;window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(layout,120);});
-if(document.fonts&&document.fonts.ready)document.fonts.ready.then(layout);
-layout();
-})();
-</script>
 
-<section style="background:#ffffff;border-block:1px solid #e2e7dc">
-<div class="w" style="padding-block:72px">
-<h2 style="margin:0 0 10px;font-family:'Bricolage Grotesque', Manrope, sans-serif;font-weight:800;font-size:clamp(30px,4vw,42px);letter-spacing:-.03em;text-wrap:balance">In drei Schritten zum Überblick</h2>
-<p style="margin:0 0 36px;color:#5f7268;max-width:40em">Die Einrichtung dauert einmal etwas. Danach siehst du jeden Monat sofort, ob alles gedeckt ist.</p>
-<ol class="g3" style="list-style:none;margin:0;padding:0">
-<li style="background:#f5f6f0;border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:10px">
-<span style="font-family:'Bricolage Grotesque', Manrope, sans-serif;font-size:40px;font-weight:800;color:#0c8458;line-height:1">1</span>
-<h3 style="margin:0;font-size:19px">Gehalt und Konten eintragen</h3>
-<p style="margin:0;color:#4d6157;font-size:15px">Dein Gehalt und die Unterkonten mit dem festen Betrag, den deine Bank bei Gehaltseingang überweist. Ohne Unterkonten geht es auch, dann läuft alles übers Hauptkonto.</p>
-</li>
-<li style="background:#f5f6f0;border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:10px">
-<span style="font-family:'Bricolage Grotesque', Manrope, sans-serif;font-size:40px;font-weight:800;color:#0c8458;line-height:1">2</span>
-<h3 style="margin:0;font-size:19px">Jede Zahlung einem Konto zuordnen</h3>
-<p style="margin:0;color:#4d6157;font-size:15px">Fixkosten, Versicherungen und Raten, jeweils mit Rhythmus: monatlich, vierteljährlich, halbjährlich oder jährlich.</p>
-</li>
-<li style="background:#f5f6f0;border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:10px">
-<span style="font-family:'Bricolage Grotesque', Manrope, sans-serif;font-size:40px;font-weight:800;color:#0c8458;line-height:1">3</span>
-<h3 style="margin:0;font-size:19px">Sehen, ob alles gedeckt ist</h3>
-<p style="margin:0;color:#4d6157;font-size:15px">Pro Konto: Überweisung, tatsächlicher Bedarf und Puffer. Ist ein Konto unterdeckt, zeigt dir der Planer den Mindestbetrag.</p>
-</li>
-</ol>
-</div>
-</section>
+<div class="tool-r">
+<div id="accs"></div>
 
-<section class="w g2" style="padding-block:80px">
-<div style="display:flex;flex-direction:column;gap:16px;min-width:0">
-<span style="font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#0c8458">Ein Beispiel</span>
-<h2 style="margin:0;font-family:'Bricolage Grotesque', Manrope, sans-serif;font-weight:800;font-size:clamp(30px,4vw,42px);letter-spacing:-.03em;text-wrap:balance">Warum 250 € überweisen, wenn der Bedarf 193,92 € ist?</h2>
-<p style="margin:0;color:#4d6157">Hausrat und Haftpflicht werden einmal im Jahr fällig. Der Planer rechnet sie auf den Monat um: 114 € jährlich sind 9,50 € pro Monat. So weißt du, was das Versicherungskonto wirklich braucht.</p>
-<p style="margin:0;color:#4d6157">Die Differenz bleibt als Puffer auf dem Konto. Wenn die Jahresbeiträge abgebucht werden, ist das Geld schon da.</p>
+<div class="acc">
+<div class="top"><div class="nm">Hauptkonto</div><div id="haupt" class="num" style="font-weight:700;font-size:20px"></div></div>
+<div style="margin-top:6px;color:#4c5f55;font-size:15px">Was nach den Überweisungen auf den Unterkonten übrig bleibt. Davon gehen noch 29,90 € für das Fitnessstudio ab.</div>
 </div>
-<div style="background:#ffffff;border:1px solid #e2e7dc;border-radius:20px;padding:24px;min-width:0">
-<div style="display:flex;align-items:center;gap:9px;margin-bottom:14px"><span style="width:11px;height:11px;border-radius:3px;background:#b8862b"></span><strong style="font-size:17px">Versicherungskonto</strong></div>
-<div class="num" style="font-size:15px">
-<div style="display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid #eef2e7"><span>Berufsunfähigkeit</span><span>87,00 €</span></div>
-<div style="display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid #eef2e7"><span>Kfz-Versicherung</span><span>64,50 €</span></div>
-<div style="display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid #eef2e7"><span>Rechtsschutz</span><span>26,42 €</span></div>
-<div style="display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid #eef2e7"><span>Hausrat <span style="color:#5f7268;font-size:13px">114 € jährlich</span></span><span>9,50 €</span></div>
-<div style="display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid #d6ddd0"><span>Privathaftpflicht <span style="color:#5f7268;font-size:13px">78 € jährlich</span></span><span>6,50 €</span></div>
-<div style="display:flex;justify-content:space-between;gap:12px;padding:12px 0 4px;font-weight:700"><span>Tatsächlicher Bedarf</span><span>193,92 €</span></div>
-<div style="display:flex;justify-content:space-between;gap:12px;padding:4px 0;font-weight:700"><span>Überweisung per Verteiler</span><span>250,00 €</span></div>
-<div style="display:flex;justify-content:space-between;gap:12px;margin-top:10px;padding:12px 14px;border-radius:12px;background:#e3f4ea;color:#0c7a51;font-weight:800"><span>Puffer pro Monat</span><span>+56,08 €</span></div>
+
+<div class="sum num">
+<span>Überweisung <strong id="sT"></strong></span>
+<span>Bedarf <strong id="sB"></strong></span>
+<span>Puffer <strong id="sD" class="ok"></strong></span>
+</div>
 </div>
 </div>
 </section>
 
-<section style="background:#ffffff;border-block:1px solid #e2e7dc">
-<div class="w g3" style="padding-block:64px">
-<div style="display:flex;flex-direction:column;gap:10px">
-<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0c8458" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg>
-<h3 style="margin:0;font-size:18px">Läuft als App</h3>
-<p style="margin:0;color:#4d6157;font-size:15px">Auf den Home-Bildschirm legen und wie eine App öffnen. Funktioniert auch offline.</p>
+<section class="calc">
+<div class="wrap in">
+<div style="flex:1 1 380px;min-width:0;display:flex;flex-direction:column;gap:20px">
+<div class="eyebrow" style="font-size:14px">Ein Beispiel</div>
+<h2>Warum 250 € überweisen, wenn der Bedarf 193,92 € ist?</h2>
+<p>Hausrat und Haftpflicht werden einmal im Jahr fällig. Der Planer rechnet sie auf den Monat um: 114 € jährlich sind 9,50 € pro Monat. So weißt du, was das Versicherungskonto wirklich braucht.</p>
+<p>Die Differenz bleibt als Puffer auf dem Konto. Wenn die Jahresbeiträge abgebucht werden, ist das Geld schon da.</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:10px">
-<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0c8458" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
-<h3 style="margin:0;font-size:18px">Deine Daten bleiben bei dir</h3>
-<p style="margin:0;color:#4d6157;font-size:15px">Keine Bankanbindung, kein Konto, keine Cloud. Alles bleibt auf deinem Gerät. Eine Sicherung kopierst du mit einem Klick.</p>
+<div style="flex:1 1 380px;min-width:0">
+<div style="font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#b9d0c4">Rechne selbst</div>
+<label for="betrag" style="display:block;margin-top:18px;color:#c9dbd1;font-size:15px">Betrag der Zahlung</label>
+<div class="bignum"><input id="betrag" class="num" type="number" min="0" max="5000" step="1" value="114"><span>€</span></div>
+<input id="betragR" type="range" min="0" max="1500" step="1" value="114" aria-label="Betrag einstellen" style="margin-top:12px;accent-color:#e3c46a">
+<div style="margin-top:22px;color:#c9dbd1;font-size:15px">Rhythmus</div>
+<div id="rh" class="rh"></div>
+<div class="result">
+<div style="color:#b9d0c4;font-size:15px">Pro Monat auf das Konto</div>
+<div id="month" class="big num"></div>
+<div id="sentence" style="color:#c9dbd1;margin-top:4px"></div>
 </div>
-<div style="display:flex;flex-direction:column;gap:10px">
-<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0c8458" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg>
-<h3 style="margin:0;font-size:18px">Passt sich dir an</h3>
-<p style="margin:0;color:#4d6157;font-size:15px">Eigene Konten, eigene Namen, eigene Beträge. Ob drei Unterkonten oder nur das Hauptkonto: Du bestimmst den Aufbau.</p>
 </div>
 </div>
 </section>
 
-<section id="preis" class="w" style="padding-block:80px">
-<h2 style="margin:0 0 10px;font-family:'Bricolage Grotesque', Manrope, sans-serif;font-weight:800;font-size:clamp(30px,4vw,44px);letter-spacing:-.03em;text-wrap:balance">Erst ansehen. Dann entscheiden.</h2>
-<p style="margin:0 0 32px;color:#5f7268;font-size:17px;max-width:40em">Die Vorschau zeigt den kompletten Planer mit Beispieldaten. Du richtest ihn selbst ein oder lässt dir dabei helfen.</p>
-<div class="g2" style="gap:16px;align-items:stretch">
-<div style="background:#164e38;color:#ffffff;border-radius:24px;padding:clamp(24px,4vw,40px);display:flex;flex-direction:column;gap:16px;min-width:0">
-<span style="font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#a9d9be">Finanzplaner</span>
-<div><span class="num" style="font-size:46px;font-weight:800;letter-spacing:-.03em">19,95 €</span> <span style="color:#cfe6d8">einmalig, kein Abo</span></div>
-<ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;font-size:16px;flex:1">
-<li style="display:flex;gap:10px"><span style="color:#a9d9be;font-weight:800">✓</span>Kontoverteiler mit Überweisung, Bedarf und Puffer</li>
-<li style="display:flex;gap:10px"><span style="color:#a9d9be;font-weight:800">✓</span>Fixkosten, Versicherungen und Raten in einer Liste</li>
-<li style="display:flex;gap:10px"><span style="color:#a9d9be;font-weight:800">✓</span>Jährliche Zahlungen automatisch auf den Monat umgerechnet</li>
-<li style="display:flex;gap:10px"><span style="color:#a9d9be;font-weight:800">✓</span>Als App fürs Handy, auch offline</li>
+<section class="wrap" style="padding-top:96px;padding-bottom:72px">
+<h2 style="margin:0;font-size:clamp(36px,5.4vw,56px);line-height:1.02;font-weight:800;letter-spacing:-.03em;max-width:760px">In drei Schritten zum Überblick</h2>
+<p style="margin:16px 0 0;max-width:560px;color:#4c5f55">Die Einrichtung dauert einmal etwas. Danach siehst du jeden Monat sofort, ob alles gedeckt ist.</p>
+<div class="steps" style="margin-top:56px">
+<div><div class="n">1</div><h3>Gehalt und Konten eintragen</h3><p>Dein Gehalt und die Unterkonten mit dem festen Betrag, den deine Bank bei Gehaltseingang überweist. Ohne Unterkonten geht es auch, dann läuft alles übers Hauptkonto.</p></div>
+<div><div class="n">2</div><h3>Jede Zahlung einem Konto zuordnen</h3><p>Fixkosten, Versicherungen und Raten, jeweils mit Rhythmus: monatlich, vierteljährlich, halbjährlich oder jährlich.</p></div>
+<div><div class="n">3</div><h3>Sehen, ob alles gedeckt ist</h3><p>Pro Konto: Überweisung, tatsächlicher Bedarf und Puffer. Ist ein Konto unterdeckt, zeigt dir der Planer den Mindestbetrag.</p></div>
+</div>
+</section>
+
+<section class="wrap" style="padding-bottom:96px">
+<div class="feats">
+<div><h3>Läuft als App</h3><p>Auf den Home-Bildschirm legen und wie eine App öffnen. Funktioniert auch offline.</p></div>
+<div><h3>Deine Daten bleiben bei dir</h3><p>Keine Bankanbindung, kein Konto, keine Cloud. Alles bleibt auf deinem Gerät. Eine Sicherung kopierst du mit einem Klick.</p></div>
+<div><h3>Passt sich dir an</h3><p>Eigene Konten, eigene Namen, eigene Beträge. Ob drei Unterkonten oder nur das Hauptkonto: Du bestimmst den Aufbau.</p></div>
+</div>
+</section>
+
+<section id="preis" class="price">
+<div class="wrap in">
+<h2 style="margin:0;font-size:clamp(36px,5.4vw,56px);line-height:1.02;font-weight:800;letter-spacing:-.03em">Erst ansehen. Dann entscheiden.</h2>
+<p style="margin:16px 0 0;max-width:560px;color:#b9d0c4">Die Vorschau zeigt den kompletten Planer mit Beispieldaten. Du richtest ihn selbst ein oder lässt dir dabei helfen.</p>
+<div class="offers">
+<div class="offer a">
+<div class="eyebrow" style="font-size:14px">Finanzplaner</div>
+<div class="p"><b class="num">19,95 €</b><span>einmalig, kein Abo</span></div>
+<ul style="font-size:17px">
+<li>Kontoverteiler mit Überweisung, Bedarf und Puffer</li>
+<li>Fixkosten, Versicherungen und Raten in einer Liste</li>
+<li>Jährliche Zahlungen automatisch auf den Monat umgerechnet</li>
+<li>Als App fürs Handy, auch offline</li>
 </ul>
-<div style="display:flex;gap:12px 18px;flex-wrap:wrap;align-items:center">
-<a class="btn l" href="https://www.checkout-ds24.com/product/741586">Jetzt kaufen und herunterladen</a>
-<a href="vorschau.html" style="color:#ffffff;font-weight:700">Erst die Vorschau ansehen</a>
+<div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:8px">
+<a class="btn btn-gold" href="https://www.checkout-ds24.com/product/741586">Jetzt kaufen und herunterladen</a>
+<a class="btn btn-line" href="vorschau.html">Erst die Vorschau ansehen</a>
 </div>
 </div>
-<div style="background:#ffffff;border:1px solid #e2e7dc;border-radius:24px;padding:clamp(24px,4vw,40px);display:flex;flex-direction:column;gap:16px;min-width:0">
-<span style="font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#0c8458">Einmalige Einrichtung</span>
-<div><span class="num" style="font-size:46px;font-weight:800;letter-spacing:-.03em">99 €</span> <span style="color:#5f7268">einmalig</span></div>
-<p style="margin:0;color:#4d6157;font-size:16px;flex:1">Du willst nicht allein starten? Wir gehen deine Einnahmen, Zahlungen und Konten gemeinsam durch und verschaffen dir den Überblick. Danach läuft dein Planer.</p>
-<div style="display:flex;gap:12px;flex-wrap:wrap">
-<a class="btn p" href="mailto:kai@deine-digitale-ordnung.de">Einrichtung anfragen</a>
+<div class="offer b">
+<div style="font-size:14px;font-weight:700;letter-spacing:.12em;color:#b9d0c4;text-transform:uppercase">Einmalige Einrichtung</div>
+<div class="p"><b class="num">99 €</b><span>einmalig</span></div>
+<p style="margin:0;color:#c9dbd1;font-size:17px">Du willst nicht allein starten? Wir gehen deine Einnahmen, Zahlungen und Konten gemeinsam durch und verschaffen dir den Überblick. Danach läuft dein Planer.</p>
+<div><a class="btn" href="ueber-mich.html" style="border-color:rgba(241,245,242,.6);color:#f1f5f2">Einrichtung anfragen</a></div>
 </div>
 </div>
 </div>
 </section>
+</main>
 
-<footer style="border-top:1px solid #e2e7dc">
-<div class="w" style="padding-block:32px 40px;display:flex;flex-direction:column;gap:14px">
-<p style="margin:0;font-size:13px;color:#5f7268;max-width:60em">Finanzielle Ordnung ist ein Werkzeug zur eigenständigen Organisation deiner Einnahmen und Ausgaben. Es ersetzt keine Anlage-, Versicherungs-, Kredit-, Rechts- oder Steuerberatung.</p>
-<div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:14px">
-<span style="color:#5f7268">© 2026 Finanzielle Ordnung · Kai Kremer</span>
-<span style="display:flex;gap:18px"><a href="ueber-mich.html">Über mich</a><a href="impressum.html">Impressum</a></span>
+<footer class="foot">
+<div class="wrap" style="padding-top:32px;padding-bottom:48px;display:flex;flex-direction:column;gap:20px">
+<p style="margin:0;max-width:720px">Finanzielle Ordnung ist ein Werkzeug zur eigenständigen Organisation deiner Einnahmen und Ausgaben. Es ersetzt keine Anlage-, Versicherungs-, Kredit-, Rechts- oder Steuerberatung.</p>
+<div style="display:flex;flex-wrap:wrap;gap:8px 28px;justify-content:space-between">
+<span>© 2026 Finanzielle Ordnung · Kai Kremer</span>
+<span style="display:flex;gap:24px"><a href="ueber-mich.html">Über mich</a><a href="impressum.html">Impressum</a></span>
 </div>
 </div>
 </footer>
 
-</div>
+<script>
+(function(){
+var DEFS=[
+ {id:'auto',name:'Auto',max:800,t:350,items:[['Tanken',200,1],['Werkstatt',600,12],['Kfz-Steuer',180,12],['Automobilclub',54,12]]},
+ {id:'vers',name:'Versicherungen',max:600,t:250,items:[['Berufsunfähigkeit',87,1],['Kfz-Versicherung',64.5,1],['Rechtsschutz',26.42,1],['Hausrat',114,12],['Privathaftpflicht',78,12]]},
+ {id:'glaeu',name:'Gläubigerkonto',max:2500,t:1900,items:[['Kreditrate',1450,1],['Ratenkauf',363.56,1]]},
+ {id:'ruecklage',name:'Rücklagen',max:800,t:150,items:[]},
+ {id:'urlaub',name:'Urlaub',max:800,t:100,items:[]}
+];
+var GREENS=['#164e38','#2d6a50','#4b8a6c','#79a98f','#a6c5b4'];
+var HAUPT_BEDARF=29.9;
+var state={salary:3400,betrag:114,per:12,open:'vers'};
+function fmt(n){return n.toLocaleString('de-DE',{minimumFractionDigits:2,maximumFractionDigits:2})+' €';}
+function sgn(n){return (n>=0?'+':'−')+fmt(Math.abs(n));}
+function $(id){return document.getElementById(id);}
+function monthly(it){return it[1]/it[2];}
+function note(it){return it[2]===12?fmt(it[1]).replace(',00','')+'/Jahr':'';}
+
+// Konten einmal aufbauen, danach nur Werte aktualisieren
+var accsEl=$('accs');
+DEFS.forEach(function(d){
+ d.bedarf=d.items.reduce(function(a,it){return a+monthly(it);},0);
+ var el=document.createElement('div');el.className='acc';
+ var has=d.items.length>0;
+ el.innerHTML='<div class="top"><div class="nm"></div><div class="st num" style="font-weight:700"></div></div>'+
+  '<div class="sub"><span>Überweisung <strong class="num tr"></strong></span>'+(has?'<span>Bedarf <strong class="num">'+fmt(d.bedarf)+'</strong></span>':'')+'</div>'+
+  '<input type="range" min="0" max="'+d.max+'" step="10" value="'+d.t+'">'+
+  (has?'<div class="meter"><i></i></div><button type="button" class="lnk"></button><div class="items">'+d.items.map(function(it){return '<div><span>'+it[0]+' <small>'+note(it)+'</small></span><span class="num" style="font-weight:600">'+fmt(monthly(it))+'</span></div>';}).join('')+'</div>':'');
+ el.querySelector('.nm').textContent=d.name;
+ el.querySelector('input').setAttribute('aria-label','Überweisung '+d.name);
+ el.querySelector('input').addEventListener('input',function(e){d.t=Number(e.target.value)||0;update();});
+ if(has){el.querySelector('.lnk').addEventListener('click',function(){state.open=state.open===d.id?'':d.id;update();});}
+ d.el=el;accsEl.appendChild(el);
+});
+
+var RH=[['monatlich',1],['vierteljährlich',3],['halbjährlich',6],['jährlich',12]];
+var rhEl=$('rh');
+RH.forEach(function(r){var b=document.createElement('button');b.type='button';b.textContent=r[0];b.addEventListener('click',function(){state.per=r[1];update();});r.push(b);rhEl.appendChild(b);});
+
+function sync(input,val){if(document.activeElement!==input)input.value=val;}
+
+function update(){
+ var sumT=0,sumB=0,sumD=0;
+ DEFS.forEach(function(d){
+  var el=d.el,has=d.items.length>0,diff=d.t-d.bedarf;
+  sumT+=d.t;if(has){sumB+=d.bedarf;sumD+=diff;}
+  el.querySelector('.tr').textContent=fmt(d.t);
+  var rg=el.querySelector('input');if(Number(rg.value)!==d.t)rg.value=d.t;
+  if(has){
+   var st=el.querySelector('.st');
+   if(diff>=0){st.className='st num ok';st.style.fontWeight='700';st.textContent=sgn(diff)+' Puffer';}
+   else{st.className='st num bad';st.textContent='Unterdeckt, mindestens '+fmt(d.bedarf);}
+   var mi=el.querySelector('.meter i');mi.style.width=Math.min(100,d.bedarf/Math.max(d.t,1)*100).toFixed(1)+'%';mi.style.background=diff>=0?'#164e38':'#a83a24';
+   var open=state.open===d.id;
+   el.querySelector('.items').classList.toggle('open',open);
+   el.querySelector('.lnk').textContent=open?'Zahlungen ausblenden':'Zahlungen ansehen';
+   el.querySelector('.lnk').setAttribute('aria-expanded',open);
+  }
+ });
+ var haupt=state.salary-sumT,free=haupt-HAUPT_BEDARF;
+ var fr=$('frei');fr.textContent=fmt(free);fr.className='num '+(free>=0?'ok':'bad');fr.style.color=free>=0?'#164e38':'';
+ $('freiHint').style.display=free<0?'block':'none';
+ $('haupt').textContent=fmt(haupt);
+ $('sT').textContent=fmt(sumT);$('sB').textContent=fmt(sumB);$('sD').textContent=sgn(sumD)+' im Monat';
+ sync($('gehalt'),state.salary);$('gehaltR').value=state.salary;
+ // Balken und Legende
+ var segs=DEFS.map(function(d,i){return{n:d.name,v:Math.max(d.t,0.0001),c:GREENS[i],f:fmt(d.t)};});
+ if(haupt>0)segs.push({n:'Hauptkonto',v:haupt,c:'#e3c46a',f:fmt(haupt)});
+ $('bar').innerHTML=segs.map(function(s){return '<i style="flex:'+s.v+' 1 0;background:'+s.c+'"></i>';}).join('');
+ $('leg').innerHTML=segs.map(function(s){return '<div><b style="background:'+s.c+'"></b><span>'+s.n+'</span><em class="num">'+s.f+'</em></div>';}).join('');
+ // Rechner
+ RH.forEach(function(r){r[2].classList.toggle('on',r[1]===state.per);r[2].setAttribute('aria-pressed',r[1]===state.per);});
+ var m=state.betrag/state.per,w=RH.filter(function(r){return r[1]===state.per;})[0][0];
+ $('month').textContent=fmt(m);
+ $('sentence').textContent=fmt(state.betrag)+' '+w+' sind '+fmt(m)+' pro Monat.';
+ sync($('betrag'),state.betrag);$('betragR').value=state.betrag;
+}
+function bind(ids,key){ids.forEach(function(id){$(id).addEventListener('input',function(e){state[key]=Number(e.target.value)||0;update();});});}
+bind(['gehalt','gehaltR'],'salary');bind(['betrag','betragR'],'betrag');
+update();
+})();
+</script>
 </body>
 </html>

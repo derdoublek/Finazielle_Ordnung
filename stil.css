@@ -1,0 +1,39 @@
+/* Finanzielle Ordnung – gemeinsames Design aller Seiten */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:#eef2ee;color:#12241b;font-family:'Schibsted Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:17px;line-height:1.55}
+a{color:inherit;text-decoration:none}
+button,input{font-family:inherit}
+.num{font-variant-numeric:tabular-nums}
+.wrap{max-width:1200px;margin:0 auto;padding-inline:48px}
+@media (max-width:640px){.wrap{padding-inline:20px}}
+.mark{font-weight:800;letter-spacing:.22em;font-size:14px;color:inherit;display:inline-block}
+.btn{display:inline-block;padding:15px 24px;border-radius:3px;font-weight:700;font-size:16px;cursor:pointer;border:1.5px solid transparent}
+.btn-gold{background:#e3c46a;color:#0f3a29}
+.btn-gold:hover{background:#efd584}
+.btn-line{border-color:#e3c46a;color:#e3c46a}
+.btn-line:hover{background:rgba(227,196,106,.12)}
+.btn-dark{background:#164e38;color:#fff}
+.btn-dark:hover{background:#0f3a29}
+.tl{color:#164e38;text-decoration:underline;text-underline-offset:3px;font-weight:600}
+.tl:hover{color:#0f3a29}
+input[type=range]{width:100%;accent-color:#164e38;height:28px;margin:0;cursor:pointer}
+.calc input[type=range]{accent-color:#e3c46a}
+:focus-visible{outline:3px solid #164e38;outline-offset:2px}
+.hero :focus-visible,.calc :focus-visible,.price :focus-visible,.foot :focus-visible,.band :focus-visible{outline-color:#e3c46a}
+.band{background:#164e38;color:#f1f5f2}
+.eyebrow{font-size:15px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#e3c46a}
+.foot{background:#0f3a29;color:#b9d0c4;font-size:14px;border-top:1px solid rgba(241,245,242,.18)}
+.foot a{color:#f1f5f2}
+.foot a:hover{color:#e3c46a}
+/* Unterseiten */
+.page-h1{margin:0;font-size:clamp(40px,6.4vw,72px);line-height:1;font-weight:800;letter-spacing:-.035em;max-width:900px}
+.rule{border-top:1.5px solid #12241b}
+.lab{font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#4c5f55}
+.row2{display:flex;flex-wrap:wrap;gap:12px 48px;border-top:1.5px solid #12241b;padding:28px 0}
+.row2>.lab{flex:0 0 200px}
+.row2>div:last-child{flex:1 1 320px;min-width:0;font-size:20px}
+.prose{max-width:680px}
+.prose h2{margin:0 0 18px;font-size:clamp(30px,4vw,40px);line-height:1.08;font-weight:800;letter-spacing:-.03em}
+.prose p{margin:0 0 18px;color:#2f4238;font-size:18px;line-height:1.7}

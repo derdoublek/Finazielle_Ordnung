@@ -8,107 +8,84 @@
 <meta name="theme-color" content="#164e38">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="stil.css">
 <style>
-body{margin:0}
-*{box-sizing:border-box}
-a{color:#0c8458}a:hover{color:#164e38}
-.w{max-width:1120px;margin:0 auto;padding-inline:24px}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:18px}
-.links{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:12px;font-weight:700;text-decoration:none;font-size:15px}
-.btn.p{background:#0c8458;color:#fff}.btn.p:hover{background:#0a6e4a;color:#fff}
-.btn.l{background:#ffffff;color:#164e38}.btn.l:hover{background:#e3f4ea;color:#164e38}
-.intro{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:56px;align-items:center}
-.flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;max-width:760px;margin:0 auto}
-.prose{max-width:680px;margin:0 auto}
-.prose p{margin:0 0 18px;color:#3e5248;font-size:17px;line-height:1.7}
-@media (max-width:880px){.intro{grid-template-columns:minmax(0,1fr)}}
-@media (max-width:560px){.flow{grid-template-columns:minmax(0,1fr)}}
+.flow{display:flex;flex-wrap:wrap;gap:10px;max-width:760px;margin:0 auto}
+.flow div{flex:1 1 200px;background:#fff;border-top:6px solid;padding:16px;text-align:center;font-weight:700;font-size:19px}
+.box{display:inline-block;background:#164e38;color:#fff;padding:14px 28px;font-weight:800;font-size:19px}
+.vl{width:2px;height:28px;background:#164e38;margin:0 auto}
+.cap{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#4c5f55;padding:10px 0;text-align:center}
 </style>
-<style>html{scroll-behavior:smooth}@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}:focus-visible{outline:3px solid #0c8458;outline-offset:2px}</style>
 </head>
 <body>
-<div style="background:#f5f6f0;color:#1a2d24;font-family:Manrope, ui-sans-serif, system-ui, sans-serif;font-size:16px;line-height:1.55">
 
-<header style="border-bottom:1px solid #e2e7dc">
-<div class="w nav">
-<a href="index.html" style="text-decoration:none;color:#1a2d24;font-weight:800;letter-spacing:.07em;font-size:14px">FINANZIELLE <span style="color:#0c8458">ORDNUNG</span></a>
-<nav class="links" aria-label="Hauptnavigation">
-<a href="index.html" style="color:#1a2d24;text-decoration:none;font-weight:600;font-size:15px">Startseite</a>
-<a href="vorschau.html" style="color:#1a2d24;text-decoration:none;font-weight:600;font-size:15px">Vorschau</a>
-<a class="btn p" href="index.html#preis" style="min-height:42px;padding:0 16px;font-size:14px">Für 19,95 € kaufen</a>
-</nav>
+<header class="band">
+<div class="wrap" style="padding-top:36px;padding-bottom:88px">
+<a href="index.html" class="mark">FINANZIELLE ORDNUNG</a>
+<div style="margin-top:clamp(48px,8vw,96px)">
+<div class="eyebrow">Über mich</div>
+<h1 class="page-h1" style="margin-top:20px;max-width:980px">Die Lösung soll sich an mich anpassen. Nicht umgekehrt.</h1>
+<p style="margin:28px 0 0;font-size:20px;line-height:1.5;color:#c9dbd1;max-width:34em">Ich bin Kai Kremer. Finanzielle Ordnung ist aus meiner eigenen Planung entstanden, weil mir keine App und keine Tabelle wirklich gepasst hat.</p>
+</div>
 </div>
 </header>
 
-<section class="w" style="padding-block:64px 56px">
-<div style="display:flex;flex-direction:column;gap:18px;min-width:0;max-width:780px">
-<span style="font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#0c8458">Über mich</span>
-<h1 style="margin:0;font-family:'Bricolage Grotesque', Manrope, sans-serif;font-weight:800;font-size:clamp(36px,5.5vw,58px);letter-spacing:-.035em;line-height:1.04;text-wrap:balance">Die Lösung soll sich an mich anpassen. Nicht umgekehrt.</h1>
-<p style="margin:0;font-size:18px;color:#4d6157;max-width:34em">Ich bin Kai Kremer. Finanzielle Ordnung ist aus meiner eigenen Planung entstanden, weil mir keine App und keine Tabelle wirklich gepasst hat.</p>
-</div></section>
-
-<section style="background:#ffffff;border-block:1px solid #e2e7dc">
-<div class="w" style="padding-block:64px">
+<main>
+<section class="wrap" style="padding-top:88px;padding-bottom:72px">
 <div class="prose">
-<h2 style="margin:0 0 18px;font-family:'Bricolage Grotesque', Manrope, sans-serif;font-weight:800;font-size:32px;letter-spacing:-.03em">Wie alles angefangen hat</h2>
+<h2>Wie alles angefangen hat</h2>
 <p>Es gab genug Finanz-Apps und Vorlagen. Das Problem war, dass jede ihre eigenen Kategorien mitbrachte, und keine passte zu meinem Alltag.</p>
 <p>Also habe ich mit Google Sheets angefangen: Einnahmen und Ausgaben erfasst, Kategorien so lange angepasst, bis sie gestimmt haben. Mit Unterstützung von KI ist daraus Schritt für Schritt ein eigener Finanzplaner geworden.</p>
 <p>Dazu kam mein Fünf-Konten-Modell. Wenn das Gehalt eingeht, verteilt meine Bank automatisch feste Beträge auf Unterkonten. Jede Kategorie hat ihr Konto, egal wann abgebucht wird.</p>
 </div>
-</div>
 </section>
 
-<section class="w" style="padding-block:64px">
-<h2 style="margin:0 0 8px;font-family:'Bricolage Grotesque', Manrope, sans-serif;font-weight:800;font-size:32px;letter-spacing:-.03em;text-align:center">Mein Fünf-Konten-Modell</h2>
-<p style="margin:0 auto 32px;color:#5f7268;text-align:center;max-width:38em">Das Gehalt geht auf mein Eingangskonto. Von dort laufen drei feste Überweisungen auf meine Unterkonten. Der Rest geht auf mein Lebenskonto.</p>
-<div style="display:flex;flex-direction:column;align-items:center;gap:0">
-<div style="background:#164e38;color:#ffffff;border-radius:14px;padding:14px 26px;font-weight:800;font-size:17px">Gehaltseingang</div>
-<div style="width:2px;height:28px;background:#b9c6b3"></div>
-<div style="font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#5f7268;padding-bottom:10px">Drei feste Überweisungen</div>
-</div>
+<section style="background:#dfe7e0">
+<div class="wrap" style="padding-top:80px;padding-bottom:80px">
+<h2 style="margin:0 0 12px;font-size:clamp(30px,4vw,40px);line-height:1.08;font-weight:800;letter-spacing:-.03em;text-align:center">Mein Fünf-Konten-Modell</h2>
+<p style="margin:0 auto 40px;color:#4c5f55;text-align:center;max-width:38em">Das Gehalt geht auf mein Eingangskonto. Von dort laufen drei feste Überweisungen auf meine Unterkonten. Der Rest geht auf mein Lebenskonto.</p>
+<div style="text-align:center"><span class="box">Gehaltseingang</span></div>
+<div class="vl"></div>
+<div class="cap">Drei feste Überweisungen</div>
 <div class="flow">
-<div style="background:#ffffff;border:1px solid #e2e7dc;border-top:4px solid #2f7d5b;border-radius:14px;padding:16px;text-align:center;font-weight:700">Auto</div>
-<div style="background:#ffffff;border:1px solid #e2e7dc;border-top:4px solid #b8862b;border-radius:14px;padding:16px;text-align:center;font-weight:700">Versicherungen</div>
-<div style="background:#ffffff;border:1px solid #e2e7dc;border-top:4px solid #4b6fa8;border-radius:14px;padding:16px;text-align:center;font-weight:700">Gläubigerkonto</div>
+<div style="border-color:#164e38">Auto</div>
+<div style="border-color:#4b8a6c">Versicherungen</div>
+<div style="border-color:#a6c5b4">Gläubigerkonto</div>
 </div>
-<div style="display:flex;flex-direction:column;align-items:center;gap:0">
-<div style="width:2px;height:28px;background:#b9c6b3"></div>
-<div style="font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#5f7268;padding-bottom:10px">Der Rest</div>
-<div style="background:#ffffff;border:1px solid #e2e7dc;border-top:4px solid #c25a48;border-radius:14px;padding:16px 40px;text-align:center;font-weight:700">Lebenskonto</div>
+<div class="vl" style="margin-top:10px"></div>
+<div class="cap">Der Rest</div>
+<div style="text-align:center"><span style="display:inline-block;background:#fff;border-top:6px solid #e3c46a;padding:16px 44px;font-weight:700;font-size:19px">Lebenskonto</span></div>
+<p style="margin:36px auto 0;text-align:center;color:#2f4238;max-width:40em;font-size:19px">Direkt nach dem Gehalt sehe ich: Alle Ausgaben sind gedeckt. Und ich weiß genau, wie viel frei bleibt.</p>
 </div>
-<p style="margin:28px auto 0;text-align:center;color:#3e5248;max-width:40em;font-size:17px">Direkt nach dem Gehalt sehe ich: Alle Ausgaben sind gedeckt. Und ich weiß genau, wie viel frei bleibt.</p>
 </section>
 
-<section style="background:#ffffff;border-block:1px solid #e2e7dc">
-<div class="w" style="padding-block:64px">
+<section class="wrap" style="padding-top:88px;padding-bottom:88px">
 <div class="prose">
-<h2 style="margin:0 0 18px;font-family:'Bricolage Grotesque', Manrope, sans-serif;font-weight:800;font-size:32px;letter-spacing:-.03em">Warum ich das weitergebe</h2>
+<h2>Warum ich das weitergebe</h2>
 <p>Ich habe selbst erlebt, wie viel Ruhe eine Struktur bringt, die wirklich passt. Die Einrichtung kostet einmal Zeit: Einnahmen, Fixkosten und unregelmäßige Zahlungen wollen erfasst werden. Danach musst du nicht jeden Monat von vorn anfangen.</p>
 <p>Eine Lösung für alle gibt es nicht. Jeder Haushalt hat andere Einnahmen, Pflichten und Wünsche. Deshalb legst du im Planer deine eigenen Konten und Kategorien an.</p>
 <p>Wichtig: Der Planer rechnet und zeigt. Das Zurücklegen und Überweisen machst du selbst bei deiner Bank. Eine Bankanbindung gibt es nicht, deine Daten bleiben auf deinem Gerät.</p>
 </div>
-</div>
 </section>
 
-<section class="w" style="padding-block:64px">
-<div style="background:#164e38;color:#ffffff;border-radius:26px;padding:clamp(28px,5vw,48px);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap">
-<div style="min-width:0;flex:1 1 360px">
-<h2 style="margin:0 0 8px;font-family:'Bricolage Grotesque', Manrope, sans-serif;font-weight:800;font-size:clamp(28px,4vw,38px);letter-spacing:-.03em">Schau dir den Planer an.</h2>
-<p style="margin:0;color:#cfe6d8">Die Vorschau zeigt mit Beispieldaten, wie dein Monat aussehen kann. Danach: einmalig 19,95 €, kein Abo.</p>
+<section class="band">
+<div class="wrap" style="padding-top:80px;padding-bottom:80px;display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap">
+<div style="flex:1 1 360px;min-width:0">
+<h2 style="margin:0 0 10px;font-size:clamp(32px,4.4vw,48px);line-height:1.05;font-weight:800;letter-spacing:-.03em">Schau dir den Planer an.</h2>
+<p style="margin:0;color:#c9dbd1;font-size:19px">Die Vorschau zeigt mit Beispieldaten, wie dein Monat aussehen kann. Danach: einmalig 19,95 €, kein Abo.</p>
 </div>
-<a class="btn l" href="vorschau.html">Vorschau öffnen</a>
+<a class="btn btn-gold" href="vorschau.html">Vorschau öffnen</a>
 </div>
 </section>
+</main>
 
-<footer style="border-top:1px solid #e2e7dc">
-<div class="w" style="padding-block:28px 36px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:14px">
-<span style="color:#5f7268">© 2026 Finanzielle Ordnung · Kai Kremer</span>
-<span style="display:flex;gap:18px"><a href="index.html">Startseite</a><a href="impressum.html">Impressum</a></span>
+<footer class="foot">
+<div class="wrap" style="padding-top:28px;padding-bottom:40px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
+<span>© 2026 Finanzielle Ordnung · Kai Kremer</span>
+<span style="display:flex;gap:24px"><a href="index.html">Startseite</a><a href="impressum.html">Impressum</a></span>
 </div>
 </footer>
 
-</div>
 </body>
 </html>
