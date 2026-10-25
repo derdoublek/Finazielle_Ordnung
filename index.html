@@ -146,7 +146,7 @@
 <div id="accs"></div>
 
 <div class="acc">
-<div class="top"><div class="nm">Lebenskonto</div><div id="haupt" class="num" style="font-weight:700;font-size:20px"></div></div>
+<div class="top"><div class="nm">Lebenkonto</div><div id="haupt" class="num" style="font-weight:700;font-size:20px"></div></div>
 <div style="margin-top:6px;color:#4c5f55;font-size:15px">Rest nach dem Verteiler. Das ist der Betrag, der dir frei zum Leben bleibt.</div>
 </div>
 
@@ -187,7 +187,7 @@
 <h2 style="margin:0;font-size:clamp(36px,5.4vw,56px);line-height:1.02;font-weight:800;letter-spacing:-.03em;max-width:760px">In drei Schritten zum Überblick</h2>
 <p style="margin:16px 0 0;max-width:560px;color:#4c5f55">Die Einrichtung dauert einmal etwas. Danach siehst du jeden Monat sofort, ob alles gedeckt ist.</p>
 <div class="steps" style="margin-top:56px">
-<div><div class="n">1</div><h3>Gehalt und Konten eintragen</h3><p>Dein Gehalt und die Unterkonten mit dem festen Betrag, den deine Bank bei Gehaltseingang überweist. Ohne Unterkonten geht es auch, dann läuft alles übers Hauptkonto.</p></div>
+<div><div class="n">1</div><h3>Gehalt und Konten eintragen</h3><p>Dein Gehalt und die Unterkonten mit dem festen Betrag, den deine Bank bei Gehaltseingang überweist. Ohne Unterkonten geht es auch, dann läuft alles übers Lebenkonto.</p></div>
 <div><div class="n">2</div><h3>Jede Zahlung einem Konto zuordnen</h3><p>Fixkosten, Versicherungen und Raten, jeweils mit Rhythmus: monatlich, vierteljährlich, halbjährlich oder jährlich.</p></div>
 <div><div class="n">3</div><h3>Sehen, ob alles gedeckt ist</h3><p>Pro Konto: Überweisung, tatsächlicher Bedarf und Puffer. Ist ein Konto unterdeckt, zeigt dir der Planer den Mindestbetrag.</p></div>
 </div>
@@ -197,7 +197,7 @@
 <div class="feats">
 <div><h3>Läuft als App</h3><p>Auf den Home-Bildschirm legen und wie eine App öffnen. Funktioniert auch offline.</p></div>
 <div><h3>Deine Daten bleiben bei dir</h3><p>Keine Bankanbindung, kein Konto, keine Cloud. Alles bleibt auf deinem Gerät. Eine Sicherung kopierst du mit einem Klick.</p></div>
-<div><h3>Passt sich dir an</h3><p>Eigene Konten, eigene Namen, eigene Beträge. Ob drei Unterkonten oder nur das Hauptkonto: Du bestimmst den Aufbau.</p></div>
+<div><h3>Passt sich dir an</h3><p>Eigene Konten, eigene Namen, eigene Beträge. Ob drei Unterkonten oder nur das Lebenkonto: Du bestimmst den Aufbau.</p></div>
 </div>
 </section>
 
@@ -307,7 +307,7 @@ function update(){
  sync($('gehalt'),state.salary);$('gehaltR').value=state.salary;
  // Balken und Legende
  var segs=DEFS.map(function(d,i){return{n:d.name,v:Math.max(d.t,0.0001),c:GREENS[i],f:fmt(d.t)};});
- if(haupt>0)segs.push({n:'Lebenskonto',v:haupt,c:'#e3c46a',f:fmt(haupt)});
+ if(haupt>0)segs.push({n:'Lebenkonto',v:haupt,c:'#e3c46a',f:fmt(haupt)});
  $('bar').innerHTML=segs.map(function(s){return '<i style="flex:'+s.v+' 1 0;background:'+s.c+'"></i>';}).join('');
  $('leg').innerHTML=segs.map(function(s){return '<div><b style="background:'+s.c+'"></b><span>'+s.n+'</span><em class="num">'+s.f+'</em></div>';}).join('');
  // Rechner

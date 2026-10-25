@@ -138,7 +138,7 @@ function viewV(){
   if(open&&has)h+='<div class="det">'+a.items.slice().sort(function(x,y){return m(y)-m(x);}).map(function(it){return '<div><span>'+it[0]+' <small>'+note(it)+'</small></span><b class="num">'+fmt(m(it))+'</b></div>';}).join('')+'</div>';
   if(open&&!has)h+='<div class="det"><div><span>Keine Zahlungen zugeordnet.</span></div><div><small>Der Betrag sammelt sich jeden Monat an.</small></div></div>';
  });
- h+='<div class="rw" style="cursor:default"><span class="bar" style="background:#9aa89f"></span><span class="mid"><div class="t">Lebenskonto</div><div class="s">Rest nach dem Verteiler</div></span><span class="r"><b class="num">'+fmt(INCOME-sumT)+'</b><span class="s">bleiben</span></span></div></div>';
+ h+='<div class="rw" style="cursor:default"><span class="bar" style="background:#9aa89f"></span><span class="mid"><div class="t">Lebenkonto</div><div class="s">Rest nach dem Verteiler</div></span><span class="r"><b class="num">'+fmt(INCOME-sumT)+'</b><span class="s">bleiben</span></span></div></div>';
  return h;
 }
 function viewZ(){
