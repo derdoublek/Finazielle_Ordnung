@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&amp;display=swap">
 <link rel="stylesheet" href="stil.css">
+<link rel="stylesheet" href="planer-demo.css">
 <style>
 .hero{background:#164e38;color:#f1f5f2}
 .hero .in{padding-top:36px;padding-bottom:88px}
@@ -95,7 +96,7 @@
 <div style="margin-top:48px;display:flex;flex-wrap:wrap;gap:40px 80px;align-items:flex-end;justify-content:space-between">
 <p style="margin:0;flex:1 1 380px;max-width:520px;font-size:20px;line-height:1.5;color:#c9dbd1">Trag dein Gehalt, deine Unterkonten und jede Zahlung ein. Der Planer zeigt dir, ob jedes Konto gedeckt ist und was im Monat frei bleibt. Auch jährliche Beiträge rechnet er auf den Monat um.</p>
 <div style="display:flex;flex-wrap:wrap;gap:12px">
-<a class="btn btn-line" href="vorschau.html">Vorschau kostenlos ansehen</a>
+<a class="btn btn-line" href="#vorschau">Vorschau kostenlos ansehen</a>
 <a class="btn btn-gold" href="https://www.checkout-ds24.com/product/741586">Für 19,95 € kaufen</a>
 </div>
 </div>
@@ -122,82 +123,25 @@
 </div>
 </section>
 
-<section class="wrap" style="padding-top:24px;padding-bottom:96px">
-<div class="tool">
-<div class="tool-l">
-<div>
-<label class="label" for="gehalt" style="display:block">Gehaltseingang pro Monat</label>
-<div class="bignum"><input id="gehalt" class="num" type="number" min="0" max="12000" step="50" value="3400"><span>€</span></div>
-<input id="gehaltR" type="range" min="1000" max="8000" step="50" value="3400" aria-label="Gehaltseingang einstellen" style="margin-top:14px">
-</div>
-<div>
-<div class="label">Frei zum Leben</div>
-<div id="frei" class="num" style="font-size:clamp(38px,5vw,52px);line-height:1.1;font-weight:800;letter-spacing:-.03em"></div>
-<div id="freiHint" class="bad" style="font-weight:600;margin-top:4px;display:none">Es ist mehr verteilt, als an Gehalt eingeht.</div>
-</div>
-<div>
-<div id="bar" class="bar" role="img" aria-label="Aufteilung des Gehalts auf die Konten"></div>
-<div id="leg" class="leg"></div>
-</div>
-<div style="font-size:13px;color:#5a6e63">Beispieldaten. Regler verschieben, nichts wird gespeichert.</div>
+<section id="vorschau" class="wrap" style="padding-top:24px;padding-bottom:96px">
+<div class="stage">
+<div class="side">
+<div class="lab">Probier es aus</div>
+<h2 style="margin:0;font-size:clamp(30px,4vw,40px);line-height:1.08;font-weight:800;letter-spacing:-.03em">Das ist der echte Planer. Mit Beispieldaten.</h2>
+<p style="margin:0;color:#4c5f55">Wechsle unten zwischen Verteiler, Zahlungen und Konten. Tippe auf ein Konto, um seine Zahlungen zu sehen. Gespeichert wird nichts.</p>
+<div style="border-top:1.5px solid #12241b;padding-top:20px;margin-top:8px"><h3 style="margin:0 0 8px;font-size:21px;font-weight:700">Deine Daten bleiben bei dir</h3><p style="margin:0;color:#4c5f55;font-size:16px">Keine Bankanbindung, kein Konto, keine Cloud. Alles bleibt auf deinem Gerät. Eine Sicherung kopierst du mit einem Klick.</p></div>
 </div>
 
-<div class="tool-r">
-<div id="accs"></div>
-
-<div class="acc">
-<div class="top"><div class="nm">Lebenkonto</div><div id="haupt" class="num" style="font-weight:700;font-size:20px"></div></div>
-<div style="margin-top:6px;color:#4c5f55;font-size:15px">Rest nach dem Verteiler. Das ist der Betrag, der dir frei zum Leben bleibt.</div>
-</div>
-
-<div class="sum num">
-<span>Überweisung <strong id="sT"></strong></span>
-<span>Bedarf <strong id="sB"></strong></span>
-<span>Puffer <strong id="sD" class="ok"></strong></span>
+<div class="phone" role="application" aria-label="Vorschau des Planers">
+<div class="ah"><b>FINANZIELLE <i>ORDNUNG</i></b><span>Mein Kontoverteiler</span></div>
+<div class="body" id="body"></div>
+<div id="toast" class="toast" role="status"></div>
+<div class="tabs" role="tablist" aria-label="Bereiche">
+<button type="button" role="tab" data-tab="v" aria-selected="true"><svg viewBox="0 0 24 24"><path d="M12 3v7M12 10l-6 6M12 10l6 6"/><circle cx="12" cy="3" r="1.4"/><circle cx="6" cy="18" r="2.4"/><circle cx="18" cy="18" r="2.4"/></svg>Verteiler</button>
+<button type="button" role="tab" data-tab="z" aria-selected="false"><svg viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1.2"/><circle cx="4.5" cy="12" r="1.2"/><circle cx="4.5" cy="18" r="1.2"/></svg>Zahlungen</button>
+<button type="button" role="tab" data-tab="k" aria-selected="false"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2.5"/><path d="M3 10.5h18M7 15h4"/></svg>Konten</button>
 </div>
 </div>
-</div>
-</section>
-
-<section class="calc">
-<div class="wrap in">
-<div style="flex:1 1 380px;min-width:0;display:flex;flex-direction:column;gap:20px">
-<div class="eyebrow" style="font-size:14px">Ein Beispiel</div>
-<h2>Warum 250 € überweisen, wenn der Bedarf 193,92 € ist?</h2>
-<p>Hausrat und Haftpflicht werden einmal im Jahr fällig. Der Planer rechnet sie auf den Monat um: 114 € jährlich sind 9,50 € pro Monat. So weißt du, was das Versicherungskonto wirklich braucht.</p>
-<p>Die Differenz bleibt als Puffer auf dem Konto. Wenn die Jahresbeiträge abgebucht werden, ist das Geld schon da.</p>
-</div>
-<div style="flex:1 1 380px;min-width:0">
-<div style="font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#b9d0c4">Rechne selbst</div>
-<label for="betrag" style="display:block;margin-top:18px;color:#c9dbd1;font-size:15px">Betrag der Zahlung</label>
-<div class="bignum"><input id="betrag" class="num" type="number" min="0" max="5000" step="1" value="114"><span>€</span></div>
-<input id="betragR" type="range" min="0" max="1500" step="1" value="114" aria-label="Betrag einstellen" style="margin-top:12px;accent-color:#e3c46a">
-<div style="margin-top:22px;color:#c9dbd1;font-size:15px">Rhythmus</div>
-<div id="rh" class="rh"></div>
-<div class="result">
-<div style="color:#b9d0c4;font-size:15px">Pro Monat auf das Konto</div>
-<div id="month" class="big num"></div>
-<div id="sentence" style="color:#c9dbd1;margin-top:4px"></div>
-</div>
-</div>
-</div>
-</section>
-
-<section class="wrap" style="padding-top:96px;padding-bottom:72px">
-<h2 style="margin:0;font-size:clamp(36px,5.4vw,56px);line-height:1.02;font-weight:800;letter-spacing:-.03em;max-width:760px">In drei Schritten zum Überblick</h2>
-<p style="margin:16px 0 0;max-width:560px;color:#4c5f55">Die Einrichtung dauert einmal etwas. Danach siehst du jeden Monat sofort, ob alles gedeckt ist.</p>
-<div class="steps" style="margin-top:56px">
-<div><div class="n">1</div><h3>Gehalt und Konten eintragen</h3><p>Dein Gehalt und die Unterkonten mit dem festen Betrag, den deine Bank bei Gehaltseingang überweist. Ohne Unterkonten geht es auch, dann läuft alles übers Lebenkonto.</p></div>
-<div><div class="n">2</div><h3>Jede Zahlung einem Konto zuordnen</h3><p>Fixkosten, Versicherungen und Raten, jeweils mit Rhythmus: monatlich, vierteljährlich, halbjährlich oder jährlich.</p></div>
-<div><div class="n">3</div><h3>Sehen, ob alles gedeckt ist</h3><p>Pro Konto: Überweisung, tatsächlicher Bedarf und Puffer. Ist ein Konto unterdeckt, zeigt dir der Planer den Mindestbetrag.</p></div>
-</div>
-</section>
-
-<section class="wrap" style="padding-bottom:96px">
-<div class="feats">
-<div><h3>Läuft als App</h3><p>Auf den Home-Bildschirm legen und wie eine App öffnen. Funktioniert auch offline.</p></div>
-<div><h3>Deine Daten bleiben bei dir</h3><p>Keine Bankanbindung, kein Konto, keine Cloud. Alles bleibt auf deinem Gerät. Eine Sicherung kopierst du mit einem Klick.</p></div>
-<div><h3>Passt sich dir an</h3><p>Eigene Konten, eigene Namen, eigene Beträge. Ob drei Unterkonten oder nur das Lebenkonto: Du bestimmst den Aufbau.</p></div>
 </div>
 </section>
 
@@ -217,7 +161,7 @@
 </ul>
 <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:8px">
 <a class="btn btn-gold" href="https://www.checkout-ds24.com/product/741586">Jetzt kaufen und herunterladen</a>
-<a class="btn btn-line" href="vorschau.html">Erst die Vorschau ansehen</a>
+<a class="btn btn-line" href="#vorschau">Erst die Vorschau ansehen</a>
 </div>
 </div>
 <div class="offer b">
@@ -241,86 +185,6 @@
 </div>
 </footer>
 
-<script>
-(function(){
-var DEFS=[
- {id:'auto',name:'Auto',max:800,t:350,items:[['Tanken',200,1],['Werkstatt',600,12],['Kfz-Steuer',180,12],['Automobilclub',54,12]]},
- {id:'vers',name:'Versicherungen',max:600,t:250,items:[['Berufsunfähigkeit',87,1],['Kfz-Versicherung',64.5,1],['Rechtsschutz',26.42,1],['Hausrat',114,12],['Privathaftpflicht',78,12]]},
- {id:'glaeu',name:'Gläubigerkonto',max:2500,t:1900,items:[['Kreditrate',1450,1],['Ratenkauf',363.56,1]]},
- {id:'ruecklage',name:'Rücklagen',max:800,t:150,items:[]},
- {id:'urlaub',name:'Urlaub',max:800,t:100,items:[]}
-];
-var GREENS=['#164e38','#2d6a50','#4b8a6c','#79a98f','#a6c5b4'];
-var state={salary:3400,betrag:114,per:12,open:'vers'};
-function fmt(n){return n.toLocaleString('de-DE',{minimumFractionDigits:2,maximumFractionDigits:2})+' €';}
-function sgn(n){return (n>=0?'+':'−')+fmt(Math.abs(n));}
-function $(id){return document.getElementById(id);}
-function monthly(it){return it[1]/it[2];}
-function note(it){return it[2]===12?fmt(it[1]).replace(',00','')+'/Jahr':'';}
-
-// Konten einmal aufbauen, danach nur Werte aktualisieren
-var accsEl=$('accs');
-DEFS.forEach(function(d){
- d.bedarf=d.items.reduce(function(a,it){return a+monthly(it);},0);
- var el=document.createElement('div');el.className='acc';
- var has=d.items.length>0;
- el.innerHTML='<div class="top"><div class="nm"></div><div class="st num" style="font-weight:700"></div></div>'+
-  '<div class="sub"><span>Überweisung <strong class="num tr"></strong></span>'+(has?'<span>Bedarf <strong class="num">'+fmt(d.bedarf)+'</strong></span>':'')+'</div>'+
-  '<input type="range" min="0" max="'+d.max+'" step="10" value="'+d.t+'">'+
-  (has?'<div class="meter"><i></i></div><button type="button" class="lnk"></button><div class="items">'+d.items.map(function(it){return '<div><span>'+it[0]+' <small>'+note(it)+'</small></span><span class="num" style="font-weight:600">'+fmt(monthly(it))+'</span></div>';}).join('')+'</div>':'');
- el.querySelector('.nm').textContent=d.name;
- el.querySelector('input').setAttribute('aria-label','Überweisung '+d.name);
- el.querySelector('input').addEventListener('input',function(e){d.t=Number(e.target.value)||0;update();});
- if(has){el.querySelector('.lnk').addEventListener('click',function(){state.open=state.open===d.id?'':d.id;update();});}
- d.el=el;accsEl.appendChild(el);
-});
-
-var RH=[['monatlich',1],['vierteljährlich',3],['halbjährlich',6],['jährlich',12]];
-var rhEl=$('rh');
-RH.forEach(function(r){var b=document.createElement('button');b.type='button';b.textContent=r[0];b.addEventListener('click',function(){state.per=r[1];update();});r.push(b);rhEl.appendChild(b);});
-
-function sync(input,val){if(document.activeElement!==input)input.value=val;}
-
-function update(){
- var sumT=0,sumB=0,sumD=0;
- DEFS.forEach(function(d){
-  var el=d.el,has=d.items.length>0,diff=d.t-d.bedarf;
-  sumT+=d.t;if(has){sumB+=d.bedarf;sumD+=diff;}
-  el.querySelector('.tr').textContent=fmt(d.t);
-  var rg=el.querySelector('input');if(Number(rg.value)!==d.t)rg.value=d.t;
-  if(has){
-   var st=el.querySelector('.st');
-   if(diff>=0){st.className='st num ok';st.style.fontWeight='700';st.textContent=sgn(diff)+' Puffer';}
-   else{st.className='st num bad';st.textContent='Unterdeckt, mindestens '+fmt(d.bedarf);}
-   var mi=el.querySelector('.meter i');mi.style.width=Math.min(100,d.bedarf/Math.max(d.t,1)*100).toFixed(1)+'%';mi.style.background=diff>=0?'#164e38':'#a83a24';
-   var open=state.open===d.id;
-   el.querySelector('.items').classList.toggle('open',open);
-   el.querySelector('.lnk').textContent=open?'Zahlungen ausblenden':'Zahlungen ansehen';
-   el.querySelector('.lnk').setAttribute('aria-expanded',open);
-  }
- });
- var haupt=state.salary-sumT,free=haupt;
- var fr=$('frei');fr.textContent=fmt(free);fr.className='num '+(free>=0?'ok':'bad');fr.style.color=free>=0?'#164e38':'';
- $('freiHint').style.display=free<0?'block':'none';
- $('haupt').textContent=fmt(haupt);
- $('sT').textContent=fmt(sumT);$('sB').textContent=fmt(sumB);$('sD').textContent=sgn(sumD)+' im Monat';
- sync($('gehalt'),state.salary);$('gehaltR').value=state.salary;
- // Balken und Legende
- var segs=DEFS.map(function(d,i){return{n:d.name,v:Math.max(d.t,0.0001),c:GREENS[i],f:fmt(d.t)};});
- if(haupt>0)segs.push({n:'Lebenkonto',v:haupt,c:'#e3c46a',f:fmt(haupt)});
- $('bar').innerHTML=segs.map(function(s){return '<i style="flex:'+s.v+' 1 0;background:'+s.c+'"></i>';}).join('');
- $('leg').innerHTML=segs.map(function(s){return '<div><b style="background:'+s.c+'"></b><span>'+s.n+'</span><em class="num">'+s.f+'</em></div>';}).join('');
- // Rechner
- RH.forEach(function(r){r[2].classList.toggle('on',r[1]===state.per);r[2].setAttribute('aria-pressed',r[1]===state.per);});
- var m=state.betrag/state.per,w=RH.filter(function(r){return r[1]===state.per;})[0][0];
- $('month').textContent=fmt(m);
- $('sentence').textContent=fmt(state.betrag)+' '+w+' sind '+fmt(m)+' pro Monat.';
- sync($('betrag'),state.betrag);$('betragR').value=state.betrag;
-}
-function bind(ids,key){ids.forEach(function(id){$(id).addEventListener('input',function(e){state[key]=Number(e.target.value)||0;update();});});}
-bind(['gehalt','gehaltR'],'salary');bind(['betrag','betragR'],'betrag');
-update();
-})();
-</script>
+<script src="planer-demo.js"></script>
 </body>
 </html>
