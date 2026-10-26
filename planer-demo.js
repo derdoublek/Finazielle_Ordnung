@@ -2,7 +2,7 @@
 // Beispieldaten, alle erfunden. per = Monate pro Zahlung
 var INCOME=3400;
 var ACCS=[
- {id:'g',name:'Gläubigerkonto',color:'#2f7d5b',t:1900,items:[['Kreditrate',1450,1],['Ratenkauf',363.56,1]]},
+ {id:'g',name:'Gläubiger',color:'#2f7d5b',t:1900,items:[['Kreditrate',1450,1],['Ratenkauf',363.56,1]]},
  {id:'v',name:'Versicherungen',color:'#b8862b',t:250,items:[['Berufsunfähigkeit',87,1],['Kfz-Versicherung',64.5,1],['Rechtsschutz',26.42,1],['Hausrat',114,12],['Privathaftpflicht',78,12]]},
  {id:'a',name:'Auto',color:'#4b6fa8',t:350,items:[['Tanken',200,1],['Werkstatt',600,12],['Kfz-Steuer',180,12],['Automobilclub',54,12]]},
  {id:'r',name:'Rücklagen',color:'#8a5a9f',t:150,items:[]},
